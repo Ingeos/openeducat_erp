@@ -32,7 +32,6 @@ class ResCompany(models.Model):
 
 class ResUsers(models.Model):
     _inherit = "res.users"
-    _parent_name = False
 
     def _department_count(self):
         return self.env['op.department'].sudo().search_count([])

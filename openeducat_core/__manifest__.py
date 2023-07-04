@@ -95,11 +95,11 @@
     'application': True,
     'post_init_hook': '_openeducat_post_init',
     'assets': {
-        'website.assets_frontend': [
-            '/openeducat_core/static/src/scss/main.scss',
-        ],
-        'web.assets_backend': [
-            '/openeducat_core/static/src/scss/style.scss',
-        ],
+        # 'website.assets_frontend': [
+        #     '/openeducat_core/static/src/scss/main.scss',
+        # ],
+        # 'web.assets_backend': [
+        #     '/openeducat_core/static/src/scss/style.scss',
+        # ],
     },
 }
