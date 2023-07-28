@@ -99,8 +99,22 @@ class OpSession(models.Model):
         for record in self:
             record.type = fields.Datetime.from_string(
                 record.start_datetime).strftime("%A")
-            record.days = fields.Datetime.from_string(
+            dia = fields.Datetime.from_string(
                 record.start_datetime).strftime("%A").lower()
+            if dia == 'lunes':
+                record.days = 'monday'
+            if dia == 'martes':
+               record.days = 'tuesday'
+            if dia == 'miércoles':
+                record.days = 'wednesday'
+            if dia == 'jueves':
+                record.days = 'thursday'
+            if dia == 'viernes':
+                record.days = 'friday'
+            if dia == 'sábado':
+                record.days = 'saturday'
+            if dia == 'domingo':
+                record.days = 'sunday'
 
     @api.depends('faculty_id', 'subject_id', 'start_datetime')
     def _compute_name(self):
