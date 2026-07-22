@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,12 +18,13 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpMedia(models.Model):
     _name = "op.media"
     _description = "Media Details"
+    _inherit = "mail.thread"
     _order = "name"
 
     name = fields.Char('Title', size=128, required=True)
@@ -46,12 +46,8 @@ class OpMedia(models.Model):
     unit_ids = fields.One2many('op.media.unit', 'media_id', 'Units')
     media_type_id = fields.Many2one('op.media.type', 'Media Type')
     active = fields.Boolean(default=True)
+    _unique_name_isbn = models.Constraint('unique(isbn)',
+                                          'ISBN code must be unique per media!')
 
-    _sql_constraints = [
-        ('unique_name_isbn',
-         'unique(isbn)',
-         'ISBN code must be unique per media!'),
-        ('unique_name_internal_code',
-         'unique(internal_code)',
-         'Internal Code must be unique per media!'),
-    ]
+    _unique_name_internal_cod = models.Constraint(
+        'unique(internal_code)', 'Internal Code must be unique per media!')

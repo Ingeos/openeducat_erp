@@ -183,10 +183,6 @@ msgstr "B + ve"
 msgid "B-ve"
 msgstr "B ve"
 
-#. module: openeducat_core
-#: model:res.groups,name:openeducat_core.group_op_back_office
-msgid "Back Office"
-msgstr "后台办公室"
 
 #. module: openeducat_core
 #: model:res.groups,name:openeducat_core.group_op_back_office_admin
@@ -1118,7 +1114,7 @@ msgstr "OpenEduCat"
 #. module: openeducat_core
 #: model:ir.ui.view,arch_db:openeducat_core.aboutus_openeducat
 #: model:ir.ui.view,arch_db:openeducat_core.footer_default_openeducat
-msgid "OpenEduCat is a product developed by Tech-Receptives\n"
+msgid "OpenEduCat is a product developed by OpenEduCat Inc\n"
 "                        Solutions Pvt. Ltd., an expert company focusing in providing\n"
 "                        unique open source solutions.\n"
 "                        <br/>\n"
@@ -1437,13 +1433,13 @@ msgstr "技术 Receptives"
 
 #. module: openeducat_core
 #: model:ir.ui.view,arch_db:openeducat_core.aboutus_openeducat
-msgid "TechReceptives understand both Open Source and Educational\n"
+msgid "OpenEduCat Inc understand both Open Source and Educational\n"
 "                        needs of the society and have come up their novel approach\n"
 "                        for educational institute -- a full open source ERP solution,\n"
 "                        that provides the educational institute for managing\n"
 "                        different kinds of activities related to management and other\n"
 "                        collaborative efforts."
-msgstr "TechReceptives 了解社会的开源和教育需求, 提出了教育学院的新途径--全面开源 ERP 解决方案, 提供与管理和其他合作努力有关的各种活动的管理研究所。"
+msgstr "OpenEduCat Inc 了解社会的开源和教育需求, 提出了教育学院的新途径--全面开源 ERP 解决方案, 提供与管理和其他合作努力有关的各种活动的管理研究所。"
 
 #. module: openeducat_core
 #: model:ir.ui.view,arch_db:openeducat_core.kanban_view_faculty
@@ -1739,4 +1735,3 @@ msgstr "作品主题"
 #: model:ir.ui.view,arch_db:openeducat_core.op_student_user_create_view
 msgid "or"
 msgstr "或"
-

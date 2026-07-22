@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -20,10 +19,11 @@
 ###############################################################################
 
 import calendar
-import pytz
 import time
 from datetime import datetime
-from odoo import models, api, _, tools, fields
+
+import pytz
+from odoo import _, api, fields, models, tools
 
 
 class ReportTimeTableTeacherGenerate(models.AbstractModel):
@@ -35,7 +35,7 @@ class ReportTimeTableTeacherGenerate(models.AbstractModel):
             Converts time as per local timezone.
         '''
         if time:
-            timezone = pytz.timezone(self._context['tz'] or 'UTC')
+            timezone = pytz.timezone(self.env.context.get('tz') or 'UTC')
             utc_in_time = pytz.UTC.localize(fields.Datetime.from_string(time))
             local_time = utc_in_time.astimezone(timezone)
             return local_time
@@ -80,11 +80,10 @@ class ReportTimeTableTeacherGenerate(models.AbstractModel):
                 fields.Datetime.from_string(timetable_obj.start_datetime))
             day = datetime.weekday(oldDate)
             timetable_data = {
-                'period': timetable_obj.timing_id.name,
-                'period_time': timetable_obj.timing_id.hour + ':' +
-                timetable_obj.timing_id.minute +
-                timetable_obj.timing_id.am_pm,
-                'sequence': timetable_obj.timing_id.sequence,
+                'period': timetable_obj.timing,
+                # 'period_time': timetable_obj.timing_id.hour + ':' +
+                # timetable_obj.timing_id.minute +
+                # timetable_obj.timing_id.am_pm,
                 'start_datetime': self._convert_to_local_timezone(
                     timetable_obj.start_datetime).strftime(
                     tools.DEFAULT_SERVER_DATETIME_FORMAT),
@@ -97,7 +96,7 @@ class ReportTimeTableTeacherGenerate(models.AbstractModel):
                 'batch': timetable_obj.batch_id.name,
             }
             data_list.append(timetable_data)
-        ttdl = sorted(data_list, key=lambda k: k['sequence'])
+        ttdl = sorted(data_list, key=lambda k: k['start_datetime'])
         final_list = self.sort_tt(ttdl)
         return final_list
 

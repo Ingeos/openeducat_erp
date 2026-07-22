@@ -1,44 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <menuitem id="menu_op_timetable_root"
-                  name="TimeTables"
-                  sequence="90"
-                  web_icon="openeducat_timetable,static/description/icon.png"
-                  groups="openeducat_core.group_op_faculty,openeducat_core.group_op_back_office_admin"/>
 
-        <menuitem id="menu_op_timetable"
-                  string="Timetable"
-                  parent="menu_op_timetable_root"
-                  groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty"
-                  sequence="10" action="act_open_op_session_view"/>
+    <menuitem name="Time Table"
+        id="menu_op_timetable_root"
+        groups="openeducat_timetable.group_op_timetable_user,openeducat_timetable.group_op_timetable_manager"
+        web_icon="openeducat_timetable,static/description/icon.png"
+        action="act_open_op_session_view"
+        sequence="280">
+        <menuitem name="Timetable"
+            id="menu_op_timetable"
+            groups="openeducat_timetable.group_op_timetable_manager,openeducat_timetable.group_op_timetable_user"
+            sequence="10">
+
+            <menuitem name="Sessions"
+            id="menu_op_sessions"
+            groups="openeducat_timetable.group_op_timetable_manager,openeducat_timetable.group_op_timetable_user"
+            action="act_open_op_session_view_list"
+            sequence="10"/>
+
+             <menuitem id="menu_generate_time_table"
+                name="Generate Timetable"
+                groups="openeducat_timetable.group_op_timetable_manager"
+                sequence="20"
+                action="act_open_generate_time_table_view" />
+
+            </menuitem>
+
+        <!-- Reporting Menu -->
+
+        <menuitem name="Reporting"
+            id="menu_op_timetable_reporting"
+            sequence="40"
+            groups="openeducat_timetable.group_op_timetable_user,openeducat_timetable.group_op_timetable_manager">
+
+            <menuitem id="menu_generate_time_table_report"
+                name="Generate Timetable Report"
+                groups="openeducat_timetable.group_op_timetable_manager"
+                sequence="30"
+                action="act_open_time_table_report_view" />
+        </menuitem>
 
         <!-- Configuration Menu -->
-        <menuitem id="menu_op_timetable_config"
-                  name="Configuration"
-                  parent="menu_op_timetable_root"
-                  sequence="40"
-                  groups="openeducat_core.group_op_faculty,openeducat_core.group_op_back_office,openeducat_core.group_op_back_office_admin"/>
 
-        <menuitem id="menu_op_period"
-                  string="Timing"
-                  parent="menu_op_timetable_config"
-                  groups="openeducat_core.group_op_faculty"
-                  sequence="10"
-                  action="act_open_op_timing_view"/>
+        <menuitem name="Configuration"
+            id="menu_op_timetable_configuration"
+            sequence="50"
+            groups="openeducat_timetable.group_op_timetable_user,openeducat_timetable.group_op_timetable_manager">
 
-        <menuitem id="menu_generate_time_table"
-                  string="Generate Timetable"
-                  parent="menu_op_timetable_config"
-                  groups="openeducat_core.group_op_back_office"
-                  sequence="20"
-                  action="act_open_generate_time_table_view"/>
+            <menuitem id="menu_settings"
+                name="Settings"
+                groups="openeducat_timetable.group_op_timetable_manager"
+                sequence="30"
+                action="openeducat_core.action_openeducat_configuration" />
 
-        <menuitem id="menu_generate_time_table_report"
-                  string="Generate Timetable Report"
-                  parent="menu_op_timetable_config"
-                  groups="openeducat_core.group_op_back_office_admin"
-                  sequence="30"
-                  action="act_open_time_table_report_view"/>
-    </data>
+        </menuitem>
+    </menuitem>
 </odoo>

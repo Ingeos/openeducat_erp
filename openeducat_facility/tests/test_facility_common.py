@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -22,7 +21,8 @@
 from odoo.tests import common
 
 
-class TestFacilityCommon(common.SavepointCase):
+class TestFacilityCommon(common.TransactionCase):
     def setUp(self):
         super(TestFacilityCommon, self).setUp()
+        self.op_facility = self.env['op.facility']
         self.op_facility_line = self.env['op.facility.line']

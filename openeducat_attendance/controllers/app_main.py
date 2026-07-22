@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,13 +18,13 @@
 #
 ###############################################################################
 
-from odoo import http, fields
+from odoo import fields, http
 from odoo.http import request
 
 
 class OpAttendanceController(http.Controller):
 
-    @http.route(['/openeducat-attendance/take-attendance'], type='json',
+    @http.route(['/openeducat-attendance/take-attendance'], type='jsonrpc',
                 auth='none', methods=['POST'], csrf=False)
     def create_attendance_lines(self, **post):
         sheet_id = post.get('attendance_sheet_id', False)

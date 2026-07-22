@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -28,12 +27,12 @@ class OpLibraryCardType(models.Model):
     _description = "Library Card Type"
 
     name = fields.Char('Name', size=256, required=True)
-    allow_media = fields.Integer('No of medias Allowed', size=10,
+    allow_media = fields.Integer('No of Media Allowed', default=10,
                                  required=True)
     duration = fields.Integer(
         'Duration', help='Duration in terms of Number of Lead Days',
         required=True)
-    penalty_amt_per_day = fields.Float('Penalty Amount per Day',
+    penalty_amt_per_day = fields.Float('Penalty Amount/Day',
                                        required=True)
 
     @api.constrains('allow_media', 'duration', 'penalty_amt_per_day')
@@ -64,17 +63,16 @@ class OpLibraryCard(models.Model):
                                  domain=[('library_card_id', '=', False)])
     active = fields.Boolean(default=True)
 
-    _sql_constraints = [(
-        'unique_library_card_number',
-        'unique(number)',
-        'Library card Number should be unique per card!')]
+    _unique_library_card_number = models.Constraint(
+        'unique(number)', 'Library card Number should be unique per card!')
 
-    @api.model
-    def create(self, vals):
-        x = self.env['ir.sequence'].next_by_code(
-            'op.library.card') or '/'
-        vals['number'] = x
-        res = super(OpLibraryCard, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            x = self.env['ir.sequence'].next_by_code(
+                'op.library.card') or '/'
+            vals['number'] = x
+        res = super(OpLibraryCard, self).create(vals_list)
         if res.type == 'student':
             res.student_id.library_card_id = res
         else:

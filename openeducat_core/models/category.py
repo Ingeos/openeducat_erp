@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpCategory(models.Model):
@@ -28,7 +27,9 @@ class OpCategory(models.Model):
 
     name = fields.Char('Name', size=256, required=True)
     code = fields.Char('Code', size=16, required=True)
+    company_id = fields.Many2one(
+        "res.company", string="Company", default=lambda self: self.env.company
+    )
 
-    _sql_constraints = [
-        ('unique_category_code',
-         'unique(code)', 'Code should be unique per category!')]
+    _unique_category_code = models.Constraint('unique(code)',
+                                              'Code should be unique per category!')

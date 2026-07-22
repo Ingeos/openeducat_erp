@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class OpAttendanceRegister(models.Model):
@@ -29,20 +28,19 @@ class OpAttendanceRegister(models.Model):
     _order = "id DESC"
 
     name = fields.Char(
-        'Name', size=16, required=True, track_visibility='onchange')
+        'Name', size=16, required=True, tracking=True)
     code = fields.Char(
-        'Code', size=16, required=True, track_visibility='onchange')
+        'Code', size=16, required=True, tracking=True)
     course_id = fields.Many2one(
-        'op.course', 'Course', required=True, track_visibility='onchange')
+        'op.course', 'Course', required=True, tracking=True)
     batch_id = fields.Many2one(
-        'op.batch', 'Batch', required=True, track_visibility='onchange')
+        'op.batch', 'Batch', required=True, tracking=True)
     subject_id = fields.Many2one(
-        'op.subject', 'Subject', track_visibility='onchange')
+        'op.subject', 'Subject', tracking=True)
     active = fields.Boolean(default=True)
 
-    _sql_constraints = [
-        ('unique_attendance_register_code',
-         'unique(code)', 'Code should be unique per attendance register!')]
+    _unique_attendance_register_code = models.Constraint(
+        'unique(code)', 'Code should be unique per attendance register!')
 
     @api.depends('course_id')
     def onchange_course(self):

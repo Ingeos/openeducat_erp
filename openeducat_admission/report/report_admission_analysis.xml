@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
         <template id="report_admission_analysis">
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="font">
-                        <div class="page">
+                        <div class="page" style="font-family: 'Odoo Unicode Support Noto';">
                             <br></br>
                             <br></br>
                             <br></br>
@@ -17,12 +16,12 @@
                             <div class="row mt24">
                                 <div style="width:50%; margin-left:15px;">
                                     <b>Course:</b>
-                                    <span t-raw="'%s' % data['course_id'][1] if data['course_id'][1] else ''"/>
+                                    <span t-out="'%s' % data['course_id'][1] if data['course_id'][1] else ''"/>
                                 </div>
                                 <div style="width:50%; margin-left:15px;">
                                     <b>From Date:</b>
                                     <span t-esc="data['start_date']" t-options="{'widget':'date'}"/>
-                                    <b>To Date:</b>
+                                    <b style="padding-left:10px;">To Date:</b>
                                     <span t-esc="data['end_date']" t-options="{'widget':'date'}"/>
                                 </div>
                             </div>
@@ -30,17 +29,16 @@
                             <table class="table table-bordered">
                                 <thead class="text-center"
                                        style="background-color:#eeeeee; font-size:14px; font-weight:600;">
-                                    <th>Student Name</th>
-                                    <th>Application No.</th>
+                                    <th style="width:50%; padding-left:15px;">Student Name</th>
+                                    <th style="width:50%; padding-left:15px;">Application No.</th>
                                 </thead>
                                 <tbody class="text-center" style="font-size:12px;">
-                                    <tr t-foreach="get_data" t-as="o">
+                                    <tr t-foreach="get_data" t-as="data">
                                         <td>
-                                            <span t-esc="o['name']"/>
+                                            <span t-esc="data['name']"/>
                                         </td>
                                         <td>
-                                            <span
-                                                    t-raw="'%s' %   o['application_no']  if   o['application_no']   else ''"/>
+                                            <span t-out="'%s' %data['application_no'] if data['application_no'] else ''"/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -53,5 +51,4 @@
                 </t>
             </t>
         </template>
-    </data>
 </odoo>

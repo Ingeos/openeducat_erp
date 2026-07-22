@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc Solution Pvt Ltd(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpActivity(models.Model):
@@ -30,7 +29,7 @@ class OpActivity(models.Model):
 
     def _default_faculty(self):
         return self.env['op.faculty'].search([
-            ('user_id', '=', self._uid)
+            ('user_id', '=', self.env.uid)
         ], limit=1) or False
 
     student_id = fields.Many2one('op.student', 'Student', required=True)

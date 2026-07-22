@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
 # Part of OpenEduCat. See LICENSE file for full copyright & licensing details.
 
 ##############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 ##############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpAcademicTerm(models.Model):
@@ -25,3 +24,10 @@ class OpAcademicTerm(models.Model):
     company_id = fields.Many2one(
         'res.company', string='Company',
         default=lambda self: self.env.user.company_id)
+
+    _unique_name = models.Constraint('UNIQUE(name, academic_year_id)',
+                                     'Name must be unique per Academic Year.')
+    _unique_start_date = models.Constraint('UNIQUE(term_start_date, academic_year_id)',
+                                           'Start date must be unique per Academic Year.')
+    _unique_end_date = models.Constraint('UNIQUE(term_end_date, academic_year_id)',
+                                         'End date must be unique per Academic Year.')

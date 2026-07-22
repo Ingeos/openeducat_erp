@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -24,17 +23,15 @@ import logging
 from ast import literal_eval
 
 import requests
+from odoo import api, release
 from odoo.exceptions import UserError
+from odoo.models import AbstractModel
 from odoo.tools import misc, ustr
 from odoo.tools.translate import _
-
-from odoo import models, api, release
 
 OEC_API_ENDPOINT = "https://srv.openeducat.org/publisher-warranty/"
 
 _logger = logging.getLogger(__name__)
-
-from odoo.models import AbstractModel
 
 
 class PublisherWarrantyContract(AbstractModel):
@@ -76,7 +73,7 @@ class PublisherWarrantyContract(AbstractModel):
             "nbr_active_users": nbr_active_users,
             "nbr_share_users": nbr_share_users,
             "nbr_active_share_users": nbr_active_share_users,
-            "dbname": self._cr.dbname,
+            "dbname": self.env.cr.dbname,
             "db_create_date": db_create_date,
             "version": release.version,
             "language": user.lang,

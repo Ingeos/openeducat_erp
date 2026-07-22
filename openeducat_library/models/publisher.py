@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpPublisher(models.Model):
@@ -27,5 +26,4 @@ class OpPublisher(models.Model):
     _description = "Publisher"
 
     name = fields.Char('Name', size=20, required=True)
-    address_id = fields.Many2one('res.partner', 'Address')
     media_ids = fields.Many2many('op.media', string='Media(s)')

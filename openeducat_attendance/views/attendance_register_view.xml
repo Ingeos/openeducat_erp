@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
         <record id="view_op_attendance_register_tree" model="ir.ui.view">
-            <field name="name">op.attendance.register.tree</field>
+            <field name="name">op.attendance.register.list</field>
             <field name="model">op.attendance.register</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string="Attendance Register">
+                <list string="Attendance Register">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="course_id"/>
                     <field name="batch_id"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -21,22 +20,24 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Attendance Register">
+                    <header/>
                     <sheet>
                         <field name="active" invisible="1"/>
                         <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
-                                attrs="{'invisible': [('active', '=', True)]}"/>
-                        <group col="4" colspan="4">
-                            <field name="name"/>
-                            <field name="code"/>
-                            <field name="course_id"/>
-                            <field name="batch_id"
-                                   context="{'course_id': course_id,'get_parent_batch':1}"/>
+                                invisible="active == True"/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="course_id"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                                <field name="batch_id"
+                                       context="{'course_id': course_id,'get_parent_batch':1}"/>
+                            </group>
                         </group>
                     </sheet>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers"/>
-                        <field name="message_ids" widget="mail_thread"/>
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>
@@ -54,7 +55,7 @@
                     <filter string="Archived" name="inactive"
                             domain="[('active', '=', False)]"/>
                     <newline/>
-                    <group expand="0" string="Group By...">
+                    <group>
                         <filter string="Name" name="group_by_attendance_register_name"
                                 domain="[]" context="{'group_by':'name'}"/>
                         <filter string="Code" name="group_by_attendance_register_code"
@@ -70,10 +71,11 @@
 
         <record model="ir.actions.act_window" id="act_open_op_attendance_register_view">
             <field name="name">Attendance Registers</field>
+            <field name="path">attendance-register</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">op.attendance.register</field>
             <field name="binding_view_types">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="search_view_id" ref="view_op_attendance_register_search"/>
             <field name="domain">[]</field>
             <field name="context">{}</field>
@@ -89,8 +91,7 @@
         <record model="ir.actions.act_window.view" id="act_open_op_attendance_register_view_tree">
             <field name="act_window_id" ref="act_open_op_attendance_register_view"/>
             <field name="sequence" eval="10"/>
-            <field name="view_mode">tree</field>
+            <field name="view_mode">list</field>
             <field name="view_id" ref="view_op_attendance_register_tree"/>
         </record>
-    </data>
 </odoo>

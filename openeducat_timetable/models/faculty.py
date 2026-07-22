@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,10 +18,31 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import api, fields, models
 
 
 class OpFaculty(models.Model):
     _inherit = "op.faculty"
 
     session_ids = fields.One2many('op.session', 'faculty_id', 'Sessions')
+    session_count = fields.Integer(compute='_compute_session_details')
+
+    @api.depends('session_ids')
+    def _compute_session_details(self):
+        # Previously `self.id` was used inside the per-record loop —
+        # `self` here is the ENTIRE recordset, not the current record,
+        # so every faculty row got the count for the first faculty's
+        # id (or crashed with "singleton expected" on a multi-record
+        # recompute). Use `faculty.id` from the loop variable.
+        for faculty in self:
+            faculty.session_count = len(faculty.session_ids)
+
+    def count_sessions_details(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Sessions',
+            'view_mode': 'list,form',
+            'res_model': 'op.session',
+            'domain': [('faculty_id', '=', self.id)],
+            'target': 'current',
+        }

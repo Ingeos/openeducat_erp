@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, api
+from odoo import api, models
 
 
 class ReportFeesAnalysis(models.AbstractModel):
@@ -34,7 +33,7 @@ class ReportFeesAnalysis(models.AbstractModel):
             ('partner_id', '=', student_id.partner_id.id),
             ('state', 'in', ['posted'])])
         for inv in account_move_id:
-            if inv.invoice_payment_ref:
+            if inv.payment_reference:
                 for inv_line_id in inv.invoice_line_ids:
                     total_amount += inv_line_id.price_unit
                 inv_res += inv.amount_residual
@@ -44,15 +43,22 @@ class ReportFeesAnalysis(models.AbstractModel):
     @api.model
     def _get_report_values(self, docids, data=None):
         student_ids = []
+        docargs = {}
         if data['fees_filter'] == 'student':
             student_ids = self.env['op.student'].browse([data['student']])
         else:
             student_ids = self.env['op.student'].search(
                 [('course_detail_ids.course_id', '=', data['course'])])
-        docargs = {
+            course_id = self.env['op.course'].search([('id', '=', data['course'])])
+            report_type = 'course'
+            docargs.update({
+                'report_type': report_type,
+                'course_name': course_id.name,
+            })
+        docargs.update({
             'doc_ids': self.ids,
             'doc_model': 'op.student',
             'docs': student_ids,
             'get_invoice_amount': self.get_invoice_amount,
-        }
+        })
         return docargs

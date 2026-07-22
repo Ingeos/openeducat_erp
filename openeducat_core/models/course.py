@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -28,7 +27,7 @@ class OpCourse(models.Model):
     _inherit = "mail.thread"
     _description = "OpenEduCat Course"
 
-    name = fields.Char('Name', required=True)
+    name = fields.Char('Name', required=True, translate=True)
     code = fields.Char('Code', size=16, required=True)
     parent_id = fields.Many2one('op.course', 'Parent Course')
     evaluation_type = fields.Selection(
@@ -43,16 +42,15 @@ class OpCourse(models.Model):
         default=lambda self:
         self.env.user.dept_id and self.env.user.dept_id.id or False)
     active = fields.Boolean(default=True)
+    program_id = fields.Many2one('op.program', string="Program", tracking=True)
 
-    _sql_constraints = [
-        ('unique_course_code',
-         'unique(code)', 'Code should be unique per course!')]
+    _unique_course_code = models.Constraint('unique(code)',
+                                            'Code should be unique per course!')
 
     @api.constrains('parent_id')
-    def _check_parent_id_recursion(self):
-        if not self._check_recursion():
-            raise ValidationError(_('You cannot create recursive Course.'))
-        return True
+    def _check_category_recursion(self):
+        if self._has_cycle():
+            raise ValidationError(_('You cannot create recursive categories.'))
 
     @api.model
     def get_import_templates(self):

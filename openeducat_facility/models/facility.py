@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpFacility(models.Model):
@@ -30,6 +29,5 @@ class OpFacility(models.Model):
     code = fields.Char('Code', size=16, required=True)
     active = fields.Boolean(default=True)
 
-    _sql_constraints = [
-        ('unique_facility_code',
-         'unique(code)', 'Code should be unique per facility!')]
+    _unique_facility_code = models.Constraint('unique(code)',
+                                              'Code should be unique per facility!')

@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -22,116 +21,116 @@
 from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
-from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError, UserError
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError, ValidationError
 
 
 class OpAdmission(models.Model):
     _name = "op.admission"
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.activity.mixin', 'mail.tracking.duration.mixin']
     _rec_name = "application_number"
     _description = "Admission"
     _order = 'id DESC'
 
     name = fields.Char(
-        'Name', size=128, required=True, translate=True)
+        'Name', required=True, translate=True)
     first_name = fields.Char(
-        'First Name', size=128, required=True, translate=True)
+        'First Name', required=True, translate=True)
     middle_name = fields.Char(
-        'Middle Name', size=128, translate=True,
-        states={'done': [('readonly', True)]})
+        'Middle Name', translate=True)
     last_name = fields.Char(
-        'Last Name', size=128, required=True, translate=True,
-        states={'done': [('readonly', True)]})
+        'Last Name', required=True, translate=True)
     title = fields.Many2one(
-        'res.partner.title', 'Title', states={'done': [('readonly', True)]})
+        'res.partner.title', 'Title')
     application_number = fields.Char(
         'Application Number', size=16, copy=False,
-        required=True, readonly=True, store=True,
-        default=lambda self:
-        self.env['ir.sequence'].next_by_code('op.admission'))
+        readonly=True, store=True)
     admission_date = fields.Date(
-        'Admission Date', copy=False,
-        states={'done': [('readonly', True)]})
+        'Admission Date', copy=False)
     application_date = fields.Datetime(
         'Application Date', required=True, copy=False,
-        states={'done': [('readonly', True)]},
         default=lambda self: fields.Datetime.now())
     birth_date = fields.Date(
-        'Birth Date', required=True, states={'done': [('readonly', True)]})
+        'Birth Date', required=True)
     course_id = fields.Many2one(
-        'op.course', 'Course', required=True,
-        states={'done': [('readonly', True)]})
+        'op.course', 'Course', required=True)
     batch_id = fields.Many2one(
-        'op.batch', 'Batch', required=False,
-        states={'done': [('readonly', True)],
-                'submit': [('required', True)],
-                'fees_paid': [('required', True)]})
+        'op.batch', 'Batch', required=False)
     street = fields.Char(
-        'Street', size=256, states={'done': [('readonly', True)]})
+        'Street', size=256)
     street2 = fields.Char(
-        'Street2', size=256, states={'done': [('readonly', True)]})
+        'Street2', size=256)
     phone = fields.Char(
-        'Phone', size=16, states={'done': [('readonly', True)],
-                                  'submit': [('required', True)]})
+        'Phone', size=16)
     mobile = fields.Char(
-        'Mobile', size=16,
-        states={'done': [('readonly', True)], 'submit': [('required', True)]})
+        'Mobile', size=16)
     email = fields.Char(
-        'Email', size=256, required=True,
-        states={'done': [('readonly', True)]})
-    city = fields.Char('City', size=64, states={'done': [('readonly', True)]})
-    zip = fields.Char('Zip', size=8, states={'done': [('readonly', True)]})
+        'Email', size=256, required=True)
+    city = fields.Char('City', size=64)
+    zip = fields.Char('Zip', size=8)
     state_id = fields.Many2one(
-        'res.country.state', 'States', states={'done': [('readonly', True)]})
+        'res.country.state', 'States', domain="[('country_id', '=', country_id)]")
     country_id = fields.Many2one(
-        'res.country', 'Country', states={'done': [('readonly', True)]})
-    fees = fields.Float('Fees', states={'done': [('readonly', True)]})
-    image = fields.Image('image', states={'done': [('readonly', True)]})
+        'res.country', 'Country')
+    fees = fields.Float('Fees')
+    image = fields.Image('image')
     state = fields.Selection(
         [('draft', 'Draft'), ('submit', 'Submitted'),
          ('confirm', 'Confirmed'), ('admission', 'Admission Confirm'),
          ('reject', 'Rejected'), ('pending', 'Pending'),
          ('cancel', 'Cancelled'), ('done', 'Done')],
-        'State', default='draft', track_visibility='onchange')
-    due_date = fields.Date('Due Date', states={'done': [('readonly', True)]})
-    prev_institute_id = fields.Char('Previous Institute',
-                                    states={'done': [('readonly', True)]})
-    prev_course_id = fields.Char('Previous Course',
-                                 states={'done': [('readonly', True)]})
+        'State', default='draft', tracking=True)
+    due_date = fields.Date('Due Date')
+    prev_institute_id = fields.Char('Previous Institute')
+    prev_course_id = fields.Char('Previous Course')
     prev_result = fields.Char(
-        'Previous Result', size=256, states={'done': [('readonly', True)]})
+        'Previous Result', size=256)
     family_business = fields.Char(
-        'Family Business', size=256, states={'done': [('readonly', True)]})
+        'Family Business', size=256)
     family_income = fields.Float(
-        'Family Income', states={'done': [('readonly', True)]})
+        'Family Income')
     gender = fields.Selection(
-        [('m', 'Male'), ('f', 'Female'), ('o', 'Other')],
+        [('m', 'Male'), ('f', 'Female')],
         string='Gender',
-        required=True,
-        states={'done': [('readonly', True)]})
+        required=True)
     student_id = fields.Many2one(
-        'op.student', 'Student', states={'done': [('readonly', True)]})
+        'op.student', 'Student')
     nbr = fields.Integer('No of Admission', readonly=True)
     register_id = fields.Many2one(
-        'op.admission.register', 'Admission Register', required=True,
-        states={'done': [('readonly', True)]})
+        'op.admission.register', 'Admission Register', required=True)
     partner_id = fields.Many2one('res.partner', 'Partner')
     is_student = fields.Boolean('Is Already Student')
     fees_term_id = fields.Many2one('op.fees.terms', 'Fees Term')
     active = fields.Boolean(default=True)
     discount = fields.Float(string='Discount (%)',
                             digits='Discount', default=0.0)
+
     fees_start_date = fields.Date('Fees Start Date')
     company_id = fields.Many2one(
         'res.company', string='Company',
         default=lambda self: self.env.user.company_id)
+    program_id = fields.Many2one('op.program', string="Program", tracking=True)
+    course_ids = fields.Many2many('op.course', string='Courses',
+                                  compute='_compute_course_ids')
+    _unique_application_number = models.Constraint(
+        'unique(application_number)',
+        'Application Number must be unique per Application!'
+    )
 
-    _sql_constraints = [
-        ('unique_application_number',
-         'unique(application_number)',
-         'Application Number must be unique per Application!'),
-    ]
+    @api.depends('register_id')
+    def _compute_course_ids(self):
+        for data in self:
+            if data.register_id:
+                if data.register_id.admission_base == 'program':
+                    course_list = []
+                    for rec in data.register_id.admission_fees_line_ids:
+                        course_list.append(rec.course_id.id) if rec.course_id.id not in course_list else None  # noqa
+                    data.course_ids = [(6, 0, course_list)]
+                else:
+                    data.course_id = data.register_id.course_id.id
+                    data.course_ids = [(6, 0, [data.register_id.course_id.id])]
+            else:
+                data.course_ids = [(6, 0, [])]
 
     @api.onchange('first_name', 'middle_name', 'last_name')
     def _onchange_name(self):
@@ -153,11 +152,10 @@ class OpAdmission(models.Model):
             self.last_name = sd.last_name
             self.birth_date = sd.birth_date
             self.gender = sd.gender
-            self.image_1920 = sd.image_1920 or False
+            self.image = sd.image_1920 or False
             self.street = sd.street or False
             self.street2 = sd.street2 or False
             self.phone = sd.phone or False
-            self.mobile = sd.phone or False
             self.email = sd.email or False
             self.zip = sd.zip or False
             self.city = sd.city or False
@@ -167,7 +165,7 @@ class OpAdmission(models.Model):
         else:
             self.birth_date = ''
             self.gender = ''
-            self.image_1920 = False
+            self.image = False
             self.street = ''
             self.street2 = ''
             self.phone = ''
@@ -180,16 +178,26 @@ class OpAdmission(models.Model):
 
     @api.onchange('register_id')
     def onchange_register(self):
-        self.course_id = self.register_id.course_id
-        self.fees = self.register_id.product_id.lst_price
-        self.company_id = self.register_id.company_id
+        if self.register_id:
+            if self.register_id.admission_base == 'course':
+                self.program_id = self.course_id.program_id.id
+                self.fees = self.register_id.product_id.lst_price
+                self.company_id = self.register_id.company_id.id
+            else:
+                self.program_id = self.register_id.program_id.id
 
     @api.onchange('course_id')
     def onchange_course(self):
         self.batch_id = False
         term_id = False
-        if self.course_id and self.course_id.fees_term_id:
-            term_id = self.course_id.fees_term_id.id
+        if self.course_id:
+            if self.register_id.admission_base == 'program':
+                for rec in self.register_id.admission_fees_line_ids:
+                    if rec.course_id.id == self.course_id.id:
+                        self.fees = rec.course_fees_product_id.lst_price
+            self.program_id = self.course_id.program_id.id
+            if self.course_id.fees_term_id:
+                term_id = self.course_id.fees_term_id.id
         self.fees_term_id = term_id
 
     @api.constrains('register_id', 'application_date')
@@ -200,22 +208,29 @@ class OpAdmission(models.Model):
             application_date = fields.Date.from_string(rec.application_date)
             if application_date < start_date or application_date > end_date:
                 raise ValidationError(_(
-                    "Application Date should be between Start Date & \
-                    End Date of Admission Register."))
+                    "Application Date should be between Start Date & End Date of Admission Register."))  # noqa
 
     @api.constrains('birth_date')
     def _check_birthdate(self):
         for record in self:
-            if record.birth_date > fields.Date.today():
+            if record.birth_date and record.birth_date > fields.Date.today():
                 raise ValidationError(_(
                     "Birth Date can't be greater than current date!"))
-            elif record:
+            elif record and record.birth_date:
                 today_date = fields.Date.today()
                 day = (today_date - record.birth_date).days
                 years = day // 365
                 if years < self.register_id.minimum_age_criteria:
                     raise ValidationError(_(
-                        "Not Eligible for Admission minimum required age is : %s " % self.register_id.minimum_age_criteria))
+                        "Not Eligible for Admission minimum "
+                        "required age is :"
+                        " %s " % self.register_id.minimum_age_criteria))
+
+    @api.constrains('name')
+    def create_sequence(self):
+        if not self.application_number:
+            self.application_number = self.env['ir.sequence'].next_by_code(
+                'op.admission') or '/'
 
     def submit_form(self):
         self.state = 'submit'
@@ -228,19 +243,23 @@ class OpAdmission(models.Model):
             record.state = 'confirm'
 
     def get_student_vals(self):
+        enable_create_student_user = self.env['ir.config_parameter'].get_param(
+            'openeducat_admission.enable_create_student_user')
         for student in self:
-            student_user = self.env['res.users'].create({
-                'name': student.name,
-                'login': student.email,
-                'image_1920': self.image or False,
-                'is_student': True,
-                'company_id': self.company_id.id,
-                'groups_id': [
-                    (6, 0,
-                     [self.env.ref('base.group_portal').id])]
-            })
+            student_user = False
+            if enable_create_student_user:
+                student_user = self.env['res.users'].create({
+                    'name': student.name,
+                    'login': student.email if student.email else student.application_number,  # noqa
+                    'image_1920': self.image or False,
+                    'is_student': True,
+                    'company_id': self.company_id.id,
+                    'group_ids': [
+                        (6, 0,
+                         [self.env.ref('base.group_portal').id])]
+                })
             details = {
-                'mobile': student.phone,
+                'name': student.name,
                 'phone': student.phone,
                 'email': student.email,
                 'street': student.street,
@@ -252,28 +271,32 @@ class OpAdmission(models.Model):
                 'image_1920': student.image,
                 'zip': student.zip,
             }
-            student_user.partner_id.write(details)
+            if enable_create_student_user:
+                student_user.partner_id.write(details)
             details.update({
                 'title': student.title and student.title.id or False,
                 'first_name': student.first_name,
                 'middle_name': student.middle_name,
                 'last_name': student.last_name,
                 'birth_date': student.birth_date,
-                'gender': student.gender,
+                'gender': student.gender if student.gender else False,
                 'image_1920': student.image or False,
                 'course_detail_ids': [[0, False, {
                     'course_id':
                         student.course_id and student.course_id.id or False,
                     'batch_id':
                         student.batch_id and student.batch_id.id or False,
-                    'academic_years_id': student.register_id.academic_years_id.id or False,
-                    'academic_term_id': student.register_id.academic_term_id.id or False,
+                    'academic_years_id':
+                        student.register_id.academic_years_id.id or False,
+                    'academic_term_id':
+                        student.register_id.academic_term_id.id or False,
                     'fees_term_id': student.fees_term_id.id,
                     'fees_start_date': student.fees_start_date,
+                    'product_id': student.register_id.product_id.id,
                 }]],
-                'user_id': student_user.id,
+                'user_id': student_user.id if student_user else False,
                 'company_id': self.company_id.id,
-                'partner_id': student_user.partner_id.id,
+                'partner_id':student_user.partner_id.id if student_user else False
             })
             return details
 
@@ -289,9 +312,12 @@ class OpAdmission(models.Model):
                     raise ValidationError(_(msg))
             if not record.student_id:
                 vals = record.get_student_vals()
-                record.partner_id = vals.get('partner_id')
-                record.student_id = student_id = self.env[
-                    'op.student'].create(vals).id
+                if vals:
+                    record.student_id = student_id = self.env[
+                        'op.student'].create(vals).id
+                    record.partner_id = record.student_id.partner_id.id \
+                        if record else False
+
             else:
                 student_id = record.student_id.id
                 record.student_id.write({
@@ -302,6 +328,7 @@ class OpAdmission(models.Model):
                             record.batch_id and record.batch_id.id or False,
                         'fees_term_id': record.fees_term_id.id,
                         'fees_start_date': record.fees_start_date,
+                        'product_id': record.register_id.product_id.id,
                     }]],
                 })
             if record.fees_term_id.fees_terms in ['fixed_days', 'fixed_date']:
@@ -311,16 +338,16 @@ class OpAdmission(models.Model):
                     no_days = line.due_days
                     per_amount = line.value
                     amount = (per_amount * record.fees) / 100
-                    date = (datetime.today() + relativedelta(
-                        days=no_days)).date()
                     dict_val = {
                         'fees_line_id': line.id,
                         'amount': amount,
                         'fees_factor': per_amount,
                         'product_id': product_id,
+                        'discount': record.discount or record.fees_term_id.discount,
                         'state': 'draft',
+                        'course_id': record.course_id and record.course_id.id or False,
+                        'batch_id': record.batch_id and record.batch_id.id or False,
                     }
-
                     if line.due_date:
                         date = line.due_date
                         dict_val.update({
@@ -357,9 +384,6 @@ class OpAdmission(models.Model):
                 'max_unit_load': record.course_id.max_unit_load or 0.0,
                 'state': 'draft',
             })
-            if not record.phone or not record.mobile:
-                raise UserError(
-                    _('Please fill in the mobile number'))
             reg_id.get_subjects()
 
     def confirm_rejected(self):
@@ -385,11 +409,11 @@ class OpAdmission(models.Model):
         value = {
             'domain': str([('id', '=', self.student_id.id)]),
             'view_type': 'form',
-            'view_mode': 'tree, form',
+            'view_mode': 'list, form',
             'res_model': 'op.student',
             'view_id': False,
             'views': [(form_view and form_view.id or False, 'form'),
-                      (tree_view and tree_view.id or False, 'tree')],
+                      (tree_view and tree_view.id or False, 'list')],
             'type': 'ir.actions.act_window',
             'res_id': self.student_id.id,
             'target': 'current',
@@ -421,7 +445,7 @@ class OpAdmission(models.Model):
         invoice = self.env['account.invoice'].create({
             'name': self.name,
             'origin': self.application_number,
-            'type': 'out_invoice',
+            'move_type': 'out_invoice',
             'reference': False,
             'account_id': partner_id.property_account_receivable_id.id,
             'partner_id': partner_id.id,
@@ -446,7 +470,7 @@ class OpAdmission(models.Model):
             'res_model': 'account.invoice',
             'view_id': False,
             'views': [(form_view and form_view.id or False, 'form'),
-                      (tree_view and tree_view.id or False, 'tree')],
+                      (tree_view and tree_view.id or False, 'list')],
             'type': 'ir.actions.act_window',
             'res_id': invoice.id,
             'target': 'current',
@@ -462,3 +486,19 @@ class OpAdmission(models.Model):
             'label': _('Import Template for Admission'),
             'template': '/openeducat_admission/static/xls/op_admission.xls'
         }]
+
+
+class OpStudentCourseInherit(models.Model):
+    _inherit = "op.student.course"
+
+    product_id = fields.Many2one(
+        'product.product', 'Course Fees',
+        domain=[('type', '=', 'service')], tracking=True)
+
+
+class ResConfigSettings(models.TransientModel):
+    _inherit = 'res.config.settings'
+
+    enable_create_student_user = fields.Boolean(
+        config_parameter='openeducat_admission.enable_create_student_user',
+        string='Create Student User')

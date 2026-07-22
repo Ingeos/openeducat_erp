@@ -1,14 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* openeducat_library
+# 	* openeducat_library
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 09:55+0000\n"
-"PO-Revision-Date: 2019-09-25 09:55+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2025-10-30 10:04+0000\n"
+"PO-Revision-Date: 2025-10-30 10:04+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,75 +16,253 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: openeducat_library
-#: model:mail.template,body_html:openeducat_library.email_template_media_movement_after
-msgid "\n"
-"            <p>Dear <strong> ${object.student_id.name} </strong>\n"
-"            <p>Your ${object.media_type_id.name}, <strong> ${object.media_id.name} </strong> has been expired. Please return it as soon as possible.</p>\n"
-"            <p>Thank you.</p>\n"
-"            "
-msgstr "\n"
-"            <P> Caro <strong> $ {object.student_id.name} </ strong>\n"
-"            <P> Seus $ {object.media_type_id.name}, <strong> $ {object.media_id.name} </ strong> expirou. Por favor devolvê-lo o mais rápido possível. </ P>\n"
-"            <P> Obrigado. </ P>\n"
-"            "
-
-#. module: openeducat_library
-#: model:mail.template,body_html:openeducat_library.email_template_media_movement
-msgid "\n"
-"            <p>Dear <strong> ${object.student_id.name} </strong>\n"
-"            <p>Your ${object.media_type_id.name}, <strong> ${object.media_id.name} </strong> will \n"
-"                % if object.get_diff_day() == 0:\n"
-"                    be expiring <strong>today.</strong>\n"
-"                % else:\n"
-"                    expire in <strong> ${object.get_diff_day()}</strong> day(s).\n"
-"                % endif\n"
-"                Please return it as soon as possible.</p>\n"
-"            <p>Thank you.</p>\n"
-"            "
-msgstr "\n"
-"            <P> Caro <strong> $ {object.student_id.name} </ strong>\n"
-"            <P> Seus $ {object.media_type_id.name}, <strong> $ {object.media_id.name} </ strong>\n"
-"                % Se object.get_diff_day () == 0:\n"
-"                    ser expirando <strong> hoje. </ strong>\n"
-"                % outro:\n"
-"                    expirar em <strong> $ {object.get_diff_day ()} </ strong> dia (s).\n"
-"                % fim se\n"
-"                Por favor devolvê-lo o mais rápido possível. </ P>\n"
-"            <P> Obrigado. </ P>\n"
-"            "
+#: model:ir.actions.report,print_report_name:openeducat_library.action_report_student_library_card
+msgid "'Library ID Card - %s' % (object.name)"
+msgstr "'Cartão de identificação da biblioteca - %s' % (object.name)"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_student_library_card
-msgid "<br/>\n"
-"                                                        E-mail :"
-msgstr "<br/>\n"
-"                                                        O email :"
+msgid ""
+"<br/>\n"
+"                                                    <span style=\"font-weight:600\">\n"
+"                                                        Card No :\n"
+"                                                    </span>"
+msgstr ""
+"<br/>\n"
+"                                                    <span style=\"font-weight:600\">\n"
+"                                                        Número do cartão:\n"
+"                                                    </span>"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_student_library_card
-msgid "<br/>\n"
-"                                                        Issued Date :"
-msgstr "<br/>\n"
-"                                                        Data de emissão:"
+msgid ""
+"<br/>\n"
+"                                                    <span style=\"font-weight:600\">\n"
+"                                                        Issued Date :\n"
+"                                                    </span>"
+msgstr ""
+"<br/>\n"
+"                                                    <span style=\"font-weight:600\">\n"
+"                                                        Data de emissão:\n"
+"                                                    </span>"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_student_library_card
-msgid "<br/>\n"
-"                                                        Phone :"
-msgstr "<br/>\n"
-"                                                        Telefone :"
+msgid ""
+"<br/>\n"
+"                                                    <span style=\"font-weight:600\">\n"
+"                                                        Type :\n"
+"                                                    </span>"
+msgstr ""
+"<br/>\n"
+"                                                    <span style=\"font-weight:600\">\n"
+"                                                        Tipo:\n"
+"                                                    </span>"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_student_library_card
-msgid "<br/>\n"
-"                                                        Type :"
-msgstr "<br/>\n"
-"                                                        Tipo :"
+msgid ""
+"<span style=\"font-weight:600\">\n"
+"                                                        Name :\n"
+"                                                    </span>"
+msgstr ""
+"<span style=\"font-weight:600\">\n"
+"                                                        Nome:\n"
+"                                                    </span>"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_library_card_barcode
 msgid "<strong>Library Card(s) Barcode</strong>"
-msgstr "<Strong> Biblioteca Card (s) código de barras </ strong>"
+msgstr "<strong>Código de barras do(s) cartão(ões) da biblioteca</strong>"
+
+#. module: openeducat_library
+#: model:mail.template,body_html:openeducat_library.email_template_media_movement_after
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td align=\"center\">\n"
+"                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                                <tr>\n"
+"                                    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                            <tr>\n"
+"                                                <td valign=\"middle\">\n"
+"                                                    <span style=\"font-size: 10px;\"/>\n"
+"                                                    <br/>\n"
+"                                                </td>\n"
+"                                                <td valign=\"middle\" align=\"right\">\n"
+"                                                    <img t-att-src=\"'/logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                            <tr>\n"
+"                                                <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                        </table>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                            <tr>\n"
+"                                                <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                    <p>Dear </p>\n"
+"                                                    <strong>\n"
+"                                                         <t t-out=\"object.student_id.name or ''\"/></strong>\n"
+"                                                    <p>Your  <t t-out=\"object.media_type_id.name or ''\"/>, <strong>\n"
+"                                                         <t t-out=\"object.media_id.name or ''\"/>\n"
+"                                                    </strong> has been expired. Please return it as soon as possible.\n"
+"                                                    </p>\n"
+"                                                    <p>Thank you.</p>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                            <tr>\n"
+"                                                <td style=\"text-align:center;\">\n"
+"                                                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                        </table>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                            <tr>\n"
+"                                                <td valign=\"middle\" align=\"left\">\n"
+"                                                    <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                            <tr>\n"
+"                                                <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                    <t t-out=\"object.company_id.phone or ''\"/>\n"
+"                                                    <t t-if=\"object.company_id.email\">\n"
+"                                                        |\n"
+"                                                        <a href=\"'mailto:%s'%20%20%7B%7B%20object.company_id.email%20%7D%7D\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                            <t t-out=\"object.company_id.email or ''\"/>\n"
+"                                                        </a>\n"
+"                                                    </t>\n"
+"                                                    <t t-if=\"object.company_id.website\">\n"
+"                                                        |\n"
+"                                                        <a href=\"'%s'%20%20%7B%7B%20object.company_id.website%20%7D%7D\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                            <t t-out=\"object.company_id.website or ''\"/>\n"
+"                                                        </a>\n"
+"                                                    </t>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                        </table>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </tbody>\n"
+"                        </table>\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        "
+msgstr ""
+
+#. module: openeducat_library
+#: model:mail.template,body_html:openeducat_library.email_template_media_movement
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td align=\"center\">\n"
+"                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                                <tr>\n"
+"                                    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                            <tr>\n"
+"                                                <td valign=\"middle\">\n"
+"                                                    <span style=\"font-size: 10px;\">Library Card Renew</span>\n"
+"                                                    <br/>\n"
+"                                                </td>\n"
+"                                                <td valign=\"middle\" align=\"right\">\n"
+"                                                    <img t-att-src=\"'/logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                            <tr>\n"
+"                                                <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                        </table>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                            <tr>\n"
+"                                                <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                    <p>Dear</p>\n"
+"                                                    <strong>\n"
+"                                                        <t t-out=\"object.student_id.name or ''\"/>\n"
+"                                                    </strong>\n"
+"                                                    <p>Your<t t-out=\"object.media_type_id.name or ''\"/>,\n"
+"                                                        <strong>\n"
+"                                                            <t t-out=\"object.media_id.name or ''\"/>\n"
+"                                                        </strong>\n"
+"                                                        will\n"
+"                                                        <t t-if=\"object.get_diff_day() == 0\">\n"
+"                                                            be expiring\n"
+"                                                            <strong>today.</strong>\n"
+"                                                        </t>\n"
+"                                                        <t t-else=\"\">\n"
+"                                                            expire in\n"
+"                                                            <strong>\n"
+"                                                                <t t-out=\"object.get_diff_day() or ''\"/>\n"
+"                                                            </strong>\n"
+"                                                            day(s).\n"
+"                                                        </t>\n"
+"                                                        Please return it as soon as possible.\n"
+"                                                    </p>\n"
+"                                                    <p>Thank you.</p>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                            <tr>\n"
+"                                                <td style=\"text-align:center;\">\n"
+"                                                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                        </table>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                            <tr>\n"
+"                                                <td valign=\"middle\" align=\"left\">\n"
+"                                                    <t t-out=\"object.company_id.name or ''\"/>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                            <tr>\n"
+"                                                <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                    <t t-out=\"object.company_id.phone or ''\"/>\n"
+"                                                    <t t-if=\"object.company_id.email\">\n"
+"                                                        |\n"
+"                                                        <a href=\"'mailto:%s'%20%20%7B%7B%20object.company_id.email%20%7D%7D\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                            <t t-out=\"object.company_id.email or ''\"/>\n"
+"                                                        </a>\n"
+"                                                    </t>\n"
+"                                                    <t t-if=\"object.company_id.website\">\n"
+"                                                        |\n"
+"                                                        <a href=\"'%s'%20%20%7B%7B%20object.company_id.website%20%7D%7D\" style=\"text-decoration:none; color: #454748;\">\n"
+"                                                            <t t-out=\"object.company_id.website or ''\"/>\n"
+"                                                        </a>\n"
+"                                                    </t>\n"
+"                                                </td>\n"
+"                                            </tr>\n"
+"                                        </table>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </tbody>\n"
+"                        </table>\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        "
+msgstr ""
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
@@ -94,12 +272,14 @@ msgid "Accept"
 msgstr "Aceitar"
 
 #. module: openeducat_library
-#: selection:op.media.purchase,state:0
-#: selection:op.media.queue,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_purchase__state__accept
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_queue__state__accept
 msgid "Accepted"
-msgstr "Aceitaram"
+msgstr "Aceito"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_needaction
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_needaction
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_needaction
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_needaction
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_needaction
@@ -108,21 +288,30 @@ msgid "Action Needed"
 msgstr "Ação necessária"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__active
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__active
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__active
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__active
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__active
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__actual_return_date
 #: model:ir.model.fields,field_description:openeducat_library.field_return_media__actual_return_date
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 msgid "Actual Return Date"
-msgstr "Data de retorno real"
+msgstr "Data real de devolução"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_movement.py:92
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_library/models/media_movement.py:0
 msgid "Actual Return Date cannot be set before Issued Date"
-msgstr "Actual data de retorno não pode ser definido antes da Data de Emissão"
+msgstr ""
+"A Data de Devolução Real não pode ser definida antes da Data de Emissão"
 
 #. module: openeducat_library
-#: model:ir.model.fields,field_description:openeducat_library.field_op_author__address
-#: model:ir.model.fields,field_description:openeducat_library.field_op_publisher__address_id
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "Address"
 msgstr "Endereço"
@@ -130,7 +319,7 @@ msgstr "Endereço"
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "Address Detail"
-msgstr "Detalhe endereço"
+msgstr "Detalhes do endereço"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
@@ -141,15 +330,33 @@ msgstr "Detalhes de admissão"
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_media_view
 #: model:ir.ui.menu,name:openeducat_library.menu_library_medias
 msgid "All Media"
-msgstr "Todos os meios"
+msgstr "Todas as mídias"
 
 #. module: openeducat_library
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_search
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_library_card_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_library_card_search
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_search
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_search
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_purchase_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_purchase_search
+msgid "Archived"
+msgstr "Arquivado"
+
+#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_attachment_count
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_attachment_count
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_attachment_count
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_attachment_count
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_attachment_count
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_attachment_count
 msgid "Attachment Count"
-msgstr "Conde anexo"
+msgstr "Contagem de anexos"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_author_form
@@ -162,36 +369,36 @@ msgstr "Autor"
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__author_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__author
 msgid "Author(s)"
-msgstr "Autor (es)"
+msgstr "Autor(es)"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_author_view
 #: model:ir.ui.menu,name:openeducat_library.menu_op_author_sub
 msgid "Authors"
-msgstr "autores"
+msgstr "Autores"
 
 #. module: openeducat_library
-#: selection:op.media.movement,state:0
-#: selection:op.media.unit,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__state__available
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_unit__state__available
 msgid "Available"
-msgstr "acessível"
+msgstr "Disponível"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__barcode
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_media_barcode
 msgid "Barcode"
-msgstr "Código de Barras"
+msgstr "Código de barras"
 
 #. module: openeducat_library
-#: sql_constraint:op.media.unit:0
+#: model:ir.model.constraint,message:openeducat_library.constraint_op_media_unit_unique_name_barcode
 msgid "Barcode must be unique per Media unit!"
-msgstr "Código de barras deve ser exclusivo por unidade de mídia!"
+msgstr "O código de barras deve ser único por unidade de mídia!"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/wizards/return_media.py:49
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_library/wizards/return_media.py:0
 msgid "Can't return media."
-msgstr "não pode retornar mídia."
+msgstr "Não é possível retornar a mídia."
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.issue_media_form
@@ -208,17 +415,12 @@ msgstr "Código de barras do cartão"
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_library_card_barcode
 msgid "Card Holder"
-msgstr "Titular"
-
-#. module: openeducat_library
-#: model_terms:ir.ui.view,arch_db:openeducat_library.report_student_library_card
-msgid "Card No :"
-msgstr "Nenhum cartão :"
+msgstr "Titular do cartão"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__library_card_type_id
 msgid "Card Type"
-msgstr "Tipo de carta"
+msgstr "Tipo de cartão"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
@@ -231,9 +433,14 @@ msgid "Code"
 msgstr "Código"
 
 #. module: openeducat_library
-#: sql_constraint:op.media.type:0
+#: model:ir.model.constraint,message:openeducat_library.constraint_op_media_type_unique_media_type_code
 msgid "Code should be unique per media type!"
-msgstr "Código deve ser único por tipo de mídia!"
+msgstr "O código deve ser exclusivo por tipo de mídia!"
+
+#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__company_id
+msgid "Company"
+msgstr "Empresa"
 
 #. module: openeducat_library
 #: model:ir.ui.menu,name:openeducat_library.menu_op_school_library_config
@@ -248,23 +455,19 @@ msgstr "País"
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__course_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__course_ids
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 msgid "Course"
 msgstr "Curso"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "Course Details"
-msgstr "detalhes do curso"
-
-#. module: openeducat_library
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
-msgid "Courses"
-msgstr "Cursos"
+msgstr "Detalhes do curso"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
 msgid "Create Invoice"
-msgstr "Criar recibo"
+msgstr "Criar fatura"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__create_uid
@@ -309,8 +512,10 @@ msgid "Description"
 msgstr "Descrição"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_account_move__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_op_author__display_name
+#: model:ir.model.fields,field_description:openeducat_library.field_op_faculty__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card_type__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__display_name
@@ -320,23 +525,24 @@ msgstr "Descrição"
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_type__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_op_publisher__display_name
+#: model:ir.model.fields,field_description:openeducat_library.field_op_student__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_op_tag__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_report_openeducat_library_report_library_card_barcode__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_report_openeducat_library_report_media_barcode__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_reserve_media__display_name
 #: model:ir.model.fields,field_description:openeducat_library.field_return_media__display_name
 msgid "Display Name"
-msgstr "Mostrar nome"
+msgstr "Nome de exibição"
 
 #. module: openeducat_library
-#: selection:op.media.purchase,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_purchase__state__draft
 msgid "Draft"
-msgstr "Esboço, projeto"
+msgstr "Rascunho"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__return_date
 msgid "Due Date"
-msgstr "Data de Vencimento"
+msgstr "Duas datas"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card_type__duration
@@ -346,7 +552,7 @@ msgstr "Duração"
 #. module: openeducat_library
 #: model:ir.model.fields,help:openeducat_library.field_op_library_card_type__duration
 msgid "Duration in terms of Number of Lead Days"
-msgstr "Duração em termos de número de dias de chumbo"
+msgstr "Duração em termos de número de dias de lead"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__edition
@@ -358,7 +564,7 @@ msgstr "Edição"
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 msgid "Education Details"
-msgstr "Detalhes educacionais"
+msgstr "Detalhes de educação"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
@@ -366,19 +572,19 @@ msgid "Educational"
 msgstr "Educacional"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/library.py:43
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_library/models/library.py:0
 msgid "Enter proper value"
-msgstr "Digite o valor adequado"
+msgstr "Insira o valor adequado"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__faculty_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__faculty_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__faculty_id
+#: model:ir.model.fields.selection,name:openeducat_library.selection__issue_media__type__faculty
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_library_card__type__faculty
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__type__faculty
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
-#: selection:issue.media,type:0
-#: selection:op.library.card,type:0
-#: selection:op.media.movement,type:0
 msgid "Faculty"
 msgstr "Faculdade"
 
@@ -388,28 +594,24 @@ msgid "First Name"
 msgstr "Primeiro nome"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_follower_ids
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_follower_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_follower_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_follower_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_follower_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_follower_ids
 msgid "Followers"
-msgstr "seguidores"
+msgstr "Seguidores"
 
 #. module: openeducat_library
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_channel_ids
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_channel_ids
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_channel_ids
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Seguidores (canais)"
-
-#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_partner_ids
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_partner_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_partner_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_partner_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_partner_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Seguidores (Parceiros)"
+msgstr "Seguidores (parceiros)"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__date_from
@@ -417,21 +619,26 @@ msgid "From Date"
 msgstr "Da data"
 
 #. module: openeducat_library
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_library_card_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_library_card_type_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_type_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_publisher_search
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_tag_search
-msgid "Group By..."
-msgstr "Agrupar Por..."
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__has_message
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__has_message
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__has_message
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__has_message
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__has_message
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
 
 #. module: openeducat_library
+#: model:ir.module.category,description:openeducat_library.module_category_all_Library
+msgid "Helps you manage your institutes different-different users."
+msgstr ""
+"Ajuda você a gerenciar usuários diferentes e diferentes de seus institutos."
+
+#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_account_move__id
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_author__id
+#: model:ir.model.fields,field_description:openeducat_library.field_op_faculty__id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card_type__id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__id
@@ -441,13 +648,14 @@ msgstr "Agrupar Por..."
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_type__id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_publisher__id
+#: model:ir.model.fields,field_description:openeducat_library.field_op_student__id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_tag__id
 #: model:ir.model.fields,field_description:openeducat_library.field_report_openeducat_library_report_library_card_barcode__id
 #: model:ir.model.fields,field_description:openeducat_library.field_report_openeducat_library_report_media_barcode__id
 #: model:ir.model.fields,field_description:openeducat_library.field_reserve_media__id
 #: model:ir.model.fields,field_description:openeducat_library.field_return_media__id
 msgid "ID"
-msgstr "Id."
+msgstr "EU IA"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__isbn
@@ -455,89 +663,100 @@ msgid "ISBN Code"
 msgstr "Código ISBN"
 
 #. module: openeducat_library
-#: sql_constraint:op.media:0
+#: model:ir.model.constraint,message:openeducat_library.constraint_op_media_unique_name_isbn
 msgid "ISBN code must be unique per media!"
-msgstr "código ISBN deve ser exclusivo por mídia!"
+msgstr "O código ISBN deve ser único por mídia!"
 
 #. module: openeducat_library
-#: model:ir.model.fields,help:openeducat_library.field_op_media_movement__message_unread
-#: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__message_unread
-#: model:ir.model.fields,help:openeducat_library.field_op_media_queue__message_unread
-#: model:ir.model.fields,help:openeducat_library.field_op_media_unit__message_unread
-msgid "If checked new messages require your attention."
-msgstr "Se marcada novas mensagens requer sua atenção."
-
-#. module: openeducat_library
+#: model:ir.model.fields,help:openeducat_library.field_issue_media__message_needaction
+#: model:ir.model.fields,help:openeducat_library.field_op_media__message_needaction
 #: model:ir.model.fields,help:openeducat_library.field_op_media_movement__message_needaction
 #: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__message_needaction
 #: model:ir.model.fields,help:openeducat_library.field_op_media_queue__message_needaction
 #: model:ir.model.fields,help:openeducat_library.field_op_media_unit__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Se marcada, as novas mensagens requer sua atenção."
+msgstr "Se marcada, novas mensagens requerem sua atenção."
 
 #. module: openeducat_library
+#: model:ir.model.fields,help:openeducat_library.field_issue_media__message_has_error
+#: model:ir.model.fields,help:openeducat_library.field_issue_media__message_has_sms_error
+#: model:ir.model.fields,help:openeducat_library.field_op_media__message_has_error
+#: model:ir.model.fields,help:openeducat_library.field_op_media__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_library.field_op_media_movement__message_has_error
+#: model:ir.model.fields,help:openeducat_library.field_op_media_movement__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__message_has_error
+#: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_library.field_op_media_queue__message_has_error
+#: model:ir.model.fields,help:openeducat_library.field_op_media_queue__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_library.field_op_media_unit__message_has_error
+#: model:ir.model.fields,help:openeducat_library.field_op_media_unit__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Se marcada, algumas mensagens têm um erro de entrega."
+msgstr "Se marcada, algumas mensagens apresentam um erro de entrega."
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__internal_code
 msgid "Internal Code"
-msgstr "Código interno"
+msgstr "Código Interno"
 
 #. module: openeducat_library
-#: sql_constraint:op.media:0
+#: model:ir.model.constraint,message:openeducat_library.constraint_op_media_unique_name_internal_cod
 msgid "Internal Code must be unique per media!"
-msgstr "Código Interno deve ser exclusivo por mídia!"
+msgstr "O Código Interno deve ser único por mídia!"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_purchase.py:64
-#, python-format
-msgid "Invalid Action!\n"
+#. odoo-python
+#: code:addons/openeducat_library/models/media_purchase.py:0
+msgid ""
+"Invalid Action!\n"
 " Parent can not create             Media Purchase Requests!"
-msgstr "Ação inválida!\n"
-" Pai não pode criar pedidos de mídia compra!"
+msgstr ""
+"Ação inválida!\n"
+" O pai não pode criar solicitações de compra de mídia!"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_queue.py:59
-#, python-format
-msgid "Invalid Action!\n"
+#. odoo-python
+#: code:addons/openeducat_library/models/media_queue.py:0
+msgid ""
+"Invalid Action!\n"
 " Parent can not create             Media Queue Requests!"
-msgstr "Ação inválida!\n"
-" Pai não pode criar pedidos de fila de mídia!"
+msgstr ""
+"Ação inválida!\n"
+" O pai não pode criar solicitações de fila de mídia!"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_purchase.py:71
-#, python-format
-msgid "Invalid Action!\n"
+#. odoo-python
+#: code:addons/openeducat_library/models/media_purchase.py:0
+msgid ""
+"Invalid Action!\n"
 " Parent can not edit             Media Purchase Requests!"
-msgstr "Ação inválida!\n"
-" Pai não pode editar pedidos da mídia compra!"
+msgstr ""
+"Ação inválida!\n"
+" O pai não pode editar solicitações de compra de mídia!"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_queue.py:69
-#, python-format
-msgid "Invalid Action!\n"
+#. odoo-python
+#: code:addons/openeducat_library/models/media_queue.py:0
+msgid ""
+"Invalid Action!\n"
 " Parent can not edit             Media Queue Requests!"
-msgstr "Ação inválida!\n"
-" Pai não pode editar pedidos de fila de mídia!"
+msgstr ""
+"Ação inválida!\n"
+" O pai não pode editar solicitações de fila de mídia!"
 
 #. module: openeducat_library
-#: model:ir.model,name:openeducat_library.model_account_invoice
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__invoice_id
 msgid "Invoice"
 msgstr "Fatura"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_is_follower
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_is_follower
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_is_follower
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_is_follower
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_is_follower
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_is_follower
 msgid "Is Follower"
-msgstr "é Follower"
+msgstr "É seguidor"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__issue_date
@@ -547,24 +766,24 @@ msgstr "Data de emissão"
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_form
 msgid "Issue Media"
-msgstr "mídia Issue"
+msgstr "Emitir mídia"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_issue_media
 msgid "Issue Media Wizard"
-msgstr "Media Wizard Edição"
+msgstr "Assistente de emissão de mídia"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.issue_media_act
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
 msgid "Issue media"
-msgstr "meios de emissão"
+msgstr "Emitir mídia"
 
 #. module: openeducat_library
-#: selection:op.media.movement,state:0
-#: selection:op.media.unit,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__state__issue
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_unit__state__issue
 msgid "Issued"
-msgstr "Emitido"
+msgstr "Publicado"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__issued_date
@@ -576,32 +795,17 @@ msgstr "Data de emissão"
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 msgid "Issued Today"
-msgstr "emitiu hoje"
+msgstr "Emitido hoje"
 
 #. module: openeducat_library
-#: model:ir.model.fields,field_description:openeducat_library.field_issue_media____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_author____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_library_card____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_library_card_type____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_type____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_publisher____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_op_tag____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_report_openeducat_library_report_library_card_barcode____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_report_openeducat_library_report_media_barcode____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_reserve_media____last_update
-#: model:ir.model.fields,field_description:openeducat_library.field_return_media____last_update
-msgid "Last Modified on"
-msgstr "Última modificação em"
+#: model:ir.model,name:openeducat_library.model_account_move
+msgid "Journal Entry"
+msgstr "Lançamento de diário"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "Last Name"
-msgstr "Último nome"
+msgstr "Sobrenome"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__write_uid
@@ -640,10 +844,10 @@ msgid "Last Updated on"
 msgstr "Última atualização em"
 
 #. module: openeducat_library
+#: model:ir.module.category,name:openeducat_library.module_category_all_Library
 #: model:ir.ui.menu,name:openeducat_library.menu_op_library_root
+#: model:res.groups.privilege,name:openeducat_library.module_privilege_openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_faculty_form_library_inherit
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_form_library_inherit
-#: model:res.groups,name:openeducat_library.group_op_library
 msgid "Library"
 msgstr "Biblioteca"
 
@@ -659,28 +863,27 @@ msgstr "Biblioteca"
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_library_card_tree
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 msgid "Library Card"
-msgstr "Cartão da biblioteca"
+msgstr "Cartão da Biblioteca"
 
 #. module: openeducat_library
 #: model:ir.actions.report,name:openeducat_library.action_report_student_library_card_barcode
 msgid "Library Card Barcode"
-msgstr "Código de barras cartão de biblioteca"
+msgstr "Código de barras do cartão da biblioteca"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_report_openeducat_library_report_library_card_barcode
 msgid "Library Card Barcode Report"
-msgstr "Biblioteca Report Card Barcode"
+msgstr "Relatório de código de barras do cartão da biblioteca"
 
 #. module: openeducat_library
-#: model:mail.template,report_name:openeducat_library.email_template_media_movement_after
 #: model:mail.template,subject:openeducat_library.email_template_media_movement_after
 msgid "Library Card Expired"
-msgstr "Biblioteca cartão expirado"
+msgstr "Cartão da biblioteca expirado"
 
 #. module: openeducat_library
 #: model:mail.template,subject:openeducat_library.email_template_media_movement
 msgid "Library Card Renew"
-msgstr "Cartão Biblioteca Renove"
+msgstr "Renovação do cartão da biblioteca"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_library_card_type
@@ -688,7 +891,7 @@ msgstr "Cartão Biblioteca Renove"
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_library_card_type_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_library_card_type_tree
 msgid "Library Card Type"
-msgstr "Biblioteca Tipo de cartão"
+msgstr "Tipo de cartão de biblioteca"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_library_card_type_view
@@ -700,42 +903,38 @@ msgstr "Tipos de cartão de biblioteca"
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_library_card_view
 #: model:ir.ui.menu,name:openeducat_library.menu_op_library_card_sub
 msgid "Library Cards"
-msgstr "biblioteca Cartões"
+msgstr "Cartões de biblioteca"
 
 #. module: openeducat_library
 #: model:ir.actions.report,name:openeducat_library.action_report_student_library_card
 msgid "Library ID Card"
-msgstr "Cartão ID biblioteca"
+msgstr "Cartão de identificação da biblioteca"
 
 #. module: openeducat_library
-#: sql_constraint:op.library.card:0
+#: model:ir.model.constraint,message:openeducat_library.constraint_op_library_card_unique_library_card_number
 msgid "Library card Number should be unique per card!"
-msgstr "Número de cartão de biblioteca deve ser exclusivo por cartão!"
+msgstr "O número do cartão da biblioteca deve ser único por cartão!"
 
 #. module: openeducat_library
-#: model:product.product,name:openeducat_library.op_product_7
 #: model:product.template,name:openeducat_library.op_product_7_product_template
 msgid "Library penalty fee"
-msgstr "taxa de penalização Biblioteca"
+msgstr "Taxa de multa da biblioteca"
 
 #. module: openeducat_library
-#: selection:op.media.movement,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__state__lost
 msgid "Lost"
 msgstr "Perdido"
 
 #. module: openeducat_library
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_main_attachment_id
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_main_attachment_id
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_main_attachment_id
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Anexo principal"
+#: model:res.groups,name:openeducat_library.group_op_library
+msgid "Manager"
+msgstr "Gerente"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/wizards/issue_media.py:103
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_library/wizards/issue_media.py:0
 msgid "Maximum Number of media allowed for %s is : %s"
-msgstr "Número máximo de meios permitiu% s é:% s"
+msgstr "O número máximo de mídia permitido para %s é: %s"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__media_id
@@ -745,80 +944,92 @@ msgstr "Número máximo de meios permitiu% s é:% s"
 #: model:ir.model.fields,field_description:openeducat_library.field_return_media__media_id
 #: model:ir.ui.menu,name:openeducat_library.menu_op_sub_media_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_search
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_faculty_form_library_inherit
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_graph
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_pivot
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_tree
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_form_library_inherit
 msgid "Media"
-msgstr "meios de comunicação"
+msgstr "Mídia"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.report_media_barcode
 msgid "Media :"
-msgstr "Meios de comunicação :"
+msgstr "Mídia:"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_author
 #: model:ir.model,name:openeducat_library.model_return_media
 msgid "Media Author"
-msgstr "mídia Autor"
+msgstr "Autor de mídia"
 
 #. module: openeducat_library
 #: model:ir.actions.report,name:openeducat_library.action_report_media_barcode
 msgid "Media Barcode"
-msgstr "Barcode mídia"
+msgstr "Código de barras de mídia"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_report_openeducat_library_report_media_barcode
 msgid "Media Barcode Report"
-msgstr "Mídia Relatório de código de barras"
+msgstr "Relatório de código de barras de mídia"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_media
 msgid "Media Details"
-msgstr "Detalhes de mídia"
+msgstr "Detalhes da mídia"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_media_movement
+#: model:mail.template,name:openeducat_library.email_template_media_movement
 msgid "Media Movement"
 msgstr "Movimento de mídia"
 
 #. module: openeducat_library
+#: model:mail.template,name:openeducat_library.email_template_media_movement_after
+msgid "Media Movement After Due Date Passed"
+msgstr "Movimento da mídia após a data de vencimento ter passado"
+
+#. module: openeducat_library
 #: model:base.automation,name:openeducat_library.test_rule_media_movement_line_after
-#: model:ir.actions.server,name:openeducat_library.test_rule_media_movement_line_after_ir_actions_server
 msgid "Media Movement Line After 1 Days"
-msgstr "Mídia Movimento Linha Após 1 Dias"
+msgstr "Linha de movimentação de mídia após 1 dia"
 
 #. module: openeducat_library
 #: model:base.automation,name:openeducat_library.test_rule_media_movement_line_1
-#: model:ir.actions.server,name:openeducat_library.test_rule_media_movement_line_1_ir_actions_server
 msgid "Media Movement Line Before 1 Days"
-msgstr "Linha Movimento de mídia Antes de 1 Dias"
+msgstr "Linha de movimento de mídia antes de 1 dia"
+
+#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_op_faculty__media_movement_lines_count
+#: model:ir.model.fields,field_description:openeducat_library.field_op_student__media_movement_lines_count
+msgid "Media Movement Lines Count"
+msgstr "Contagem de linhas de movimento de mídia"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_media_movement_view
 #: model:ir.ui.menu,name:openeducat_library.menu_op_media_movement_library
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_faculty_form_library_inherit
-#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_form_library_inherit
 msgid "Media Movements"
 msgstr "Movimentos de mídia"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 msgid "Media Name"
-msgstr "Nome de mídia"
+msgstr "Nome da mídia"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_media_purchase
 msgid "Media Purchase Request"
-msgstr "Mídia pedido de compra"
+msgstr "Solicitação de compra de mídia"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_purchase_view
 #: model:ir.ui.menu,name:openeducat_library.menu_op_media_request_library_sub
 msgid "Media Purchase Requests"
-msgstr "Pedidos de compra de mídia"
+msgstr "Solicitações de compra de mídia"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__queue_ids
@@ -828,17 +1039,19 @@ msgstr "Fila de mídia"
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_media_queue
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_graph
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_pivot
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_tree
 msgid "Media Queue Request"
-msgstr "Request Queue mídia"
+msgstr "Solicitação de fila de mídia"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_media_queue_view
 #: model:ir.ui.menu,name:openeducat_library.menu_op_media_queue_request_library_sub
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 msgid "Media Queue Requests"
-msgstr "Os pedidos de fila de mídia"
+msgstr "Solicitações de fila de mídia"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.reserve_media_act
@@ -849,17 +1062,17 @@ msgstr "Reserva de mídia"
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_reserve_media
 msgid "Media Reserve"
-msgstr "Reserve mídia"
+msgstr "Reserva de mídia"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.return_media_form
 msgid "Media Return"
-msgstr "Retorno de mídia"
+msgstr "Retorno da mídia"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_tag
 msgid "Media Tags"
-msgstr "media Tags"
+msgstr "Etiquetas de mídia"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_media_type_view
@@ -868,7 +1081,7 @@ msgstr "media Tags"
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__media_type_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__media_type_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__media_type_id
-#: model:ir.ui.menu,name:openeducat_library.menu_op_tag_sub
+#: model:ir.ui.menu,name:openeducat_library.menu_media_type
 msgid "Media Type"
 msgstr "Tipo de mídia"
 
@@ -882,18 +1095,26 @@ msgid "Media Unit"
 msgstr "Unidade de mídia"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/wizards/return_media.py:52
-#, python-format
-msgid "Media Unit can not be returned                 because it's state is : %s"
-msgstr "Unidade de mídia não podem ser devolvidos porque o estado é:% s"
+#. odoo-python
+#: code:addons/openeducat_library/wizards/return_media.py:0
+msgid "Media Unit can not be returned because it's already: %s"
+msgstr "A unidade de mídia não pode ser devolvida porque já é: %s"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_media_unit_view
 #: model:ir.ui.menu,name:openeducat_library.menu_op_media_unit_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_tree
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_unit_graph
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_unit_pivot
 msgid "Media Units"
 msgstr "Unidades de mídia"
+
+#. module: openeducat_library
+#. odoo-python
+#: code:addons/openeducat_library/wizards/issue_media.py:0
+msgid "Media unit can not be issued because it's already: %s"
+msgstr "A unidade de mídia não pode ser emitida porque já é: %s"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_author__media_ids
@@ -901,23 +1122,27 @@ msgstr "Unidades de mídia"
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_author_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_publisher_form
 msgid "Media(s)"
-msgstr "Mídia (s)"
+msgstr "Mídia(s)"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_has_error
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_has_error
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_has_error
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_has_error
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_has_error
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_has_error
 msgid "Message Delivery error"
-msgstr "erro Message Delivery"
+msgstr "Erro na entrega de mensagens"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_ids
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_ids
 msgid "Messages"
-msgstr "mensagens"
+msgstr "Mensagens"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
@@ -932,7 +1157,7 @@ msgstr "Nome do meio"
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 msgid "Movements"
-msgstr "movimentos"
+msgstr "Movimentos"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_author__name
@@ -949,8 +1174,8 @@ msgstr "Nome"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card_type__allow_media
-msgid "No of medias Allowed"
-msgstr "Nenhum dos meios admitidos"
+msgid "No of Media Allowed"
+msgstr "Nº de mídia permitida"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__number
@@ -958,30 +1183,38 @@ msgid "Number"
 msgstr "Número"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_needaction_counter
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_needaction_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_needaction_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_needaction_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_needaction_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_needaction_counter
 msgid "Number of Actions"
-msgstr "Número de Ações"
+msgstr "Número de ações"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_has_error_counter
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_has_error_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_has_error_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_has_error_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_has_error_counter
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_has_error_counter
-msgid "Number of error"
-msgstr "Número de erro"
+msgid "Number of errors"
+msgstr "Número de erros"
 
 #. module: openeducat_library
+#: model:ir.model.fields,help:openeducat_library.field_issue_media__message_needaction_counter
+#: model:ir.model.fields,help:openeducat_library.field_op_media__message_needaction_counter
 #: model:ir.model.fields,help:openeducat_library.field_op_media_movement__message_needaction_counter
 #: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__message_needaction_counter
 #: model:ir.model.fields,help:openeducat_library.field_op_media_queue__message_needaction_counter
 #: model:ir.model.fields,help:openeducat_library.field_op_media_unit__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Número de mensagens que requer uma ação"
+msgid "Number of messages requiring action"
+msgstr "Número de mensagens que exigem ação"
 
 #. module: openeducat_library
+#: model:ir.model.fields,help:openeducat_library.field_issue_media__message_has_error_counter
+#: model:ir.model.fields,help:openeducat_library.field_op_media__message_has_error_counter
 #: model:ir.model.fields,help:openeducat_library.field_op_media_movement__message_has_error_counter
 #: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__message_has_error_counter
 #: model:ir.model.fields,help:openeducat_library.field_op_media_queue__message_has_error_counter
@@ -990,17 +1223,9 @@ msgid "Number of messages with delivery error"
 msgstr "Número de mensagens com erro de entrega"
 
 #. module: openeducat_library
-#: model:ir.model.fields,help:openeducat_library.field_op_media_movement__message_unread_counter
-#: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__message_unread_counter
-#: model:ir.model.fields,help:openeducat_library.field_op_media_queue__message_unread_counter
-#: model:ir.model.fields,help:openeducat_library.field_op_media_unit__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Número de mensagens não lidas"
-
-#. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_faculty
 msgid "OpenEduCat Faculty"
-msgstr "OpenEduCat Faculdade"
+msgstr "Corpo Docente OpenEduCat"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_reserve_media__partner_id
@@ -1011,14 +1236,15 @@ msgstr "Parceiro"
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__penalty
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
 msgid "Penalty"
-msgstr "Multa"
+msgstr "Pena"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card_type__penalty_amt_per_day
-msgid "Penalty Amount per Day"
-msgstr "Penalty Quantidade por dia"
+msgid "Penalty Amount/Day"
+msgstr "Valor da penalidade/dia"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__partner_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__partner_id
 msgid "Person"
 msgstr "Pessoa"
@@ -1026,19 +1252,19 @@ msgstr "Pessoa"
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__reserver_name
 msgid "Person Name"
-msgstr "Nome pessoa"
+msgstr "Nome da pessoa"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "Personal Information"
-msgstr "Informação pessoal"
+msgstr "Informações pessoais"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.issue_media_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.reserve_media_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.return_media_form
 msgid "Proceed"
-msgstr "Continuar"
+msgstr "Prosseguir"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_publisher
@@ -1052,20 +1278,22 @@ msgstr "Editor"
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__publisher_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__publisher
 msgid "Publisher(s)"
-msgstr "Publisher (s)"
+msgstr "Editor(es)"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_publisher_view
 #: model:ir.ui.menu,name:openeducat_library.menu_op_publisher_sub
 msgid "Publishers"
-msgstr ""
+msgstr "Editores"
 
 #. module: openeducat_library
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_purchase_pivot
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_purchase_form
+#: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_purchase_graph
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_purchase_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_purchase_tree
 msgid "Purchase Request"
-msgstr "Pedido de compra"
+msgstr "Solicitação de compra"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
@@ -1075,49 +1303,54 @@ msgid "Reject"
 msgstr "Rejeitar"
 
 #. module: openeducat_library
-#: selection:op.media.purchase,state:0
-#: selection:op.media.queue,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_purchase__state__reject
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_queue__state__reject
 msgid "Rejected"
-msgstr "rejeitado"
+msgstr "Rejeitado"
 
 #. module: openeducat_library
-#: model:mail.template,report_name:openeducat_library.email_template_media_movement
-msgid "Renew"
-msgstr "Renovar"
-
-#. module: openeducat_library
-#: selection:op.media.queue,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_queue__state__request
 msgid "Request"
-msgstr "Solicitação"
+msgstr "Solicitar"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_form
 msgid "Request Again"
-msgstr "solicitação novamente"
+msgstr "Solicitar novamente"
+
+#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__request_date
+msgid "Request Date"
+msgstr "Data da solicitação"
+
+#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__request_no
+msgid "Request No."
+msgstr "Solicitação nº."
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_purchase_form
 msgid "Request media"
-msgstr "media Pedido"
+msgstr "Solicitar mídia"
 
 #. module: openeducat_library
-#: selection:op.media.purchase,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_purchase__state__request
 msgid "Requested"
-msgstr "Requeridos"
+msgstr "Solicitado"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__requested_id
 msgid "Requested By"
-msgstr "Requerido por"
+msgstr "Solicitado por"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
 msgid "Reservation Detail"
-msgstr "Detalhe reserva"
+msgstr "Detalhe da reserva"
 
 #. module: openeducat_library
-#: selection:op.media.movement,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__state__reserve
 msgid "Reserved"
 msgstr "Reservado"
 
@@ -1125,51 +1358,66 @@ msgstr "Reservado"
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__return_date
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 msgid "Return Date"
-msgstr "Data de retorno"
+msgstr "Data de Devolução"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_movement.py:85
-#: code:addons/openeducat_library/wizards/issue_media.py:52
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_library/models/media_movement.py:0
+#: code:addons/openeducat_library/wizards/issue_media.py:0
 msgid "Return Date cannot be set before Issued Date."
-msgstr "Data de retorno não pode ser definido Data antes de Emissão."
+msgstr "A Data de Devolução não pode ser definida antes da Data de Emissão."
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.return_media_act
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
 msgid "Return Media"
-msgstr "retorno de mídia"
+msgstr "Devolver mídia"
 
 #. module: openeducat_library
-#: selection:op.media.movement,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__state__return
 msgid "Returned"
-msgstr "Devolvida"
+msgstr "Devolvido"
 
 #. module: openeducat_library
-#: selection:op.media.movement,state:0
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__state__return_done
 msgid "Returned Done"
-msgstr "voltou Pronto"
+msgstr "Devolvido Concluído"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 msgid "Returned Today"
-msgstr "voltou hoje"
+msgstr "Devolvido hoje"
+
+#. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de entrega de SMS"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__name
 msgid "Sequence No"
-msgstr "sequência nº"
+msgstr "Sequência Não"
 
 #. module: openeducat_library
 #: model:ir.actions.server,name:openeducat_library.library_card_media_movement_action
 msgid "Server Actions Media Movement"
-msgstr "Ações servidor Movimento de mídia"
+msgstr "Movimento de mídia de ações do servidor"
 
 #. module: openeducat_library
 #: model:ir.actions.server,name:openeducat_library.library_card_media_movement_action_after
 msgid "Server Actions Media Movement After 1 Days"
-msgstr "Ações servidor Movimento mídia após 1 Dias"
+msgstr "Movimento de mídia de ações do servidor após 1 dia"
+
+#. module: openeducat_library
+#: model:ir.ui.menu,name:openeducat_library.menu_library_config
+msgid "Settings"
+msgstr "Configurações"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__state
@@ -1185,7 +1433,7 @@ msgstr "Estado"
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_search
 msgid "Status"
-msgstr "estado"
+msgstr "Status"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
@@ -1195,43 +1443,43 @@ msgstr "Rua..."
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "Street2"
-msgstr "Rua # 2"
+msgstr "Rua2"
 
 #. module: openeducat_library
 #: model:ir.model,name:openeducat_library.model_op_student
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__student_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__student_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__student_id
+#: model:ir.model.fields.selection,name:openeducat_library.selection__issue_media__type__student
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_library_card__type__student
+#: model:ir.model.fields.selection,name:openeducat_library.selection__op_media_movement__type__student
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
-#: selection:issue.media,type:0
-#: selection:op.library.card,type:0
-#: selection:op.media.movement,type:0
 msgid "Student"
-msgstr "Aluna"
+msgstr "Estudante"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_library_card__partner_id
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__type
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__partner_id
 msgid "Student/Faculty"
-msgstr "Estudante / Faculdade"
+msgstr "Aluno/Professor"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
 msgid "Student/Faculty Detail"
-msgstr "Estudante / Detalhe Faculdade"
+msgstr "Detalhe do aluno/professor"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__subject_ids
 msgid "Subject"
-msgstr "Sujeito"
+msgstr "Assunto"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__subject_ids
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 msgid "Subjects"
-msgstr "assuntos"
+msgstr "Assuntos"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_type_form
@@ -1241,23 +1489,29 @@ msgstr "assuntos"
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_tag_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_tag_tree
 msgid "Tag"
-msgstr "Etiqueta, rótulo, palavra-chave"
+msgstr "Marcação"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__tags
 msgid "Tag(s)"
-msgstr "Tag)"
+msgstr "Etiqueta(s)"
 
 #. module: openeducat_library
 #: model:ir.actions.act_window,name:openeducat_library.act_open_op_tag_view
+#: model:ir.ui.menu,name:openeducat_library.menu_op_tag_sub
 msgid "Tags"
-msgstr "Tag"
+msgstr "Etiquetas"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_movement.py:169
-#, python-format
-msgid "There is no income account defined for this                     product: \"%s\". You may have to install a chart of                     account from Accounting app, settings                     menu."
-msgstr "Não há nenhuma conta de resultado definido para este produto: \"% s\". Você pode ter que instalar um plano de contas da contabilidade de aplicativos, configurações do menu."
+#. odoo-python
+#: code:addons/openeducat_library/models/media_movement.py:0
+msgid ""
+"There is no income account defined for this product: \"%s\". You may have to"
+" install a chart of account from Accounting app, settings menu."
+msgstr ""
+"Não há conta de rendimento definida para este produto: \"%s\". Pode ser "
+"necessário instalar um plano de conta no aplicativo Contabilidade, menu de "
+"configurações."
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__name
@@ -1269,13 +1523,13 @@ msgstr "Título"
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__date_to
 msgid "To Date"
-msgstr "Até a presente data"
+msgstr "A data"
 
 #. module: openeducat_library
-#: code:addons/openeducat_library/models/media_queue.py:54
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_library/models/media_queue.py:0
 msgid "To Date cannot be set before From Date."
-msgstr "Até à data não pode ser definida antes de From Date."
+msgstr "Até a data não pode ser definida antes da data inicial."
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_issue_media__type
@@ -1286,102 +1540,72 @@ msgid "Type"
 msgstr "Tipo"
 
 #. module: openeducat_library
-#: model:product.product,uom_name:openeducat_library.op_product_7
-#: model:product.template,uom_name:openeducat_library.op_product_7_product_template
-msgid "Unit(s)"
-msgstr "Unidade(s)"
-
-#. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media__unit_ids
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_form
 msgid "Units"
 msgstr "Unidades"
 
 #. module: openeducat_library
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_unread
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_unread
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_unread
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_unread
-msgid "Unread Messages"
-msgstr "Mensagens não lidas"
-
-#. module: openeducat_library
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__message_unread_counter
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__message_unread_counter
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__message_unread_counter
-#: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "As mensagens não lidas Contador"
-
-#. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__user_id
+#: model:res.groups,name:openeducat_library.group_op_library_user
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "User"
-msgstr "Do utilizador"
+msgstr "Usuário"
 
 #. module: openeducat_library
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__user_id
 msgid "Users"
-msgstr "Comercial"
+msgstr "Usuários"
 
 #. module: openeducat_library
+#: model:ir.model.fields,field_description:openeducat_library.field_issue_media__website_message_ids
+#: model:ir.model.fields,field_description:openeducat_library.field_op_media__website_message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_movement__website_message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_purchase__website_message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_queue__website_message_ids
 #: model:ir.model.fields,field_description:openeducat_library.field_op_media_unit__website_message_ids
 msgid "Website Messages"
-msgstr "Mensagens website"
+msgstr "Mensagens do site"
 
 #. module: openeducat_library
+#: model:ir.model.fields,help:openeducat_library.field_issue_media__website_message_ids
+#: model:ir.model.fields,help:openeducat_library.field_op_media__website_message_ids
 #: model:ir.model.fields,help:openeducat_library.field_op_media_movement__website_message_ids
 #: model:ir.model.fields,help:openeducat_library.field_op_media_purchase__website_message_ids
 #: model:ir.model.fields,help:openeducat_library.field_op_media_queue__website_message_ids
 #: model:ir.model.fields,help:openeducat_library.field_op_media_unit__website_message_ids
 msgid "Website communication history"
-msgstr "histórico de comunicação site"
+msgstr "Histórico de comunicação do site"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_student_library_form
 msgid "ZIP"
-msgstr "fecho eclair"
-
-#. module: openeducat_library
-#: model:product.product,weight_uom_name:openeducat_library.op_product_7
-#: model:product.template,weight_uom_name:openeducat_library.op_product_7_product_template
-msgid "kg"
-msgstr ""
+msgstr "CEP"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 msgid "media"
-msgstr "meios de comunicação"
+msgstr "mídia"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.issue_media_form
 msgid "media Issue"
-msgstr "Edição de mídia"
+msgstr "problema de mídia"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_form
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_search
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_movement_tree
 msgid "media Movement"
-msgstr "Movimento media"
+msgstr "Movimento de mídia"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_op_media_queue_form
 msgid "media Queue Request"
-msgstr "media Request Queue"
-
-#. module: openeducat_library
-#: code:addons/openeducat_library/wizards/issue_media.py:97
-#, python-format
-msgid "media Unit can not be issued                     because it's state is : %s"
-msgstr "Unidade de mídia não pode ser emitido porque o estado é:% s"
+msgstr "Solicitação de fila de mídia"
 
 #. module: openeducat_library
 #: model_terms:ir.ui.view,arch_db:openeducat_library.view_media_unit_search
 msgid "media Units"
-msgstr "Unidades de mídia"
-
+msgstr "unidades de mídia"

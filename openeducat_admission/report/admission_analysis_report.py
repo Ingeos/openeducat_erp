@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -21,7 +20,7 @@
 
 import time
 
-from odoo import models, api
+from odoo import api, models
 
 
 class ReportAdmissionAnalysis(models.AbstractModel):
@@ -45,9 +44,11 @@ class ReportAdmissionAnalysis(models.AbstractModel):
              ('admission_date', '<=', data['end_date'])],
             order='admission_date desc')
         res = {}
-        self.total_student = 0
+        # self.total_student = 0
+        total_student = 0
         for student in student_search:
-            self.total_student += 1
+            # self.total_student += 1
+            total_student += 1
             res = {
                 'name': student.name,
                 'application_no': student.application_number,

@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc Solution Pvt Ltd<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpStudent(models.Model):
@@ -27,16 +26,15 @@ class OpStudent(models.Model):
 
     activity_log = fields.One2many('op.activity', 'student_id',
                                    string='Activity Log')
-    activity_count = fields.Integer(compute='compute_count')
-
+    activity_count = fields.Integer(compute='_compute_count')
 
     def get_activity(self):
         action = self.env.ref('openeducat_activity.'
-                              'act_open_op_activity_view').read()[0]
+                              'act_open_op_activity_view').sudo().read()[0]
         action['domain'] = [('student_id', 'in', self.ids)]
         return action
 
-    def compute_count(self):
+    def _compute_count(self):
         for record in self:
             record.activity_count = self.env['op.activity'].search_count(
                 [('student_id', 'in', self.ids)])

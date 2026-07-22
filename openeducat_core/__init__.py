@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -22,9 +21,9 @@
 from . import controllers
 from . import models
 from . import wizard
+from . import report
 
 from odoo import api, SUPERUSER_ID
 
-def _openeducat_post_init(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
+def _openeducat_post_init(env):
     env['publisher_warranty.contract'].update_notification(cron_mode=True)

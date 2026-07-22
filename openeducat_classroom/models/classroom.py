@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class OpClassroom(models.Model):
@@ -30,16 +29,17 @@ class OpClassroom(models.Model):
     code = fields.Char('Code', size=16, required=True)
     course_id = fields.Many2one('op.course', 'Course')
     batch_id = fields.Many2one('op.batch', 'Batch')
-    capacity = fields.Integer(string='No of Person')
+    capacity = fields.Integer(string='No of Seats', required=True)
     facilities = fields.One2many('op.facility.line', 'classroom_id',
                                  string='Facility Lines')
     asset_line = fields.One2many('op.asset', 'asset_id',
                                  string='Asset')
     active = fields.Boolean(default=True)
 
-    _sql_constraints = [
-        ('unique_classroom_code',
-         'unique(code)', 'Code should be unique per classroom!')]
+    _unique_classroom_code = models.Constraint('unique(code)',
+                                               'Code should be unique per classroom!')
+    _capacity_check = models.Constraint('CHECK (capacity > 0)',
+                                        'Integer field must be greater than  0')
 
     @api.onchange('course_id')
     def onchange_course(self):

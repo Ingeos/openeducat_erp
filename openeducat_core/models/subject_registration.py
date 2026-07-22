@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -29,12 +28,12 @@ class OpSubjectRegistration(models.Model):
     _inherit = ["mail.thread"]
 
     name = fields.Char('Name', readonly=True, default='New')
-    student_id = fields.Many2one('op.student', 'Student', required=True,
-                                 track_visibility='onchange')
+    student_id = fields.Many2one('op.student', 'Student',
+                                 tracking=True)
     course_id = fields.Many2one('op.course', 'Course', required=True,
-                                track_visibility='onchange')
-    batch_id = fields.Many2one('op.batch', 'Batch', required=True,
-                               track_visibility='onchange')
+                                tracking=True)
+    batch_id = fields.Many2one('op.batch', 'Batch',
+                               tracking=True)
     compulsory_subject_ids = fields.Many2many(
         'op.subject', 'subject_compulsory_rel',
         'register_id', 'subject_id', string="Compulsory Subjects",
@@ -44,12 +43,17 @@ class OpSubjectRegistration(models.Model):
     state = fields.Selection([
         ('draft', 'Draft'), ('submitted', 'Submitted'),
         ('approved', 'Approved'), ('rejected', 'Rejected')],
-        default='draft', string='state', copy=False,
-        track_visibility='onchange')
+        default='draft', string='Status', copy=False,
+        tracking=True)
     max_unit_load = fields.Float('Maximum Unit Load',
-                                 track_visibility='onchange')
+                                 tracking=True)
     min_unit_load = fields.Float('Minimum Unit Load',
-                                 track_visibility='onchange')
+                                 tracking=True)
+    is_read = fields.Boolean(string="Read?", default=False)
+    is_read_by_parent = fields.Boolean(string="Read by Parent?", default=False)
+    company_id = fields.Many2one(
+        "res.company", string="Company", default=lambda self: self.env.company
+    )
 
     def action_reset_draft(self):
         self.state = 'draft'
@@ -80,12 +84,13 @@ class OpSubjectRegistration(models.Model):
     def action_submitted(self):
         self.state = 'submitted'
 
-    @api.model
-    def create(self, vals):
-        if vals.get('name', 'New') == 'New':
-            vals['name'] = self.env['ir.sequence'].next_by_code(
-                'op.subject.registration') or '/'
-        return super(OpSubjectRegistration, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('name', 'New') == 'New':
+                vals['name'] = self.env['ir.sequence'].next_by_code(
+                    'op.subject.registration') or '/'
+        return super(OpSubjectRegistration, self).create(vals_list)
 
     def get_subjects(self):
         for record in self:

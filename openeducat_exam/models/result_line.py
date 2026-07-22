@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -31,6 +30,9 @@ class OpResultLine(models.Model):
     marksheet_line_id = fields.Many2one(
         'op.marksheet.line', 'Marksheet Line', ondelete='cascade')
     exam_id = fields.Many2one('op.exam', 'Exam', required=True)
+    session_id = fields.Many2one(
+        'op.exam.session', string='Exam Session',
+        related='exam_id.session_id', store=True, readonly=True)
     evaluation_type = fields.Selection(
         related='exam_id.session_id.evaluation_type', store=True)
     marks = fields.Integer('Marks', required=True)
@@ -39,10 +41,16 @@ class OpResultLine(models.Model):
     status = fields.Selection([('pass', 'Pass'), ('fail', 'Fail')], 'Status',
                               compute='_compute_status', store=True)
 
+    _unique_result_line = models.Constraint(
+        'unique(exam_id, student_id)',
+        'Result line for this student and exam already exists!'
+    )
+
     @api.constrains('marks', 'marks')
     def _check_marks(self):
-        if (self.marks < 0.0):
-            raise ValidationError(_("Enter proper Marks or Percentage!"))
+        for record in self:
+            if record.marks < 0.0:
+                raise ValidationError(_("Enter proper Marks or Percentage!"))
 
     @api.depends('marks')
     def _compute_grade(self):
@@ -55,6 +63,8 @@ class OpResultLine(models.Model):
                         if grade.min_per <= record.marks and \
                                 grade.max_per >= record.marks:
                             record.grade = grade.result
+                        else:
+                            record.grade = None
                 else:
                     record.grade = None
             else:
@@ -70,6 +80,4 @@ class OpResultLine(models.Model):
                 record.status = 'pass'
 
     def unlink(self):
-        for res in self:
-            super(OpResultLine, res).unlink()
-        return self
+        return super(OpResultLine, self).unlink()

@@ -1,14 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* openeducat_admission
+# 	* openeducat_admission
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-27 05:28+0000\n"
-"PO-Revision-Date: 2019-09-27 05:28+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2025-10-31 04:59+0000\n"
+"PO-Revision-Date: 2025-10-31 04:59+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,34 +17,99 @@ msgstr ""
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
-msgid "<b>Course : </b>"
-msgstr "<B> Kursus: </ b>"
+msgid "<b>Course:</b>"
+msgstr "<b>Kursus:</b>"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
-msgid "<b>From Date: </b>"
-msgstr "<B> Dari Tanggal: </ b>"
+msgid "<b>From Date:</b>"
+msgstr "<b>Sejak Tanggal:</b>"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
 msgid "<b>To Date:</b>"
-msgstr "<B> To Date: </ b>"
+msgstr "<b>Sampai saat ini:</b>"
+
+#. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
+msgid ""
+"<br/>\n"
+"                            <b>Total Number of Students :</b>"
+msgstr ""
+"<br/>\n"
+"                            <b>Jumlah Siswa :</b>"
+
+#. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
+msgid "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
+msgstr "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
+
+#. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
+msgid "<i class=\"fa fa-fw me-1 fa-phone text-primary\" title=\"Phone\"/>"
+msgstr "<i class=\"fa fa-fw me-1 fa-telepon teks-utama\" title=\"Telepon\"/>"
+
+#. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.res_config_settings_view_user
+msgid "<span class=\"fa fa-info-circle\" title=\"Openeducat Enterprise Module\"/>"
+msgstr "<span class=\"fa fa-info-circle\" title=\"Modul Perusahaan Openeducat\"/>"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
 msgid "<strong>Admission Analysis</strong>"
-msgstr "<Strong> Pendaftaran Analisis </ strong>"
+msgstr "<strong>Analisis Penerimaan</strong>"
 
 #. module: openeducat_admission
-#: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
-msgid "<strong>Total Number of Students :</strong>"
-msgstr "<Strong> Jumlah Jumlah Siswa: </ strong>"
+#: model:op.admission,first_name:openeducat_admission.op_admission_11
+msgid "Aarav"
+msgstr "Aarav"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_11
+msgid "Aarav M Sharma"
+msgstr "Aarav M Sharma"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__academic_years_id
+msgid "Academic Year"
+msgstr "Tahun Akademik"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_needaction
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_needaction
 msgid "Action Needed"
-msgstr "aksi Dibutuhkan"
+msgstr "Dibutuhkan Tindakan"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__active
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__active
+msgid "Active"
+msgstr "Aktif"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_ids
+msgid "Activities"
+msgstr "Kegiatan"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Dekorasi Pengecualian Aktivitas"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_state
+msgid "Activity State"
+msgstr "Status Aktivitas"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ikon Jenis Aktivitas"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_12
+msgid "Adams"
+msgstr "Adam"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
@@ -53,109 +118,140 @@ msgstr "Alamat"
 
 #. module: openeducat_admission
 #: model:ir.model,name:openeducat_admission.model_op_admission
+#: model:ir.module.category,name:openeducat_admission.module_category_all_op_admission
+#: model:ir.ui.menu,name:openeducat_admission.menu_admission_register
+#: model:res.groups.privilege,name:openeducat_admission.module_admission_privilege
 msgid "Admission"
 msgstr "Penerimaan"
 
 #. module: openeducat_admission
-#: model:ir.actions.act_window,name:openeducat_admission.act_open_op_admission_view_pivot
 #: model:ir.actions.report,name:openeducat_admission.action_report_report_admission_analysis
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.admission_analysis_form
 msgid "Admission Analysis"
-msgstr "Analisis penerimaan"
+msgstr "Analisis Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.actions.act_window,name:openeducat_admission.admission_analysis_act
 #: model:ir.model,name:openeducat_admission.model_report_openeducat_admission_report_admission_analysis
-#: model:ir.ui.menu,name:openeducat_admission.menu_admission_analysis_report
 msgid "Admission Analysis Report"
-msgstr "Pendaftaran Analisis Laporan"
+msgstr "Laporan Analisis Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.model,name:openeducat_admission.model_admission_analysis
 msgid "Admission Analysis Wizard"
-msgstr "Pendaftaran Analisis Wisaya"
+msgstr "Wisaya Analisis Penerimaan"
 
 #. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__admission_base
+msgid "Admission Base"
+msgstr "Basis Penerimaan"
+
+#. module: openeducat_admission
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
-#: selection:op.admission,state:0
 msgid "Admission Confirm"
-msgstr "Pendaftaran Konfirmasi"
+msgstr "Konfirmasi Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__admission_date
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
 msgid "Admission Date"
-msgstr "Pendaftaran Tanggal"
+msgstr "Tanggal Penerimaan"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Admission Detail"
-msgstr "Pendaftaran Detil"
+msgstr "Detil Pendaftaran"
 
 #. module: openeducat_admission
-#: selection:op.admission.register,state:0
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__admission_fees_line_ids
+msgid "Admission Fees Configuration"
+msgstr "Konfigurasi Biaya Masuk"
+
+#. module: openeducat_admission
+#: model:ir.model,name:openeducat_admission.model_op_admission_fees_line
+msgid "Admission Fees Line"
+msgstr "Jalur Biaya Masuk"
+
+#. module: openeducat_admission
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__state__admission
 msgid "Admission Process"
-msgstr "Proses Pendaftaran"
+msgstr "Proses Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.model,name:openeducat_admission.model_op_admission_register
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__register_id
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__register_id
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_graph
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_pivot
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_search
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_tree
 msgid "Admission Register"
-msgstr "Pendaftaran Pendaftaran"
+msgstr "Daftar Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.actions.act_window,name:openeducat_admission.act_open_op_admission_register_view
-#: model:ir.ui.menu,name:openeducat_admission.menu_admission_register
 msgid "Admission Registers"
-msgstr "Register Pendaftaran"
+msgstr "Daftar Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.ui.menu,name:openeducat_admission.menu_admission_analysis
 msgid "Admission Report"
-msgstr "penerimaan Laporan"
+msgstr "Laporan Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__admission_ids
 #: model:ir.ui.menu,name:openeducat_admission.menu_op_admission_root
 #: model:ir.ui.menu,name:openeducat_admission.menu_op_admission_submenu
 msgid "Admissions"
-msgstr "penerimaan"
+msgstr "Penerimaan"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_4
+msgid "Alex"
+msgstr "Alex"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_4
+msgid "Alex J Parker"
+msgstr "Alex J Parker"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__application_date
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
 msgid "Application Date"
-msgstr "Tanggal Aplikasi"
+msgstr "Tanggal Pendaftaran"
 
 #. module: openeducat_admission
-#: code:addons/openeducat_admission/models/admission.py:188
-#, python-format
-msgid "Application Date should be between Start Date &                     End Date of Admission Register."
-msgstr "Aplikasi Tanggal harus antara Tanggal Mulai & Tanggal Akhir Pendaftaran Pendaftaran."
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission.py:0
+msgid ""
+"Application Date should be between Start Date & End Date of Admission "
+"Register."
+msgstr ""
+"Tanggal Pendaftaran harus antara Tanggal Mulai & Tanggal Akhir Pendaftaran "
+"Pendaftaran."
 
 #. module: openeducat_admission
-#: selection:op.admission.register,state:0
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__state__application
 msgid "Application Gathering"
-msgstr "aplikasi Temu"
+msgstr "Pertemuan Aplikasi"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
 msgid "Application No."
-msgstr "Aplikasi No"
+msgstr "Nomor Permohonan."
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__application_number
 msgid "Application Number"
-msgstr "Nomor aplikasi"
+msgstr "Nomor Aplikasi"
 
 #. module: openeducat_admission
-#: sql_constraint:op.admission:0
+#: model:ir.model.constraint,message:openeducat_admission.constraint_op_admission_unique_application_number
 msgid "Application Number must be unique per Application!"
-msgstr "Aplikasi Nomor harus unik per aplikasi!"
+msgstr "Nomor Aplikasi harus unik untuk setiap Aplikasi!"
 
 #. module: openeducat_admission
 #: model:ir.ui.menu,name:openeducat_admission.menu_admission
@@ -164,40 +260,93 @@ msgid "Applications"
 msgstr "Aplikasi"
 
 #. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_search
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
+msgid "Archived"
+msgstr "Diarsipkan"
+
+#. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_attachment_count
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_attachment_count
 msgid "Attachment Count"
-msgstr "lampiran Hitungan"
+msgstr "Jumlah Lampiran"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_25
+msgid "Bassam"
+msgstr "Bassam"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__batch_id
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
 msgid "Batch"
-msgstr "setumpuk"
+msgstr "Kelompok"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_18
+msgid "Bella"
+msgstr "Bella"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_18
+msgid "Bella L Carter"
+msgstr "Bella L Carter"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_21
+msgid "Ben"
+msgstr "Ben"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_21
+msgid "Ben T Wood"
+msgstr "Ben T Kayu"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__birth_date
 msgid "Birth Date"
-msgstr "Tanggal lahir"
+msgstr "Tanggal Lahir"
 
 #. module: openeducat_admission
-#: code:addons/openeducat_admission/models/admission.py:197
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission.py:0
 msgid "Birth Date can't be greater than current date!"
-msgstr "Tanggal Lahir tidak dapat lebih besar dari tanggal sekarang!"
+msgstr "Tanggal Lahir tidak boleh lebih besar dari tanggal sekarang!"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_16
+msgid "Brooks"
+msgstr "Brooks"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_16
+msgid "Camila"
+msgstr "Camila"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_16
+msgid "Camila M Brooks"
+msgstr "Camila M Brooks"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.admission_analysis_form
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
 msgid "Cancel"
-msgstr "Batalkan"
+msgstr "Membatalkan"
 
 #. module: openeducat_admission
-#: selection:op.admission,state:0
-#: selection:op.admission.register,state:0
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__cancel
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__state__cancel
 msgid "Cancelled"
 msgstr "Dibatalkan"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_18
+msgid "Carter"
+msgstr "Tukang gerobak"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__city
@@ -206,16 +355,42 @@ msgid "City"
 msgstr "Kota"
 
 #. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__company_id
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__company_id
+msgid "Company"
+msgstr "Perusahaan"
+
+#. module: openeducat_admission
+#: model:ir.model,name:openeducat_admission.model_res_config_settings
+msgid "Config Settings"
+msgstr "Pengaturan Konfigurasi"
+
+#. module: openeducat_admission
+#: model:ir.ui.menu,name:openeducat_admission.menu_admission_config
+msgid "Configuration"
+msgstr "Konfigurasi"
+
+#. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
+msgid "Configure Course Fees"
+msgstr "Konfigurasikan Biaya Kursus"
+
+#. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
 msgid "Confirm"
-msgstr "Konfirmasi"
+msgstr "Mengonfirmasi"
 
 #. module: openeducat_admission
-#: selection:op.admission,state:0
-#: selection:op.admission.register,state:0
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__confirm_count
+msgid "Confirm Count"
+msgstr "Konfirmasikan Jumlah"
+
+#. module: openeducat_admission
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__confirm
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__state__confirm
 msgid "Confirmed"
-msgstr "dikonfirmasi"
+msgstr "Dikonfirmasi"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__country_id
@@ -226,26 +401,46 @@ msgstr "Negara"
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__course_id
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__course_id
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__course_id
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__course_id
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__admission_base__course
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_search
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
 msgid "Course"
-msgstr "kuliah"
+msgstr "Kursus"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_graph
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_pivot
 msgid "Course By Admission"
-msgstr "Tentu saja Dengan Pendaftaran"
+msgstr "Kursus Dengan Penerimaan"
 
 #. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_registration_graph
+msgid "Course By Admission Register"
+msgstr "Kursus Dengan Pendaftaran Pendaftaran"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__course_fees_product_id
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__product_id
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_student_course__product_id
 msgid "Course Fees"
-msgstr "Biaya kursus"
+msgstr "Biaya Kursus"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__course_ids
+msgid "Courses"
+msgstr "Kursus"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_res_config_settings__enable_create_student_user
+msgid "Create Student User"
+msgstr "Buat Pengguna Siswa"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__create_uid
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__create_uid
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__create_uid
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__create_uid
 msgid "Created by"
 msgstr "Dibuat oleh"
@@ -253,62 +448,125 @@ msgstr "Dibuat oleh"
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__create_date
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__create_date
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__create_date
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__create_date
 msgid "Created on"
 msgstr "Dibuat pada"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__display_name
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__display_name
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__display_name
-#: model:ir.model.fields,field_description:openeducat_admission.field_report_openeducat_admission_report_admission_analysis__display_name
-msgid "Display Name"
-msgstr "Nama tampilan"
+#: model:op.admission,first_name:openeducat_admission.op_admission_14
+msgid "Daniel"
+msgstr "Daniel"
 
 #. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_14
+msgid "Daniel V King"
+msgstr "Daniel V Raja"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_12
+msgid "David"
+msgstr "Daud"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_12
+msgid "David L Adams"
+msgstr "David L Adams"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission__rotting_days
+msgid "Day count since this resource was last updated"
+msgstr "Jumlah hari sejak sumber daya ini terakhir diperbarui"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__rotting_days
+msgid "Days Rotting"
+msgstr "Hari Membusuk"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__discount
+msgid "Discount (%)"
+msgstr "Diskon (%)"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__display_name
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__display_name
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__display_name
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__display_name
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_student_course__display_name
+#: model:ir.model.fields,field_description:openeducat_admission.field_report_openeducat_admission_report_admission_analysis__display_name
+#: model:ir.model.fields,field_description:openeducat_admission.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nama Tampilan"
+
+#. module: openeducat_admission
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__done
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__state__done
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
-#: selection:op.admission,state:0
-#: selection:op.admission.register,state:0
 msgid "Done"
 msgstr "Selesai"
 
 #. module: openeducat_admission
-#: selection:op.admission,state:0
-#: selection:op.admission.register,state:0
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__done_count
+msgid "Done Count"
+msgstr "Selesai Hitung"
+
+#. module: openeducat_admission
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__draft
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__state__draft
 msgid "Draft"
 msgstr "Draf"
 
 #. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__draft_count
+msgid "Draft Count"
+msgstr "Jumlah Draf"
+
+#. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__due_date
 msgid "Due Date"
-msgstr "Batas waktu"
+msgstr "Dua Tanggal"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Educational Detail"
-msgstr "Detil pendidikan"
+msgstr "Detail Pendidikan"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__email
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Email"
-msgstr "Surel"
+msgstr "E-mail"
 
 #. module: openeducat_admission
-#: sql_constraint:op.admission:0
-msgid "Email must be unique per Application!"
-msgstr "Email harus unik per Aplikasi!"
+#: model:op.admission,first_name:openeducat_admission.op_admission_1
+msgid "Emma"
+msgstr "Ema"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_1
+msgid "Emma J Parker"
+msgstr "Emma J Parker"
+
+#. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.res_config_settings_view_user
+msgid ""
+"Enable this option to create a student\n"
+"                            user"
+msgstr ""
+"Aktifkan opsi ini untuk membuat siswa\n"
+"                            pengguna"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__end_date
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__end_date
 msgid "End Date"
-msgstr "Tanggal akhir"
+msgstr "Tanggal Berakhir"
 
 #. module: openeducat_admission
-#: code:addons/openeducat_admission/models/admission_register.py:72
-#: code:addons/openeducat_admission/wizard/admission_analysis_wizard.py:43
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission_register.py:0
+#: code:addons/openeducat_admission/wizard/admission_analysis_wizard.py:0
 msgid "End Date cannot be set before Start Date."
 msgstr "Tanggal Akhir tidak dapat ditetapkan sebelum Tanggal Mulai."
 
@@ -325,31 +583,41 @@ msgstr "Terdaftar"
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__family_business
 msgid "Family Business"
-msgstr "Urusan keluarga"
+msgstr "Bisnis Keluarga"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__family_income
 msgid "Family Income"
-msgstr "Pendapatan keluarga"
+msgstr "Pendapatan Keluarga"
+
+#. module: openeducat_admission
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_search
+msgid "Favorites"
+msgstr "Favorit"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__fees
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_search
 msgid "Fees"
-msgstr "biaya"
+msgstr "Biaya"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__fees_start_date
+msgid "Fees Start Date"
+msgstr "Tanggal Mulai Biaya"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__fees_term_id
 msgid "Fees Term"
-msgstr "biaya Jangka"
+msgstr "Jangka Waktu Biaya"
 
 #. module: openeducat_admission
-#: selection:op.admission,gender:0
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__gender__f
 msgid "Female"
 msgstr "Perempuan"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__name
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__first_name
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "First Name"
 msgstr "Nama depan"
@@ -358,13 +626,7 @@ msgstr "Nama depan"
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_follower_ids
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_follower_ids
 msgid "Followers"
-msgstr "pengikut"
-
-#. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_channel_ids
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Pengikut (Saluran)"
+msgstr "Pengikut"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_partner_ids
@@ -373,70 +635,184 @@ msgid "Followers (Partners)"
 msgstr "Pengikut (Mitra)"
 
 #. module: openeducat_admission
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ikon font yang mengagumkan, mis. tugas fa"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_2
+msgid "Garcia"
+msgstr "Garcia"
+
+#. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__gender
 msgid "Gender"
 msgstr "Jenis kelamin"
 
 #. module: openeducat_admission
-#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_search
-#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
-msgid "Group By..."
-msgstr "Kelompokkan Menurut..."
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__has_message
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__has_message
+msgid "Has Message"
+msgstr "Memiliki Pesan"
+
+#. module: openeducat_admission
+#: model:ir.module.category,description:openeducat_admission.module_category_all_op_admission
+msgid "Helps you manage your institutes different-different users."
+msgstr ""
+"Membantu Anda mengelola lembaga Anda dengan pengguna yang berbeda-beda."
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_15
+msgid "Henry"
+msgstr "Henry"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_15
+msgid "Henry S Lee"
+msgstr "Henry S Lee"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_23
+msgid "Hill"
+msgstr "Bukit"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__id
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__id
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__id
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__id
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_student_course__id
 #: model:ir.model.fields,field_description:openeducat_admission.field_report_openeducat_admission_report_admission_analysis__id
+#: model:ir.model.fields,field_description:openeducat_admission.field_res_config_settings__id
 msgid "ID"
-msgstr ""
+msgstr "PENGENAL"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,help:openeducat_admission.field_op_admission__message_unread
-#: model:ir.model.fields,help:openeducat_admission.field_op_admission_register__message_unread
-msgid "If checked new messages require your attention."
-msgstr "Jika dicentang pesan baru membutuhkan perhatian Anda."
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_exception_icon
+msgid "Icon"
+msgstr "Ikon"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ikon untuk menunjukkan aktivitas pengecualian."
 
 #. module: openeducat_admission
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission__message_needaction
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission_register__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Jika dicentang, pesan baru membutuhkan perhatian Anda."
+msgstr "Jika dicentang, pesan baru memerlukan perhatian Anda."
 
 #. module: openeducat_admission
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission__message_has_error
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission_register__message_has_error
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission_register__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Jika dicentang, beberapa pesan memiliki kesalahan pengiriman."
+msgstr "Jika dicentang, beberapa pesan mengalami kesalahan pengiriman."
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_13
+msgid "Imani"
+msgstr "Imani"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_13
+msgid "Imani J Jengo"
+msgstr "Gedung Iman J"
+
+#. module: openeducat_admission
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission.py:0
+msgid "Import Template for Admission"
+msgstr "Impor Templat untuk Penerimaan"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__is_student
 msgid "Is Already Student"
-msgstr "Apakah Sudah Mahasiswa"
+msgstr "Sudah Pelajar"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__is_favorite
+msgid "Is Favorite"
+msgstr "Adalah Favorit"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_is_follower
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_is_follower
 msgid "Is Follower"
-msgstr "Apakah Follower"
+msgstr "Adalah Pengikut"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis____last_update
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission____last_update
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register____last_update
-#: model:ir.model.fields,field_description:openeducat_admission.field_report_openeducat_admission_report_admission_analysis____last_update
-msgid "Last Modified on"
-msgstr "Terakhir Diubah pada"
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission__duration_tracking
+msgid "JSON that maps ids from a many2one field to seconds spent"
+msgstr "JSON yang memetakan id dari bidang many2one ke detik yang dihabiskan"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_2
+msgid "James"
+msgstr "Yakobus"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_2
+msgid "James M Garcia"
+msgstr "James M Garcia"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_13
+msgid "Jengo"
+msgstr "Bangunan"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_17
+msgid "Johnson"
+msgstr "Johnson"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_10
+msgid "Joon"
+msgstr "Joon"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_10
+msgid "Joon H Kim"
+msgstr "Joon H Kim"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_24
+msgid "Jun"
+msgstr "Juni"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_24
+msgid "Jun W Wu"
+msgstr "Juni W Wu"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_5
+msgid "Kamau"
+msgstr "Kamau"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_10
+msgid "Kim"
+msgstr "Kim"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_14
+msgid "King"
+msgstr "Raja"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__last_name
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Last Name"
-msgstr "Nama keluarga"
+msgstr "Nama Belakang"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__write_uid
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__write_uid
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__write_uid
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__write_uid
 msgid "Last Updated by"
 msgstr "Terakhir Diperbarui oleh"
@@ -444,42 +820,77 @@ msgstr "Terakhir Diperbarui oleh"
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__write_date
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__write_date
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_fees_line__write_date
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__write_date
 msgid "Last Updated on"
-msgstr "Terakhir diperbarui saat"
+msgstr "Terakhir Diperbarui pada"
 
 #. module: openeducat_admission
-#: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
-msgid "Mail :"
-msgstr "mail:"
+#: model:op.admission,last_name:openeducat_admission.op_admission_15
+msgid "Lee"
+msgstr "Lee"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_main_attachment_id
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Lampiran utama"
+#: model:op.admission,last_name:openeducat_admission.op_admission_8
+msgid "Lewis"
+msgstr "Lewis"
 
 #. module: openeducat_admission
-#: selection:op.admission,gender:0
+#: model:op.admission,first_name:openeducat_admission.op_admission_23
+msgid "Lily"
+msgstr "Bunga bakung"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_23
+msgid "Lily G Hill"
+msgstr "Lily G Bukit"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_8
+msgid "Lucas"
+msgstr "Lukas"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_8
+msgid "Lucas D Lewis"
+msgstr "Lukas D Lewis"
+
+#. module: openeducat_admission
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__gender__m
 msgid "Male"
 msgstr "Pria"
 
 #. module: openeducat_admission
+#: model:res.groups,name:openeducat_admission.group_op_admission_admin
+msgid "Manager"
+msgstr "Manajer"
+
+#. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__max_count
 msgid "Maximum No. of Admission"
-msgstr "Nomor maksimum Pendaftaran"
+msgstr "Jumlah Penerimaan Maksimum"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_has_error
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_has_error
 msgid "Message Delivery error"
-msgstr "pesan kesalahan Pengiriman"
+msgstr "Kesalahan Pengiriman Pesan"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_ids
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_ids
 msgid "Messages"
-msgstr "pesan"
+msgstr "Pesan"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_9
+msgid "Michael"
+msgstr "Michael"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_9
+msgid "Michael H Young"
+msgstr "Michael H Muda"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__middle_name
@@ -488,37 +899,76 @@ msgid "Middle Name"
 msgstr "Nama tengah"
 
 #. module: openeducat_admission
-#: code:addons/openeducat_admission/models/admission_register.py:82
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission_register.py:0
 msgid "Min Admission can't be greater than Max Admission"
-msgstr "Min Pendaftaran tidak dapat lebih besar dari Max Pendaftaran"
+msgstr "Penerimaan Min tidak boleh lebih besar dari Penerimaan Maks"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__min_count
 msgid "Minimum No. of Admission"
-msgstr "No minimum Pendaftaran"
+msgstr "Jumlah Minimum Penerimaan"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__minimum_age_criteria
+msgid "Minimum Required Age(Years)"
+msgstr "Usia Minimum yang Diperlukan (Tahun)"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_6
+msgid "Mitchell"
+msgstr "Mitchell"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__mobile
-#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Mobile"
-msgstr "mobil"
+msgstr "Seluler"
 
 #. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Batas Waktu Aktivitas Saya"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__name
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__name
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Name"
 msgstr "Nama"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__nbr
-msgid "No of Admission"
-msgstr "Tidak ada Penerimaan"
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Batas Waktu Kegiatan Berikutnya"
 
 #. module: openeducat_admission
-#: code:addons/openeducat_admission/models/admission_register.py:80
-#, python-format
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_summary
+msgid "Next Activity Summary"
+msgstr "Ringkasan Kegiatan Berikutnya"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_type_id
+msgid "Next Activity Type"
+msgstr "Jenis Aktivitas Berikutnya"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__nbr
+msgid "No of Admission"
+msgstr "Jumlah Penerimaan"
+
+#. module: openeducat_admission
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission_register.py:0
 msgid "No of Admission should be positive!"
-msgstr "Tidak ada Penerimaan harus positif!"
+msgstr "Jumlah Penerimaan harus positif!"
+
+#. module: openeducat_admission
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission.py:0
+msgid "Not Eligible for Admission minimum required age is : %s "
+msgstr ""
+"Tidak Memenuhi Syarat untuk Pendaftaran, usia minimum yang diperlukan "
+"adalah: %s"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_needaction_counter
@@ -529,13 +979,13 @@ msgstr "Jumlah Tindakan"
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_has_error_counter
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_has_error_counter
-msgid "Number of error"
+msgid "Number of errors"
 msgstr "Jumlah kesalahan"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission__message_needaction_counter
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission_register__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr "Jumlah pesan yang memerlukan tindakan"
 
 #. module: openeducat_admission
@@ -545,36 +995,56 @@ msgid "Number of messages with delivery error"
 msgstr "Jumlah pesan dengan kesalahan pengiriman"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,help:openeducat_admission.field_op_admission__message_unread_counter
-#: model:ir.model.fields,help:openeducat_admission.field_op_admission_register__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Jumlah pesan yang belum dibaca"
+#: model:op.admission,last_name:openeducat_admission.op_admission_19
+msgid "Omari"
+msgstr "Omari"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__online_count
+msgid "Online Count"
+msgstr "Hitungan Daring"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Open Student Profile"
-msgstr "Terbuka Mahasiswa Profil"
+msgstr "Buka Profil Siswa"
 
 #. module: openeducat_admission
-#: selection:op.admission,gender:0
-msgid "Other"
-msgstr "Lain"
+#: model:op.admission,first_name:openeducat_admission.op_admission_22
+msgid "Oren"
+msgstr "Oren"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_22
+msgid "Oren H Shimon"
+msgstr "Oren H Shimon"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_1
+#: model:op.admission,last_name:openeducat_admission.op_admission_4
+msgid "Parker"
+msgstr "tukang parkir"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__partner_id
 msgid "Partner"
-msgstr "Pasangan"
+msgstr "Mitra"
 
 #. module: openeducat_admission
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__pending
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
-#: selection:op.admission,state:0
 msgid "Pending"
-msgstr "tertunda"
+msgstr "Tertunda"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Personal Detail"
-msgstr "Detil pribadi"
+msgstr "Detil Pribadi"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_20
+msgid "Phillips"
+msgstr "Phillips"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__phone
@@ -583,29 +1053,46 @@ msgid "Phone"
 msgstr "Telepon"
 
 #. module: openeducat_admission
-#: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
-msgid "Phone :"
-msgstr "telepon:"
-
-#. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__prev_course_id
 msgid "Previous Course"
-msgstr "Sebelumnya Course"
+msgstr "Kursus Sebelumnya"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__prev_institute_id
 msgid "Previous Institute"
-msgstr "Sebelumnya Institute"
+msgstr "Institut Sebelumnya"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__prev_result
 msgid "Previous Result"
-msgstr "Hasil sebelumnya"
+msgstr "Hasil Sebelumnya"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.admission_analysis_form
 msgid "Print"
 msgstr "Mencetak"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_3
+msgid "Priya"
+msgstr "Priya"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_3
+msgid "Priya R Reddy"
+msgstr "Priya R Reddy"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__program_id
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__program_id
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission_register__admission_base__program
+msgid "Program"
+msgstr "Program"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_3
+msgid "Reddy"
+msgstr "Reddy"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
@@ -618,7 +1105,7 @@ msgstr "Daftar"
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_tree
 msgid "Registration"
-msgstr "Registrasi"
+msgstr "Pendaftaran"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
@@ -626,25 +1113,111 @@ msgid "Reject"
 msgstr "Menolak"
 
 #. module: openeducat_admission
-#: selection:op.admission,state:0
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__reject
 msgid "Rejected"
 msgstr "Ditolak"
 
 #. module: openeducat_admission
 #: model:ir.ui.menu,name:openeducat_admission.menu_admission_report_root
-msgid "Reports"
-msgstr "laporan"
+msgid "Reporting"
+msgstr "Pelaporan"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__activity_user_id
+msgid "Responsible User"
+msgstr "Pengguna yang Bertanggung Jawab"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_7
+msgid "Rossi"
+msgstr "Rossi"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__is_rotting
+msgid "Rotting"
+msgstr "Membusuk"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_17
+msgid "Ruby"
+msgstr "Rubi"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_17
+msgid "Ruby N Johnson"
+msgstr "Ruby N Johnson"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Kesalahan Pengiriman SMS"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_20
+msgid "Sam"
+msgstr "Sam"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_20
+msgid "Sam A Phillips"
+msgstr "Sam A Phillips"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_25
+msgid "Samira"
+msgstr "Samira"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_25
+msgid "Samira B Bassam"
+msgstr "Samira B Bassam"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_19
+msgid "Sekou"
+msgstr "menyelamatkan"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_19
+msgid "Sekou O Omari"
+msgstr "Sekou O Omari"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
 msgid "Set to Draft"
-msgstr "Set ke Draft"
+msgstr "Setel ke Draf"
+
+#. module: openeducat_admission
+#: model:ir.ui.menu,name:openeducat_admission.menu_admission_config_settings
+msgid "Settings"
+msgstr "Pengaturan"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_11
+msgid "Sharma"
+msgstr "Sharma"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_22
+msgid "Shimon"
+msgstr "Shimon"
+
+#. module: openeducat_admission
+#: model:op.admission,first_name:openeducat_admission.op_admission_7
+msgid "Sofia"
+msgstr "Sofia"
+
+#. module: openeducat_admission
+#: model:op.admission,name:openeducat_admission.op_admission_7
+msgid "Sofia M Rossi"
+msgstr "Sofia M Rossi"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
 msgid "Start Admission"
-msgstr "Mulai Pendaftaran"
+msgstr "Mulai Penerimaan"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_form
@@ -655,13 +1228,13 @@ msgstr "Mulai Aplikasi"
 #: model:ir.model.fields,field_description:openeducat_admission.field_admission_analysis__start_date
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__start_date
 msgid "Start Date"
-msgstr "Mulai tanggal"
+msgstr "Tanggal Mulai"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__state
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "State"
-msgstr "Status"
+msgstr "Negara"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__state_id
@@ -672,13 +1245,32 @@ msgstr "Amerika"
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__state
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_register_search
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_search
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_tree
 msgid "Status"
+msgstr "Status"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
 msgstr ""
+"Status berdasarkan aktivitas\n"
+"Terlambat: Tanggal jatuh tempo sudah lewat\n"
+"Hari ini: Tanggal aktivitas adalah hari ini\n"
+"Direncanakan: Kegiatan di masa depan."
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__duration_tracking
+msgid "Status time"
+msgstr "Waktu status"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__street
 msgid "Street"
-msgstr "jalan"
+msgstr "Jalan"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
@@ -687,41 +1279,68 @@ msgstr "Jalan..."
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__street2
+#: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Street2"
-msgstr "Jalan nomor 2"
+msgstr "Jalan2"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__student_id
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Student"
-msgstr "Siswa"
+msgstr "Murid"
+
+#. module: openeducat_admission
+#: model:ir.model,name:openeducat_admission.model_op_student_course
+msgid "Student Course Details"
+msgstr "Detail Kursus Siswa"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.report_admission_analysis
 msgid "Student Name"
-msgstr "Nama siswa"
+msgstr "Nama Siswa"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "Submit"
-msgstr "Kirimkan"
+msgstr "Kirim"
 
 #. module: openeducat_admission
-#: selection:op.admission,state:0
+#: model:ir.model.fields.selection,name:openeducat_admission.selection__op_admission__state__submit
 msgid "Submitted"
 msgstr "Dikirim"
 
 #. module: openeducat_admission
-#: code:addons/openeducat_admission/models/admission.py:388
-#, python-format
-msgid "The value of the deposit amount must be positive."
-msgstr "Nilai dari jumlah deposit harus positif."
+#: model:op.admission,first_name:openeducat_admission.op_admission_5
+msgid "Taye"
+msgstr "memangkas"
 
 #. module: openeducat_admission
-#: code:addons/openeducat_admission/models/admission.py:383
-#, python-format
-msgid "There is no income account defined for this product: \"%s\".                    You may have to install a chart of account from Accounting                    app, settings menu."
-msgstr "Tidak ada akun pendapatan yang ditetapkan untuk produk ini: \"% s\". Anda mungkin harus menginstal bagan akun dari Akuntansi aplikasi, pengaturan menu."
+#: model:op.admission,name:openeducat_admission.op_admission_5
+msgid "Taye K Kamau"
+msgstr "Taye K Kamau"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__academic_term_id
+msgid "Terms"
+msgstr "Ketentuan"
+
+#. module: openeducat_admission
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission.py:0
+msgid "The value of the deposit amount must be positive."
+msgstr "Nilai jumlah deposit harus positif."
+
+#. module: openeducat_admission
+#. odoo-python
+#: code:addons/openeducat_admission/models/admission.py:0
+msgid ""
+"There is no income account defined for this product: \"%s\"."
+"                    You may have to install a chart of account from "
+"Accounting                    app, settings menu."
+msgstr ""
+"Tidak ada akun pendapatan yang ditetapkan untuk produk ini: \"%s\"."
+"                    Anda mungkin harus menginstal bagan akun dari aplikasi "
+"Akuntansi, menu pengaturan."
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__title
@@ -730,41 +1349,68 @@ msgid "Title"
 msgstr "Judul"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_unread
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_unread
-msgid "Unread Messages"
-msgstr "Pesan belum dibaca"
+#: model:op.admission,first_name:openeducat_admission.op_admission_6
+msgid "Tony"
+msgstr "Toni"
 
 #. module: openeducat_admission
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__message_unread_counter
-#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Pesan belum dibaca Kontra"
+#: model:op.admission,name:openeducat_admission.op_admission_6
+msgid "Tony J Mitchell"
+msgstr "Tony J Mitchell"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__application_count
+msgid "Total_record"
+msgstr "Total_catatan"
+
+#. module: openeducat_admission
+#: model:ir.model.fields,help:openeducat_admission.field_op_admission__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Jenis aktivitas pengecualian yang tercatat."
+
+#. module: openeducat_admission
+#: model:res.groups,name:openeducat_admission.group_op_admission_user
+msgid "User"
+msgstr "Pengguna"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__website_message_ids
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission_register__website_message_ids
 msgid "Website Messages"
-msgstr "Website Pesan"
+msgstr "Pesan Situs Web"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission__website_message_ids
 #: model:ir.model.fields,help:openeducat_admission.field_op_admission_register__website_message_ids
 msgid "Website communication history"
-msgstr "riwayat komunikasi situs"
+msgstr "Riwayat komunikasi situs web"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_21
+msgid "Wood"
+msgstr "Kayu"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_24
+msgid "Wu"
+msgstr "Wu"
+
+#. module: openeducat_admission
+#: model:op.admission,last_name:openeducat_admission.op_admission_9
+msgid "Young"
+msgstr "Muda"
 
 #. module: openeducat_admission
 #: model_terms:ir.ui.view,arch_db:openeducat_admission.view_op_admission_form
 msgid "ZIP"
-msgstr "zip"
+msgstr "RITSLETING"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__zip
 msgid "Zip"
-msgstr ""
+msgstr "Ritsleting"
 
 #. module: openeducat_admission
 #: model:ir.model.fields,field_description:openeducat_admission.field_op_admission__image
 msgid "image"
 msgstr "gambar"
-

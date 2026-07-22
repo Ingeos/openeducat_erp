@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -20,14 +19,14 @@
 ###############################################################################
 {
     'name': 'OpenEduCat Timetable',
-    'version': '13.0.1.0',
+    'version': '19.0.1.1.0',
     'license': 'LGPL-3',
     'category': 'Education',
     "sequence": 3,
     'summary': 'Manage TimeTables',
     'complexity': "easy",
     'author': 'OpenEduCat Inc',
-    'website': 'http://www.openeducat.org',
+    'website': 'https://www.openeducat.org',
     'depends': ['openeducat_classroom'],
     'data': [
         'security/op_security.xml',
@@ -44,13 +43,14 @@
         'wizard/session_confirmation.xml',
         'views/timetable_templates.xml',
         'menus/op_menu.xml',
+        'data/backfill_student_ids_action.xml',
     ],
     'demo': [
         'demo/timing_demo.xml',
         'demo/op_timetable_demo.xml'
     ],
     'images': [
-        'static/description/openeducat_timetable_banner.jpg',
+        'static/description/openeducat-timetable_banner.jpg',
     ],
     'installable': True,
     'auto_install': False,

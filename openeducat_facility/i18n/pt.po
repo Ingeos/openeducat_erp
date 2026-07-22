@@ -1,19 +1,30 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* openeducat_facility
+# 	* openeducat_facility
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 09:54+0000\n"
-"PO-Revision-Date: 2019-09-25 09:54+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2025-10-30 10:00+0000\n"
+"PO-Revision-Date: 2025-10-30 10:00+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: openeducat_facility
+#: model:ir.model.fields,field_description:openeducat_facility.field_op_facility__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: openeducat_facility
+#: model_terms:ir.ui.view,arch_db:openeducat_facility.view_op_facility_form
+#: model_terms:ir.ui.view,arch_db:openeducat_facility.view_op_facility_search
+msgid "Archived"
+msgstr "Arquivado"
 
 #. module: openeducat_facility
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility__code
@@ -22,9 +33,9 @@ msgid "Code"
 msgstr "Código"
 
 #. module: openeducat_facility
-#: sql_constraint:op.facility:0
+#: model:ir.model.constraint,message:openeducat_facility.constraint_op_facility_unique_facility_code
 msgid "Code should be unique per facility!"
-msgstr "Código deve ser único por facilidade!"
+msgstr "O código deve ser exclusivo por instalação!"
 
 #. module: openeducat_facility
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility__create_uid
@@ -42,13 +53,13 @@ msgstr "Criado em"
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility__display_name
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility_line__display_name
 msgid "Display Name"
-msgstr "Mostrar nome"
+msgstr "Nome de exibição"
 
 #. module: openeducat_facility
-#: code:addons/openeducat_facility/models/facility_line.py:37
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_facility/models/facility_line.py:0
 msgid "Enter proper Quantity in Facilities!"
-msgstr "Digite adequada Quantidade em Instalações!"
+msgstr "Insira a quantidade adequada em Instalações!"
 
 #. module: openeducat_facility
 #: model:ir.actions.act_window,name:openeducat_facility.act_open_op_facility_view
@@ -60,6 +71,8 @@ msgstr "Instalações"
 
 #. module: openeducat_facility
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility_line__facility_id
+#: model:ir.module.category,name:openeducat_facility.module_category_all_op_facility
+#: model:res.groups.privilege,name:openeducat_facility.module_privilege_openeducat_facility
 #: model_terms:ir.ui.view,arch_db:openeducat_facility.view_op_facility_form
 #: model_terms:ir.ui.view,arch_db:openeducat_facility.view_op_facility_search
 #: model_terms:ir.ui.view,arch_db:openeducat_facility.view_op_facility_tree
@@ -67,21 +80,16 @@ msgid "Facility"
 msgstr "Instalação"
 
 #. module: openeducat_facility
-#: model_terms:ir.ui.view,arch_db:openeducat_facility.view_op_facility_search
-msgid "Group By..."
-msgstr "Agrupar Por..."
+#: model:ir.module.category,description:openeducat_facility.module_category_all_op_facility
+msgid "Helps you manage your institutes different-different users."
+msgstr ""
+"Ajuda você a gerenciar usuários diferentes e diferentes de seus institutos."
 
 #. module: openeducat_facility
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility__id
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility_line__id
 msgid "ID"
-msgstr "Id."
-
-#. module: openeducat_facility
-#: model:ir.model.fields,field_description:openeducat_facility.field_op_facility____last_update
-#: model:ir.model.fields,field_description:openeducat_facility.field_op_facility_line____last_update
-msgid "Last Modified on"
-msgstr "Última modificação em"
+msgstr "EU IA"
 
 #. module: openeducat_facility
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility__write_uid
@@ -98,12 +106,17 @@ msgstr "Última atualização em"
 #. module: openeducat_facility
 #: model:ir.model,name:openeducat_facility.model_op_facility
 msgid "Manage Facility"
-msgstr "Gerenciar Facility"
+msgstr "Gerenciar instalação"
 
 #. module: openeducat_facility
 #: model:ir.model,name:openeducat_facility.model_op_facility_line
 msgid "Manage Facility Line"
-msgstr "Gerenciar Linha Facility"
+msgstr "Gerenciar linha de instalação"
+
+#. module: openeducat_facility
+#: model:res.groups,name:openeducat_facility.group_op_facility_manager
+msgid "Manager"
+msgstr "Gerente"
 
 #. module: openeducat_facility
 #: model:ir.model.fields,field_description:openeducat_facility.field_op_facility__name
@@ -116,3 +129,7 @@ msgstr "Nome"
 msgid "Quantity"
 msgstr "Quantidade"
 
+#. module: openeducat_facility
+#: model:res.groups,name:openeducat_facility.group_op_facility_user
+msgid "User"
+msgstr "Usuário"

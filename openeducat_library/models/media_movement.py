@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,10 +18,10 @@
 #
 ###############################################################################
 
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
-from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError, UserError
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError, ValidationError
 
 
 def days_between(to_date, from_date):
@@ -36,12 +35,12 @@ class OpMediaMovement(models.Model):
     _inherit = "mail.thread"
     _description = "Media Movement"
     _rec_name = "media_id"
-    _order = "return_date DESC"
+    _order = "id DESC"
 
     media_id = fields.Many2one('op.media', 'Media', required=True)
     media_unit_id = fields.Many2one(
         'op.media.unit', 'Media Unit', required=True,
-        track_visibility='onchange', domain=[('state', '=', 'available')])
+        tracking=True, domain=[('state', '=', 'available')])
     type = fields.Selection(
         [('student', 'Student'), ('faculty', 'Faculty')],
         'Student/Faculty', required=True)
@@ -49,48 +48,53 @@ class OpMediaMovement(models.Model):
     faculty_id = fields.Many2one('op.faculty', 'Faculty')
     library_card_id = fields.Many2one(
         'op.library.card', 'Library Card', required=True,
-        track_visibility='onchange')
+        tracking=True)
     issued_date = fields.Date(
-        'Issued Date', track_visibility='onchange',
+        'Issued Date', tracking=True,
         required=True, default=fields.Date.today())
     return_date = fields.Date('Due Date', required=True)
     actual_return_date = fields.Date('Actual Return Date')
     penalty = fields.Float('Penalty')
     partner_id = fields.Many2one(
-        'res.partner', 'Person', track_visibility='onchange')
+        'res.partner', 'Person', tracking=True)
     reserver_name = fields.Char('Person Name', size=256)
     state = fields.Selection(
         [('available', 'Available'), ('reserve', 'Reserved'),
          ('issue', 'Issued'), ('lost', 'Lost'),
          ('return', 'Returned'), ('return_done', 'Returned Done')],
-        'Status', default='available', track_visibility='onchange')
+        'Status', default='available', tracking=True)
     media_type_id = fields.Many2one(related='media_id.media_type_id',
                                     store=True, string='Media Type')
     user_id = fields.Many2one(
         'res.users', string='Users')
     invoice_id = fields.Many2one('account.move', 'Invoice', readonly=True)
     active = fields.Boolean(default=True)
+    company_id = fields.Many2one(
+        'res.company', string='Company',
+        default=lambda self: self.env.user.company_id)
 
     def get_diff_day(self):
         for media_mov_id in self:
-            today_date = datetime.strptime(fields.Date.today(), '%Y-%m-%d')
+            today_date = datetime.strptime(str(fields.Date.today()), '%Y-%m-%d')
             return_date = datetime.strptime(
-                media_mov_id.return_date, '%Y-%m-%d')
+                str(media_mov_id.return_date), '%Y-%m-%d')
             diff = today_date - return_date
             return abs(diff.days)
 
     @api.constrains('issued_date', 'return_date')
     def _check_date(self):
-        if self.issued_date > self.return_date:
-            raise ValidationError(_(
-                'Return Date cannot be set before Issued Date.'))
+        for record in self:
+            if record.issued_date > record.return_date:
+                raise ValidationError(_(
+                    'Return Date cannot be set before Issued Date.'))
 
     @api.constrains('issued_date', 'actual_return_date')
     def check_actual_return_date(self):
-        if self.actual_return_date:
-            if self.issued_date > self.actual_return_date:
-                raise ValidationError(_(
-                    'Actual Return Date cannot be set before Issued Date'))
+        for record in self:
+            if record.actual_return_date:
+                if record.issued_date > record.actual_return_date:
+                    raise ValidationError(_(
+                        'Actual Return Date cannot be set before Issued Date'))
 
     @api.onchange('media_unit_id')
     def onchange_media_unit_id(self):
@@ -146,7 +150,8 @@ class OpMediaMovement(models.Model):
                 record.actual_return_date, record.issued_date)
             x = record.library_card_id.library_card_type_id
             if record.library_card_id and x:
-                penalty_days = actual_diff > standard_diff and actual_diff - \
+                penalty_days = \
+                    actual_diff > standard_diff and actual_diff - \
                     standard_diff or penalty_days
                 penalty_amt = penalty_days * x.penalty_amt_per_day
             record.write({'penalty': penalty_amt})
@@ -162,14 +167,13 @@ class OpMediaMovement(models.Model):
                     product.categ_id.property_account_income_categ_id.id
             if not account_id:
                 raise UserError(
-                    _('There is no income account defined for this \
-                    product: "%s". You may have to install a chart of \
-                    account from Accounting app, settings \
-                    menu.') % (product.name,))
+                    _('There is no income account defined for this product: "%s". '
+                      'You may have to install a chart of account from Accounting'
+                      ' app, settings menu.') % (product.name,))
 
             invoice = self.env['account.move'].create({
                 'partner_id': rec.student_id.partner_id.id,
-                'type': 'out_invoice',
+                'move_type': 'out_invoice',
                 'invoice_date': fields.Date.today(),
             })
             line_values = {'name': product.name,
@@ -181,6 +185,6 @@ class OpMediaMovement(models.Model):
                            'product_id': product.id, }
             invoice.write({'invoice_line_ids': [(0, 0, line_values)]})
 
-            invoice._compute_invoice_taxes_by_group()
-#           invoice.action_invoice_open()
+            invoice._compute_tax_totals()
+            #           invoice.action_invoice_open()
             self.invoice_id = invoice.id

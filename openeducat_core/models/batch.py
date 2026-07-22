@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -35,10 +34,8 @@ class OpBatch(models.Model):
     end_date = fields.Date('End Date', required=True)
     course_id = fields.Many2one('op.course', 'Course', required=True)
     active = fields.Boolean(default=True)
-
-    _sql_constraints = [
-        ('unique_batch_code',
-         'unique(code)', 'Code should be unique per batch!')]
+    _unique_batch_code = models.Constraint('unique(code)',
+                                           'Code should be unique per batch!')
 
     @api.constrains('start_date', 'end_date')
     def check_dates(self):
@@ -50,7 +47,7 @@ class OpBatch(models.Model):
                     _("End Date cannot be set before Start Date."))
 
     @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
+    def name_search(self, name='', domain=None, operator='ilike', limit=100):
         if self.env.context.get('get_parent_batch', False):
             lst = []
             lst.append(self.env.context.get('course_id'))
@@ -59,9 +56,9 @@ class OpBatch(models.Model):
                 lst.append(courses.parent_id.id)
                 courses = courses.parent_id
             batches = self.env['op.batch'].search([('course_id', 'in', lst)])
-            return batches.name_get()
-        return super(OpBatch, self).name_search(
-            name, args, operator=operator, limit=limit)
+            return [(batch.id, batch.display_name) for batch in batches]
+        return super().name_search(
+            name, domain=domain, operator=operator, limit=limit)
 
     @api.model
     def get_import_templates(self):

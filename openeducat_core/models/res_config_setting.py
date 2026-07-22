@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -65,7 +64,7 @@ class ResConfigSettings(models.TransientModel):
         string="Attendance Enterprise")
     module_openeducat_student_attendance_enterprise = fields.Boolean(
         string="Student Attendance Kiosk")
-    module_openeducat_bigbluebutton = fields.Boolean(
+    module_bigbluebutton = fields.Boolean(
         string="Bigbluebutton Enterprise")
     module_openeducat_campus_enterprise = fields.Boolean(
         string="Campus Enterprise")
@@ -75,8 +74,10 @@ class ResConfigSettings(models.TransientModel):
         string="Exam Enterprise")
     module_openeducat_facility_enterprise = fields.Boolean(
         string="Facility Enterprise")
-    module_openeducat_fees_enterprise = fields.Boolean(
-        string="Fees Enterprise")
+    module_openeducat_fees_plan = fields.Boolean(
+        string="Fees Plan")
+    module_openeducat_fees_parent_bridge = fields.Boolean(
+        string="Fees Parent Bridge")
     module_openeducat_library_barcode = fields.Boolean(
         string="Library Barcode Enterprise")
     module_openeducat_library_enterprise = fields.Boolean(
@@ -95,8 +96,8 @@ class ResConfigSettings(models.TransientModel):
         string="LMS Survey Enterprise")
     module_openeducat_meeting_enterprise = fields.Boolean(
         string="Meeting Enterprise")
-    module_openeducat_online_admission = fields.Boolean(
-        string="Online Admission Enterprise")
+    module_openeducat_dynamic_admission = fields.Boolean(
+        string="Dynamic Admission")
     module_openeducat_parent_enterprise = fields.Boolean(
         string="Parent Enterprise")
     module_openeducat_placement_enterprise = fields.Boolean(
@@ -113,19 +114,13 @@ class ResConfigSettings(models.TransientModel):
         string="Lesson Enterprise")
     module_openeducat_skill_enterprise = fields.Boolean(
         string="Skill Enterprise")
-    module_openeducat_lms_website = fields.Boolean(
-        string="LMS Website")
     module_openeducat_assignment_grading_enterprise = fields.Boolean(
         string="Assignment Grading Enterprise")
     module_openeducat_assignment_grading_bridge = fields.Boolean(
-        string="Assignment Grading Bridge")
-    module_openeducat_fees_on_session = fields.Boolean(
-        string="Fees On Session")
-    module_openeducat_fees_on_duration = fields.Boolean(
-        string="Fees On Duration")
+        string="Assignment Gradebook Bridge")
     module_openeducat_lms_admission = fields.Boolean(
         string="LMS Admission")
-    module_openeducat_backend_theme = fields.Boolean(
+    module_backend_theme = fields.Boolean(
         string="Backend Theme")
     module_openeducat_crm_enterprise = fields.Boolean(
         string="CRM Enterprise")
@@ -139,7 +134,7 @@ class ResConfigSettings(models.TransientModel):
         string="Exam GPA Enterprise")
     module_openeducat_exam_grading_bridge = fields.Boolean(
         string="Exam Grading Bridge")
-    module_openeducat_googlemeet = fields.Boolean(
+    module_googlemeet = fields.Boolean(
         string="Google Meet")
     module_openeducat_grading = fields.Boolean(
         string="Grading")
@@ -153,9 +148,9 @@ class ResConfigSettings(models.TransientModel):
         string="Student Progress Enterprise")
     module_openeducat_subject_material_allocation = fields.Boolean(
         string="Subject Material Allocation")
-    module_openeducat_teams = fields.Boolean(
+    module_teams = fields.Boolean(
         string="Teams")
-    module_openeducat_zoom = fields.Boolean(
+    module_zoom = fields.Boolean(
         string="Zoom")
     module_openeducat_student_leave_enterprise = fields.Boolean(
         string="Student Leave")
@@ -165,9 +160,64 @@ class ResConfigSettings(models.TransientModel):
         string="Skill Assessment Enterprise")
     module_openeducat_lms_h5p = fields.Boolean(
         string="LMS H5P Enterprise")
-    module_openeducat_online_appointment = fields.Boolean(
+    module_online_appointment = fields.Boolean(
         string="Online Appointment Enterprise")
-    module_openeducat_secure = fields.Boolean(
-        string="Secure QR")
     module_openeducat_grievance_enterprise = fields.Boolean(
         string="Grievance")
+    module_openeducat_secure = fields.Boolean(
+        string="Secure QR")
+    module_openeducat_mass_subject_registration = fields.Boolean(
+        string="Mass Subject Registration")
+    module_openeducat_attendance_report_xlsx = fields.Boolean(
+        string="Attendance Xlsx Report")
+    module_openeducat_asset_request_enterprise = fields.Boolean(
+        string="Asset Request Enterprise")
+    module_openeducat_live = fields.Boolean(
+        string="Live Meeting")
+    module_openeducat_live_assignment = fields.Boolean(
+        string="Live Meeting Assignment")
+    module_openeducat_live_attendance = fields.Boolean(
+        string="Live Meeting Attendance")
+    module_openeducat_live_attentiveness = fields.Boolean(
+        string="Live Meeting Attentiveness")
+    module_openeducat_attendance_face_recognition = fields.Boolean(
+        string="Attendance Face Recognition")
+    module_openeducat_omr = fields.Boolean(
+        string="OMR")
+    module_auto_database_backup = fields.Boolean(
+        string="Database Backup to Local Server")
+    module_auto_database_backup_dropbox = fields.Boolean(
+        string="Database Backup to Dropbox")
+    module_auto_database_backup_ftp = fields.Boolean(
+        string="Database Backup to Remote FTP Server")
+    module_auto_database_backup_google_drive = fields.Boolean(
+        string="Database Backup to Google Drive")
+    module_auto_database_backup_onedrive = fields.Boolean(
+        string="Database Backup to Onedrive")
+    module_auto_database_backup_sftp = fields.Boolean(
+        string="Database Backup to Remote SFTP Server")
+    attendance_subject_generic = fields.Selection(
+        [('subject', 'Subject Wise'), ('generic', 'Generic')],
+        help=(
+            "Subject-specific attendance will be gathered during a "
+            "particular session, whereas general attendance will be "
+            "collected by one responsible faculty member for the "
+            "entire day."
+        ),
+        config_parameter="attendance_subject_generic_parameter",
+        default='subject'
+    )
+    module_openeducat_thesis = fields.Boolean(string='Thesis')
+    module_openeducat_convocation = fields.Boolean(string='Convocation')
+    module_openeducat_grading_migration_bridge = fields.Boolean(
+        string="Student Migration Grading Bridge")
+    module_openeducat_exam_migration_bridge = fields.Boolean(
+        string="Student Migration Exam Bridge")
+    module_openeducat_student_feedback_management = fields.Boolean(
+        string="Student Feedback")
+    module_openeducat_student_withdrawal_mgmt = fields.Boolean(
+        string="Student Withdrawal Management")
+    module_openeducat_admission_grading_bridge = fields.Boolean(
+        string="Admission Grading Bridge")
+    module_openeducat_student_mentor = fields.Boolean(
+        string="Student Mentor")

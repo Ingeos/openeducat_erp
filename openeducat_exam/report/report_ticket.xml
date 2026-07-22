@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+
         <template id="report_ticket">
             <style>
                 .font{
@@ -14,12 +14,12 @@
             </style>
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
-                    <div class="page">
+                    <div class="page" style="font-family: 'Odoo Unicode Support Noto';">
                         <br/>
                         <br/>
                         <br/>
-                        <div class="oe_structure"/>
-                        <t t-foreach="get_data" t-as="o">
+                        <div class="oe_structure" id="report_ticket_structure"/>
+                        <t t-foreach="get_data" t-as="ticket_data">
                             <div class="font">
                                 <div class="page">
                                     <br></br>
@@ -30,8 +30,8 @@
                                             <b>Hall Ticket</b>
                                         </h3>
                                         (
-                                        <span t-raw="'%s' % o['exam'] if o['exam'] else ''"/>
-                                        <span t-raw="'%s' % o['exam_code'] if o['exam_code'] else ''"/>
+                                        <span t-out="ticket_data['exam'] if ticket_data['exam'] else ''"/>
+                                        <span t-out="ticket_data['exam_code'] if ticket_data['exam_code'] else ''"/>
                                         )
                                     </div>
                                     <br></br>
@@ -39,25 +39,25 @@
                                     <table width="100%" style="font-size:14px;">
                                         <tbody>
                                             <tr>
-                                                <td class="py-2">
+                                                <td>
                                                     <table width="100%">
                                                         <tbody>
                                                             <tr>
-                                                                <td>
+                                                                <td style="padding:10px;">
                                                                     <b>Student Name :</b>
-                                                                    <span t-esc="o['student']"/>
+                                                                    <span t-esc="ticket_data['student']"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>
+                                                                <td style="padding:10px;">
                                                                     <b>Roll No :</b>
-                                                                    <span t-raw="'%s' %   o['roll_number']  if  o['roll_number']  else ''"/>
+                                                                    <span t-out="ticket_data['roll_number']  if  ticket_data['roll_number']  else ''"/>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>
+                                                                <td style="padding:10px;">
                                                                     <b>Course :</b>
-                                                                    <span t-raw="'%s' %   o['course']  if  o['course']  else ''"/>
+                                                                    <span t-out="ticket_data['course']  if  ticket_data['course']  else ''"/>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -73,10 +73,10 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-right">
-                                                                    <img t-if="o['image']" alt="Student Image"
-                                                                         style="padding-top: 16px; padding-bottom: 16px; "
-                                                                         t-att-src="'data:image/png;base64,%s' % to_text(o['image'])"
+                                                                <td class="text-right" style="text-align: center;">
+                                                                    <img t-if="ticket_data['image']" alt="Student Image"
+                                                                         style="padding-top: 19px; padding-bottom:26px; "
+                                                                         t-att-src="image_data_uri(ticket_data['image'])"
                                                                          width="75"/>
                                                                 </td>
                                                             </tr>
@@ -97,18 +97,18 @@
                                             <th class="text-center">Supervisor Sign</th>
                                         </thead>
                                         <tbody class="text-center" style="font-size:12px;">
-                                            <tr t-foreach="o['line']" t-as='s'>
+                                            <tr t-foreach="ticket_data['line']" t-as='s'>
                                                 <td>
-                                                    <span t-raw="'%s' %  s['subject'] if  s['subject']  else ''"/>
+                                                    <span t-out="s['subject'] if  s['subject']  else ''"/>
                                                 </td>
                                                 <td>
-                                                    <span t-raw="'%s' %   s['date'] if  s['date'] else ''" t-options="{'widget':'date'}"/>
+                                                    <span t-out="s['date'] if  s['date'] else ''" t-options="{'widget':'date'}"/>
                                                 </td>
                                                 <td>
                                                     <span t-esc="s['time']"/>
                                                 </td>
                                                 <td>
-                                                    <span t-raw="'%s' %   s['sup_sign']  if  s['sup_sign']  else ''"/>
+                                                    <span t-out="s['sup_sign']  if  s['sup_sign']  else ''"/>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -121,5 +121,5 @@
                 </t>
             </t>
         </template>
-    </data>
+
 </odoo>

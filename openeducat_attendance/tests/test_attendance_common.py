@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -21,11 +20,10 @@
 from odoo.tests import common
 
 
-class TestAttendanceCommon(common.SavepointCase):
+class TestAttendanceCommon(common.TransactionCase):
     def setUp(self):
         super(TestAttendanceCommon, self).setUp()
         self.op_attendance_register = self.env['op.attendance.register']
         self.op_attendance_sheet = self.env['op.attendance.sheet']
         self.op_attendance_line = self.env['op.attendance.line']
-        self.op_attendance_import = self.env['op.all.student']
         self.op_attendance_wizard = self.env['student.attendance']

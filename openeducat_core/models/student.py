@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -29,10 +28,11 @@ class OpStudentCourse(models.Model):
     _inherit = "mail.thread"
     _rec_name = 'student_id'
 
-    student_id = fields.Many2one('op.student', 'Student', ondelete="cascade", track_visibility='onchange')
-    course_id = fields.Many2one('op.course', 'Course', required=True, track_visibility='onchange')
-    batch_id = fields.Many2one('op.batch', 'Batch', required=True, track_visibility='onchange')
-    roll_number = fields.Char('Roll Number', track_visibility='onchange')
+    student_id = fields.Many2one('op.student', 'Student',
+                                 ondelete="cascade", tracking=True)
+    course_id = fields.Many2one('op.course', 'Course', required=True, tracking=True)
+    batch_id = fields.Many2one('op.batch', 'Batch', tracking=True)
+    roll_number = fields.Char('Roll Number', tracking=True)
     subject_ids = fields.Many2many('op.subject', string='Subjects')
     academic_years_id = fields.Many2one('op.academic.year', 'Academic Year')
     academic_term_id = fields.Many2one('op.academic.term', 'Terms')
@@ -40,17 +40,15 @@ class OpStudentCourse(models.Model):
                               ('finished', 'Finished')],
                              string="Status", default="running")
 
-    _sql_constraints = [
-        ('unique_name_roll_number_id',
-         'unique(roll_number,course_id,batch_id,student_id)',
-         'Roll Number & Student must be unique per Batch!'),
-        ('unique_name_roll_number_course_id',
-         'unique(roll_number,course_id,batch_id)',
-         'Roll Number must be unique per Batch!'),
-        ('unique_name_roll_number_student_id',
-         'unique(student_id,course_id,batch_id)',
-         'Student must be unique per Batch!'),
-    ]
+    _unique_name_roll_number_id = models.Constraint(
+        'unique(roll_number,course_id,batch_id,student_id)',
+        'Roll Number & Student must be unique per Batch!')
+    _unique_name_roll_number_course_id = models.Constraint(
+        'unique(roll_number,course_id,batch_id)',
+        'Roll Number must be unique per Batch!')
+    _unique_name_roll_number_student_id = models.Constraint(
+        'unique(student_id,course_id,batch_id)',
+        'Student must be unique per Batch!')
 
     @api.model
     def get_import_templates(self):
@@ -66,9 +64,9 @@ class OpStudent(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _inherits = {"res.partner": "partner_id"}
 
-    first_name = fields.Char('First Name', size=128, translate=True)
-    middle_name = fields.Char('Middle Name', size=128, translate=True)
-    last_name = fields.Char('Last Name', size=128, translate=True)
+    first_name = fields.Char('First Name',  translate=True)
+    middle_name = fields.Char('Middle Name', translate=True)
+    last_name = fields.Char('Last Name', translate=True)
     birth_date = fields.Date('Birth Date')
     blood_group = fields.Selection([
         ('A+', 'A+ve'),
@@ -92,35 +90,66 @@ class OpStudent(models.Model):
     partner_id = fields.Many2one('res.partner', 'Partner',
                                  required=True, ondelete="cascade")
     user_id = fields.Many2one('res.users', 'User', ondelete="cascade")
-    gr_no = fields.Char("GR Number", size=20)
+    gr_no = fields.Char("Registration Number", size=20)
     category_id = fields.Many2one('op.category', 'Category')
     course_detail_ids = fields.One2many('op.student.course', 'student_id',
                                         'Course Details',
-                                        track_visibility='onchange')
+                                        tracking=True)
     active = fields.Boolean(default=True)
+    certificate_number = fields.Char(
+        string='Certificate No.',
+        readonly=True,
+        copy=False,)
+    name = fields.Char(related='partner_id.name', inherited=True, readonly=False)
+    email = fields.Char(related='partner_id.email', readonly=False)
 
-    _sql_constraints = [(
-        'unique_gr_no',
-        'unique(gr_no)',
-        'GR Number must be unique per student!'
-    )]
+    _unique_gr_no = models.Constraint('unique(gr_no)',
+                                      'Registration Number must be unique per student!')
 
     @api.onchange('first_name', 'middle_name', 'last_name')
     def _onchange_name(self):
-        if not self.middle_name:
-            self.name = str(self.first_name) + " " + str(
-                self.last_name
-            )
+        fname = self.first_name or ""
+        mname = self.middle_name or ""
+        lname = self.last_name or ""
+
+        if fname or mname or lname:
+            self.name = " ".join(filter(None, [fname, mname, lname]))
         else:
-            self.name = str(self.first_name) + " " + str(
-                self.middle_name) + " " + str(self.last_name)
+            self.name = "New"
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get('name') or vals.get('name') == 'New':
+                fname = vals.get('first_name') or ""
+                mname = vals.get('middle_name') or ""
+                lname = vals.get('last_name') or ""
+                if fname or mname or lname:
+                    vals['name'] = " ".join(filter(None, [fname, mname, lname]))
+                else:
+                    vals['name'] = "New"
+        return super(OpStudent, self).create(vals_list)
+
+    def copy(self, default=None):
+        raise ValidationError(_('You cannot duplicate a student record.'))
 
     @api.constrains('birth_date')
     def _check_birthdate(self):
         for record in self:
-            if record.birth_date > fields.Date.today():
+            if record.birth_date and record.birth_date > fields.Date.today():
                 raise ValidationError(_(
                     "Birth Date can't be greater than current date!"))
+
+    @api.constrains('email')
+    def _check_email_unique(self):
+        for record in self:
+            if record.email:
+                duplicate = self.env['res.partner'].search([
+                    ('email', '=', record.email),
+                    ('id', '!=', record.partner_id.id)
+                ], limit=1)
+                if duplicate:
+                    raise ValidationError(_('Email must be unique per partner!'))
 
     @api.model
     def get_import_templates(self):
@@ -138,8 +167,8 @@ class OpStudent(models.Model):
                     'name': record.name,
                     'partner_id': record.partner_id.id,
                     'login': record.email,
-                    'groups_id': user_group,
+                    'group_ids': user_group,
                     'is_student': True,
-                    'tz': self._context.get('tz'),
+                    'tz': self.env.context.get('tz'),
                 })
                 record.user_id = user_id

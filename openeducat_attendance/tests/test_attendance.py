@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,8 +18,9 @@
 #
 ###############################################################################
 
-from logging import info
 import time
+from logging import info
+
 from .test_attendance_common import TestAttendanceCommon
 
 
@@ -32,9 +32,11 @@ class TestAttendanceRegister(TestAttendanceCommon):
     def test_case_attendance_register(self):
         register = self.op_attendance_register.search([])
         for record in register:
-            info('      Attendance Register : %s' % record.name)
-            info('      Course : %s' % record.course_id.name)
-            info('      Code : %s' % record.code)
+            pass
+            # info('      Attendance Register : %s' % record.name)
+            # info('      Course : %s' % record.course_id.name)
+            # info('      Code : %s' % record.code)
+
 
 class TestAttendanceSheet(TestAttendanceCommon):
 
@@ -49,14 +51,12 @@ class TestAttendanceSheet(TestAttendanceCommon):
                 self.env.ref('openeducat_attendance.'
                              'op_attendance_register_1').id
         })
-        info('  Details Of Attendance Sheet:.....')
+        # info('  Details Of Attendance Sheet:.....')
         for record in sheet:
             record.attendance_draft()
             record.attendance_start()
             record.attendance_done()
             record.attendance_cancel()
-            record._compute_total_present()
-            record._compute_total_absent()
 
 
 class TestAttendanceLine(TestAttendanceCommon):
@@ -66,26 +66,13 @@ class TestAttendanceLine(TestAttendanceCommon):
 
     def test_case_attendance_line(self):
         line = self.op_attendance_line.search([])
-        info('  Details Of Attendance Lines:.....')
+        # info('  Details Of Attendance Lines:.....')
         for record in line:
-            info('      Attendance Sheet : %s' % record.attendance_id.name)
-            info('      Student : %s' % record.student_id.name)
-            info('      Register : %s' % record.register_id.name)
-            info('      Present : %s' % record.present)
-
-
-class TestAttendanceImport(TestAttendanceCommon):
-
-    def setUp(self):
-        super(TestAttendanceImport, self).setUp()
-
-    def test_case_wizard_attendance_import(self):
-        wizard = self.op_attendance_import.create({
-            'course_id': self.env.ref('openeducat_core.op_course_2').id,
-            'batch_id': self.env.ref('openeducat_core.op_batch_1').id,
-            'student_ids': self.env.ref('openeducat_core.op_student_1'),
-        })
-        wizard.confirm_student()
+            pass
+            # info('      Attendance Sheet : %s' % record.attendance_id.name)
+            # info('      Student : %s' % record.student_id.name)
+            # info('      Register : %s' % record.register_id.name)
+            # info('      Present : %s' % record.present)
 
 
 class TestAttendanceWizard(TestAttendanceCommon):

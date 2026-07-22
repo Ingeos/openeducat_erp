@@ -1,14 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* openeducat_activity
+# 	* openeducat_activity
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 06:51+0000\n"
-"PO-Revision-Date: 2019-12-09 06:51+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2025-10-31 05:01+0000\n"
+"PO-Revision-Date: 2025-10-31 05:01+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,9 +16,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__year_id
+msgid "Academic Year"
+msgstr "ปีการศึกษา"
+
+#. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_needaction
 msgid "Action Needed"
 msgstr "จำเป็นต้องดำเนินการ"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__active
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type__active
+msgid "Active"
+msgstr "คล่องแคล่ว"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_ids
@@ -26,11 +37,32 @@ msgid "Activities"
 msgstr "กิจกรรม"
 
 #. module: openeducat_activity
+#: model:ir.module.category,name:openeducat_activity.module_category_all_op_activity
+#: model:ir.module.category,name:openeducat_activity.module_category_openeducat_activity
+#: model_terms:ir.ui.view,arch_db:openeducat_activity.activity_smart_button
+msgid "Activity"
+msgstr "กิจกรรม"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_student__activity_count
+msgid "Activity Count"
+msgstr "จำนวนกิจกรรม"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "กิจกรรมตกแต่งข้อยกเว้น"
+
+#. module: openeducat_activity
+#: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_graph
+msgid "Activity Graph View"
+msgstr "มุมมองกราฟกิจกรรม"
+
+#. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_student__activity_log
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_form
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_search
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_tree
-#: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_student_form_timetable_inherit
 msgid "Activity Log"
 msgstr "บันทึกกิจกรรม"
 
@@ -41,9 +73,14 @@ msgid "Activity Logs"
 msgstr "บันทึกกิจกรรม"
 
 #. module: openeducat_activity
+#: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_pivot
+msgid "Activity Pivot"
+msgstr "สาระสำคัญของกิจกรรม"
+
+#. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_state
 msgid "Activity State"
-msgstr "รัฐกิจกรรม"
+msgstr "สถานะกิจกรรม"
 
 #. module: openeducat_activity
 #: model:ir.model,name:openeducat_activity.model_op_activity_type
@@ -55,32 +92,61 @@ msgid "Activity Type"
 msgstr "ประเภทกิจกรรม"
 
 #. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "ไอคอนประเภทกิจกรรม"
+
+#. module: openeducat_activity
 #: model:ir.actions.act_window,name:openeducat_activity.act_open_op_activity_type_view
 #: model:ir.ui.menu,name:openeducat_activity.menu_op_activity_type_sub
 msgid "Activity Types"
 msgstr "ประเภทกิจกรรม"
 
 #. module: openeducat_activity
+#: model:ir.model.constraint,message:openeducat_activity.constraint_op_activity_type_unique_name
+msgid "Activity type must be unique!"
+msgstr "ประเภทกิจกรรมต้องไม่ซ้ำกัน!"
+
+#. module: openeducat_activity
+#: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_form
+#: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_search
+#: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_type_form
+#: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_type_search
+msgid "Archived"
+msgstr "เก็บถาวร"
+
+#. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_attachment_count
 msgid "Attachment Count"
-msgstr "จำนวนเอกสารแนบ"
+msgstr "จำนวนไฟล์แนบ"
 
 #. module: openeducat_activity
-#: code:addons/openeducat_activity/wizard/student_migrate_wizard.py:50
-#, python-format
-msgid "Can't migrate, As selected courses don't                         share same parent course!"
-msgstr "ไม่สามารถโยกย้ายในฐานะที่เป็นหลักสูตรที่เลือกไม่ได้ใช้แน่นอนแม่เดียวกัน!"
+#. odoo-python
+#: code:addons/openeducat_activity/wizard/student_migrate_wizard.py:0
+msgid "Can't migrate, As selected courses don't share same Program!"
+msgstr "ไม่สามารถย้ายได้ เนื่องจากหลักสูตรที่เลือกไม่ได้ใช้โปรแกรมเดียวกัน!"
 
 #. module: openeducat_activity
-#: code:addons/openeducat_activity/wizard/student_migrate_wizard.py:55
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_activity/wizard/student_migrate_wizard.py:0
+msgid "Can't migrate, As selected courses don't share same parent course!"
+msgstr "ย้ายไม่ได้ เนื่องจากหลักสูตรที่เลือกไม่ได้ใช้หลักสูตรหลักเดียวกัน!"
+
+#. module: openeducat_activity
+#. odoo-python
+#: code:addons/openeducat_activity/wizard/student_migrate_wizard.py:0
 msgid "Can't migrate, Proceed for new admission"
-msgstr "ไม่สามารถโยกย้ายดำเนินการสำหรับการเข้าศึกษาใหม่"
+msgstr "ไม่สามารถย้ายข้อมูลได้ ดำเนินการรับเข้าใหม่"
 
 #. module: openeducat_activity
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.student_migrate_form
 msgid "Cancel"
 msgstr "ยกเลิก"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__course_completed
+msgid "Course Completed?"
+msgstr "จบหลักสูตรแล้ว?"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__create_uid
@@ -94,7 +160,7 @@ msgstr "สร้างโดย"
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type__create_date
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__create_date
 msgid "Created on"
-msgstr "สร้างบน"
+msgstr "สร้างเมื่อ"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__date
@@ -106,11 +172,12 @@ msgstr "วันที่"
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__description
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.view_op_activity_form
 msgid "Description"
-msgstr "ลักษณะ"
+msgstr "คำอธิบาย"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__display_name
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type__display_name
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_student__display_name
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__display_name
 msgid "Display Name"
 msgstr "ชื่อที่แสดง"
@@ -123,22 +190,22 @@ msgstr "คณะ"
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_follower_ids
 msgid "Followers"
-msgstr "สมัครพรรคพวก"
-
-#. module: openeducat_activity
-#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "ติดตามเรา (ช่อง)"
+msgstr "ผู้ติดตาม"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "ติดตามเรา (พันธมิตร)"
+msgstr "ผู้ติดตาม (พันธมิตร)"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,help:openeducat_activity.field_op_activity__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "ไอคอนตัวอักษรที่ยอดเยี่ยมเช่น fa-งาน"
 
 #. module: openeducat_activity
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.student_migrate_form
 msgid "Forward"
-msgstr "ข้างหน้า"
+msgstr "ซึ่งไปข้างหน้า"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__course_from_id
@@ -146,73 +213,89 @@ msgid "From Course"
 msgstr "จากหลักสูตร"
 
 #. module: openeducat_activity
-#: code:addons/openeducat_activity/wizard/student_migrate_wizard.py:45
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_activity/wizard/student_migrate_wizard.py:0
 msgid "From Course must not be same as To Course!"
-msgstr "จากหลักสูตรจะต้องไม่เป็นเช่นเดียวกับสนาม!"
+msgstr "From Course ต้องไม่เหมือนกับ To Course!"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__has_message
+msgid "Has Message"
+msgstr "มีข้อความ"
+
+#. module: openeducat_activity
+#: model:ir.module.category,description:openeducat_activity.module_category_all_op_activity
+#: model:ir.module.category,description:openeducat_activity.module_category_openeducat_activity
+msgid "Helps you manage your institutes different-different users."
+msgstr "ช่วยคุณจัดการสถาบันของคุณกับผู้ใช้ที่แตกต่างกัน"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__id
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type__id
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_student__id
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__id
 msgid "ID"
-msgstr ""
+msgstr "บัตรประจำตัวประชาชน"
 
 #. module: openeducat_activity
-#: model:ir.model.fields,help:openeducat_activity.field_op_activity__message_unread
-msgid "If checked new messages require your attention."
-msgstr "หากตรวจสอบข้อความใหม่ต้องให้ความสนใจของคุณ"
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_exception_icon
+msgid "Icon"
+msgstr "ไอคอน"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,help:openeducat_activity.field_op_activity__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "ไอคอนเพื่อระบุกิจกรรมข้อยกเว้น"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,help:openeducat_activity.field_op_activity__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "หากตรวจสอบข้อความใหม่ต้องให้ความสนใจของคุณ"
+msgstr "หากเลือก ข้อความใหม่จะต้องได้รับการดูแลจากคุณ"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,help:openeducat_activity.field_op_activity__message_has_error
+#: model:ir.model.fields,help:openeducat_activity.field_op_activity__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "หากตรวจสอบข้อความบางรายที่มีข้อผิดพลาดในการจัดส่ง"
+msgstr "หากเลือก แสดงว่าบางข้อความมีข้อผิดพลาดในการส่ง"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_is_follower
 msgid "Is Follower"
-msgstr "มีผู้ติดตาม"
-
-#. module: openeducat_activity
-#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity____last_update
-#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type____last_update
-#: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate____last_update
-msgid "Last Modified on"
-msgstr "แก้ไขล่าสุดเมื่อ"
+msgstr "เป็นผู้ตาม"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__write_uid
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type__write_uid
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__write_uid
 msgid "Last Updated by"
-msgstr "Updated ล่าสุดโดย"
+msgstr "อัปเดตล่าสุดโดย"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__write_date
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type__write_date
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__write_date
 msgid "Last Updated on"
-msgstr "แก้ไขล่าสุดใน"
+msgstr "อัปเดตล่าสุดเมื่อ"
 
 #. module: openeducat_activity
-#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "เอกสารแนบหลัก"
+#: model:res.groups,name:openeducat_activity.group_activity_manager
+msgid "Manager"
+msgstr "ผู้จัดการ"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_has_error
 msgid "Message Delivery error"
-msgstr "ข้อผิดพลาดการจัดส่งข้อความ"
+msgstr "ข้อผิดพลาดในการส่งข้อความ"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_ids
 msgid "Messages"
 msgstr "ข้อความ"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "กำหนดเวลากิจกรรมของฉัน"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity_type__name
@@ -222,7 +305,7 @@ msgstr "ชื่อ"
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr "หมดเขตกิจกรรมถัดไป"
+msgstr "กำหนดเวลากิจกรรมถัดไป"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_summary
@@ -237,42 +320,32 @@ msgstr "ประเภทกิจกรรมถัดไป"
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_needaction_counter
 msgid "Number of Actions"
-msgstr "จำนวนของการกระทำ"
+msgstr "จำนวนการกระทำ"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_has_error_counter
-msgid "Number of error"
-msgstr "จำนวนของข้อผิดพลาด"
+msgid "Number of errors"
+msgstr "จำนวนข้อผิดพลาด"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,help:openeducat_activity.field_op_activity__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "จำนวนข้อความซึ่งจะต้องมีการดำเนินการ"
+msgid "Number of messages requiring action"
+msgstr "จำนวนข้อความที่ต้องดำเนินการ"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,help:openeducat_activity.field_op_activity__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "จำนวนข้อความที่มีข้อผิดพลาดในการจัดส่ง"
+msgstr "จำนวนข้อความที่มีข้อผิดพลาดในการส่ง"
 
 #. module: openeducat_activity
-#: model:ir.model.fields,help:openeducat_activity.field_op_activity__message_unread_counter
-msgid "Number of unread messages"
-msgstr "จำนวนข้อความที่ยังไม่ได้อ่าน"
+#: model:res.groups.privilege,name:openeducat_activity.module_activity_privilege
+msgid "Openeducat Activity Privilege"
+msgstr "สิทธิพิเศษกิจกรรม Openeducat"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__optional_sub
 msgid "Optional Subjects"
-msgstr "วิชาตัวเลือก"
-
-#. module: openeducat_activity
-#: selection:op.activity,activity_state:0
-msgid "Overdue"
-msgstr "ค้างชำระ"
-
-#. module: openeducat_activity
-#: selection:op.activity,activity_state:0
-msgid "Planned"
-msgstr "ตามแผน"
+msgstr "วิชาเสริม"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__activity_user_id
@@ -280,15 +353,22 @@ msgid "Responsible User"
 msgstr "ผู้ใช้ที่มีความรับผิดชอบ"
 
 #. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "ข้อผิดพลาดในการส่ง SMS"
+
+#. module: openeducat_activity
 #: model:ir.model.fields,help:openeducat_activity.field_op_activity__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
-msgstr "สถานะขึ้นอยู่กับกิจกรรม\n"
-"ค้างชำระ: วันที่ครบกำหนดจะผ่านไปแล้ว\n"
-"วันที่: วันที่กิจกรรมในวันนี้\n"
-"วางแผนกิจกรรมในอนาคต"
+msgstr ""
+"สถานะตามกิจกรรม\n"
+"เกินกำหนด: เลยวันครบกำหนดไปแล้ว\n"
+"วันนี้: วันที่กิจกรรมคือวันนี้\n"
+"แผนงาน: กิจกรรมในอนาคต"
 
 #. module: openeducat_activity
 #: model:ir.model,name:openeducat_activity.model_op_student
@@ -302,47 +382,57 @@ msgid "Student Activity"
 msgstr "กิจกรรมนักศึกษา"
 
 #. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__student_ids_domain
+msgid "Student Ids Domain"
+msgstr "โดเมนรหัสนักศึกษา"
+
+#. module: openeducat_activity
 #: model:ir.model,name:openeducat_activity.model_student_migrate
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.student_migrate_form
 msgid "Student Migrate"
-msgstr "โยกย้ายนักศึกษา"
+msgstr "นักเรียนโยกย้าย"
 
 #. module: openeducat_activity
 #: model:ir.actions.act_window,name:openeducat_activity.act_open_student_migrate_view
 #: model:ir.ui.menu,name:openeducat_activity.menu_student_migrate
 msgid "Student Migration"
-msgstr "การย้ายถิ่นของนักศึกษา"
+msgstr "การย้ายถิ่นฐานของนักศึกษา"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__student_ids
 #: model_terms:ir.ui.view,arch_db:openeducat_activity.student_migrate_form
 msgid "Student(s)"
-msgstr "นักศึกษา (s)"
+msgstr "นักเรียน)"
+
+#. module: openeducat_activity
+#: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__term_id
+msgid "Terms"
+msgstr "เงื่อนไข"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__batch_id
 msgid "To Batch"
-msgstr "ชุด"
+msgstr "ถึงแบทช์"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__course_to_id
 msgid "To Course"
-msgstr "กับสนาม"
+msgstr "ไปที่หลักสูตร"
 
 #. module: openeducat_activity
-#: selection:op.activity,activity_state:0
-msgid "Today"
-msgstr "ในวันนี้"
+#: model:ir.model.fields,help:openeducat_activity.field_op_activity__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "ประเภทของกิจกรรมข้อยกเว้นในเรกคอร์ด"
 
 #. module: openeducat_activity
-#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_unread
-msgid "Unread Messages"
-msgstr "ไม่ได้อ่านข้อความ"
+#: model:res.groups,name:openeducat_activity.group_activity_user
+msgid "User"
+msgstr "ผู้ใช้"
 
 #. module: openeducat_activity
-#: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "ไม่ได้อ่านข้อความที่เคาน์เตอร์"
+#: model:ir.model.fields,field_description:openeducat_activity.field_student_migrate__valid_to_course_ids
+msgid "Valid To Courses"
+msgstr "ใช้ได้กับหลักสูตร"
 
 #. module: openeducat_activity
 #: model:ir.model.fields,field_description:openeducat_activity.field_op_activity__website_message_ids
@@ -353,4 +443,3 @@ msgstr "ข้อความเว็บไซต์"
 #: model:ir.model.fields,help:openeducat_activity.field_op_activity__website_message_ids
 msgid "Website communication history"
 msgstr "ประวัติการสื่อสารเว็บไซต์"
-

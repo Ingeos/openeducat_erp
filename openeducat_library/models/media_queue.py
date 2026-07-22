@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -32,7 +31,7 @@ class OpMediaQueue(models.Model):
     name = fields.Char("Sequence No", readonly=True, copy=False, default='/')
     partner_id = fields.Many2one('res.partner', 'Student/Faculty')
     media_id = fields.Many2one(
-        'op.media', 'Media', required=True, track_visibility='onchange')
+        'op.media', 'Media', required=True, tracking=True)
     date_from = fields.Date(
         'From Date', required=True, default=fields.Date.today())
     date_to = fields.Date('To Date', required=True)
@@ -41,7 +40,7 @@ class OpMediaQueue(models.Model):
     state = fields.Selection(
         [('request', 'Request'), ('accept', 'Accepted'),
          ('reject', 'Rejected')],
-        'Status', copy=False, default='request', track_visibility='onchange')
+        'Status', copy=False, default='request', tracking=True)
     active = fields.Boolean(default=True)
 
     @api.onchange('user_id')
@@ -54,15 +53,16 @@ class OpMediaQueue(models.Model):
             raise ValidationError(
                 _('To Date cannot be set before From Date.'))
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         if self.env.user.child_ids:
             raise Warning(_('Invalid Action!\n Parent can not create \
             Media Queue Requests!'))
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].next_by_code(
-                'op.media.queue') or '/'
-        return super(OpMediaQueue, self).create(vals)
+        for vals in vals_list:
+            if vals.get('name', '/') == '/':
+                vals['name'] = self.env['ir.sequence'].next_by_code(
+                    'op.media.queue') or '/'
+        return super(OpMediaQueue, self).create(vals_list)
 
     def write(self, vals):
         if self.env.user.child_ids:

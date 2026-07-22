@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -20,16 +19,16 @@
 ###############################################################################
 
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError, ValidationError
 
-from ..models import media_unit
+from dateutil.relativedelta import relativedelta
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError, ValidationError
 
 
 class IssueMedia(models.TransientModel):
     """ Issue Media """
     _name = "issue.media"
+    _inherit = "mail.thread"
     _description = "Issue Media Wizard"
 
     media_id = fields.Many2one('op.media', 'Media', required=True)
@@ -45,6 +44,8 @@ class IssueMedia(models.TransientModel):
     issued_date = fields.Date(
         'Issued Date', required=True, default=fields.Date.today())
     return_date = fields.Date('Return Date', required=True)
+    partner_id = fields.Many2one(
+        'res.partner', 'Person', tracking=True)
 
     @api.constrains('issued_date', 'return_date')
     def _check_date(self):
@@ -89,14 +90,22 @@ class IssueMedia(models.TransientModel):
                         'return_date': media.return_date,
                         'state': 'issue',
                     }
+                    if media.type == 'student':
+                        media_movement_create[
+                            'partner_id'] = media.student_id.partner_id.id or False
+                    elif media.type == 'faculty':
+                        media_movement_create[
+                            'partner_id'] = media.faculty_id.partner_id.id or False
+                    else:
+                        media_movement_create['partner_id'] = False
+
                     self.env['op.media.movement'].create(media_movement_create)
                     media.media_unit_id.state = 'issue'
                     value = {'type': 'ir.actions.act_window_close'}
                 else:
-                    raise UserError(_("media Unit can not be issued \
-                    because it's state is : %s") % (dict(
-                        media_unit.unit_states).get(
-                        media.media_unit_id.state)))
+                    raise UserError(_("Media unit can not be issued because it's already: %s") % (dict(  # noqa
+                        media.media_unit_id._fields[
+                            'state'].selection).get(media.media_unit_id.state)))
             else:
                 raise UserError(
                     _('Maximum Number of media allowed for %s is : %s') %

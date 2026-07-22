@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpSession(models.Model):
@@ -39,10 +38,9 @@ class OpSession(models.Model):
         if self.id == sheet.session_id.id:
             if len(sheet) <= 1:
                 view_id = self.env.ref('openeducat_attendance.'
-                                       'view_op_attendance_sheet_form').id,
+                                       'view_op_attendance_sheet_form').id
                 return {
                     'name': 'Attendance Sheet',
-                    'view_type': 'form',
                     'view_mode': 'form',
                     'views': [(view_id, 'form')],
                     'res_model': 'op.attendance.sheet',
@@ -65,11 +63,10 @@ class OpSession(models.Model):
 
         else:
             view_id = self.env.ref('openeducat_attendance.'
-                                   'view_op_attendance_sheet_form').id,
+                                   'view_op_attendance_sheet_form').id
             return {
                 'name': 'Attendance Sheet',
-                'view_type': 'form',
-                'view_mode': 'tree',
+                'view_mode': 'form',
                 'views': [(view_id, 'form')],
                 'res_model': 'op.attendance.sheet',
                 'view_id': False,

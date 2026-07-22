@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class OpAttendanceSheet(models.Model):
@@ -28,22 +27,10 @@ class OpAttendanceSheet(models.Model):
     _description = "Attendance Sheet"
     _order = "attendance_date desc"
 
-    @api.depends('attendance_line.present')
-    def _compute_total_present(self):
-        for record in self:
-            record.total_present = self.env['op.attendance.line'].search_count(
-                [('present', '=', True), ('attendance_id', '=', record.id)])
-
-    @api.depends('attendance_line.present')
-    def _compute_total_absent(self):
-        for record in self:
-            record.total_absent = self.env['op.attendance.line'].search_count(
-                [('present', '=', False), ('attendance_id', '=', record.id)])
-
     name = fields.Char('Name', readonly=True, size=32)
     register_id = fields.Many2one(
         'op.attendance.register', 'Register', required=True,
-        track_visibility="onchange")
+        tracking=True)
     course_id = fields.Many2one(
         'op.course', related='register_id.course_id', store=True,
         readonly=True)
@@ -52,23 +39,24 @@ class OpAttendanceSheet(models.Model):
         readonly=True)
     session_id = fields.Many2one('op.session', 'Session')
     attendance_date = fields.Date(
-        'Date', required=True, default=lambda self: fields.Date.today(),
-        track_visibility="onchange")
+        'Date', required=True,
+        tracking=True)
     attendance_line = fields.One2many(
         'op.attendance.line', 'attendance_id', 'Attendance Line')
-    total_present = fields.Integer(
-        'Total Present', compute='_compute_total_present',
-        track_visibility="onchange")
-    total_absent = fields.Integer(
-        'Total Absent', compute='_compute_total_absent',
-        track_visibility="onchange")
     faculty_id = fields.Many2one('op.faculty', 'Faculty')
     active = fields.Boolean(default=True)
 
     state = fields.Selection(
         [('draft', 'Draft'), ('start', 'Attendance Start'),
          ('done', 'Attendance Taken'), ('cancel', 'Cancelled')],
-        'Status', default='draft', track_visibility='onchange')
+        'Status', default='draft', tracking=True)
+
+    @api.onchange("session_id")
+    def _onchange_session_id_set_date(self):
+        """Set attendance_date = session_id.start_datetime.date()"""
+        for rec in self:
+            if rec.session_id and rec.session_id.start_datetime:
+                rec.attendance_date = rec.session_id.start_datetime.date()
 
     def attendance_draft(self):
         self.state = 'draft'
@@ -82,16 +70,15 @@ class OpAttendanceSheet(models.Model):
     def attendance_cancel(self):
         self.state = 'cancel'
 
-    _sql_constraints = [
-        ('unique_register_sheet',
-         'unique(register_id,session_id,attendance_date)',
-         'Sheet must be unique per Register/Session.'),
-    ]
+    _unique_register_sheet = models.Constraint(
+        'unique(register_id,session_id,attendance_date)',
+        'Sheet must be unique per Register/Session')
 
-    @api.model
-    def create(self, vals):
-        sheet = self.env['ir.sequence'].next_by_code('op.attendance.sheet')
-        register = self.env['op.attendance.register']. \
-            browse(vals['register_id']).code
-        vals['name'] = register + sheet
-        return super(OpAttendanceSheet, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            sheet = self.env['ir.sequence'].next_by_code('op.attendance.sheet')
+            register = self.env['op.attendance.register']. \
+                browse(vals['register_id']).code
+            vals['name'] = register + sheet
+        return super(OpAttendanceSheet, self).create(vals_list)

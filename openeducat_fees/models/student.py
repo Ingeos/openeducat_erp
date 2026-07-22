@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,40 +18,39 @@
 #
 ##############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
 class OpStudentFeesDetails(models.Model):
     _name = "op.student.fees.details"
     _description = "Student Fees Details"
+    _rec_name = 'student_id'
 
     fees_line_id = fields.Many2one('op.fees.terms.line', 'Fees Line')
     invoice_id = fields.Many2one('account.move', 'Invoice ID')
-    amount = fields.Float('Fees Amount', currency_field='currency_id')
+    amount = fields.Monetary('Fees Amount', currency_field='currency_id')
     date = fields.Date('Submit Date')
     product_id = fields.Many2one('product.product', 'Product')
-    student_id = fields.Many2one('op.student', 'Student')
+    student_id = fields.Many2one('op.student', 'Student', required=True)
     fees_factor = fields.Float("Fees Factor")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('invoice', 'Invoice Created'),
         ('cancel', 'Cancel')
     ], string='Status', copy=False)
-    invoice_state = fields.Selection([
-        ('draft', 'Draft'), ('proforma', 'Pro-forma'),
-        ('proforma2', 'Pro-forma'), ('open', 'Open'),
-        ('paid', 'Paid'), ('cancel', 'Cancelled')], 'Invoice',
-        related="invoice_id.state", readonly=True)
+    invoice_state = fields.Selection(related="invoice_id.state",
+                                     string='Invoice Status',
+                                     readonly=True)
     company_id = fields.Many2one(
         'res.company', string='Company',
         default=lambda self: self.env.user.company_id)
-    after_discount_amount = fields.Float(compute="_compute_discount_amount",
-                                         currency_field='currency_id',
-                                         string='After Discount Amount')
+    after_discount_amount = fields.Monetary(compute="_compute_discount_amount",
+                                            currency_field='currency_id',
+                                            string='After Discount Amount')
     discount = fields.Float(string='Discount (%)',
                             digits='Discount', default=0.0)
-    
+
     course_id = fields.Many2one('op.course', 'Course', required=False)
     batch_id = fields.Many2one('op.batch', 'Batch', required=False)
 
@@ -66,19 +64,20 @@ class OpStudentFeesDetails(models.Model):
     def _compute_currency_id(self):
         main_company = self.env['res.company']._get_main_company()
         for template in self:
-            template.currency_id = template.company_id.sudo().currency_id.id or main_company.currency_id.id
+            template.currency_id = \
+                template.company_id.sudo().currency_id.id or main_company.currency_id.id
 
-    currency_id = fields.Many2one('res.currency', string='Currency', compute='_compute_currency_id',
-                                  default=lambda self: self.env.user.company_id.currency_id.id)
+    currency_id = fields.Many2one(
+        'res.currency', string='Currency', compute='_compute_currency_id',
+        default=lambda self: self.env.user.company_id.currency_id.id)
 
     def get_invoice(self):
         """ Create invoice for fee payment process of student """
         inv_obj = self.env['account.move']
         partner_id = self.student_id.partner_id
-        student = self.student_id
+        # student = self.student_id
         account_id = False
         product = self.product_id
-
         if product.property_account_income_id:
             account_id = product.property_account_income_id.id
         if not account_id:
@@ -94,39 +93,44 @@ class OpStudentFeesDetails(models.Model):
         else:
             amount = self.amount
             name = product.name
-
-        invoice = inv_obj.create({
-            'partner_id': student.name,
-            'type': 'out_invoice',
-            'partner_id': partner_id.id,
-
-        })
         element_id = self.env['op.fees.element'].search([
             ('fees_terms_line_id', '=', self.fees_line_id.id)])
-        for records in element_id:
-
-            if records:
-                line_values = {'name': records.product_id.name,
-                               'account_id': account_id,
-                               'price_unit': records.value * self.amount / 100,
-                               'quantity': 1.0,
-                               'discount': self.discount or False,
-                               'product_uom_id': records.product_id.uom_id.id,
-                               'product_id': records.product_id.id, }
-                invoice.write({'invoice_line_ids': [(0, 0, line_values)]})
-
-        if not element_id:
-            line_values = {'name': name,
-                           # 'origin': student.gr_no,
-                           'account_id': account_id,
-                           'price_unit': amount,
-                           'quantity': 1.0,
-                           'discount': self.discount or False,
-                           'product_uom_id': product.uom_id.id,
-                           'product_id': product.id}
-            invoice.write({'invoice_line_ids': [(0, 0, line_values)]})
-
-        invoice._compute_invoice_taxes_by_group()
+        invoice_line_list = []
+        if element_id:
+            for records in element_id:
+                line_product = records.product_id
+                line_account_id = line_product.property_account_income_id.id \
+                    or line_product.categ_id.property_account_income_categ_id.id
+                if not line_account_id:
+                    raise UserError(
+                        _('There is no income account defined for this product: "%s".'
+                          'You may have to install a chart of account from Accounting'
+                          ' app, settings menu.') % line_product.name)
+                invoice_line_list.append((0, 0, {
+                    'name': line_product.name,
+                    'account_id': line_account_id,
+                    'price_unit': records.value * self.amount / 100,
+                    'quantity': 1.0,
+                    'discount': self.discount or False,
+                    'product_uom_id': line_product.uom_id.id,
+                    'product_id': line_product.id,
+                }))
+        else:
+            invoice_line_list.append((0, 0, {
+                'name': name,
+                'account_id': account_id,
+                'price_unit': amount,
+                'quantity': 1.0,
+                'discount': self.discount or False,
+                'product_uom_id': product.uom_id.id,
+                'product_id': product.id
+            }))
+        invoice = inv_obj.create({
+            'move_type': 'out_invoice',
+            'partner_id': partner_id.id,
+            'invoice_line_ids': invoice_line_list,
+        })
+        invoice._compute_tax_totals()
         self.state = 'invoice'
         self.invoice_id = invoice.id
         return True
@@ -158,7 +162,14 @@ class OpStudent(models.Model):
     fees_detail_ids = fields.One2many('op.student.fees.details',
                                       'student_id',
                                       string='Fees Collection Details',
-                                      track_visibility='onchange')
+                                      tracking=True)
+    fees_details_count = fields.Integer(compute='_compute_fees_details')
+
+    @api.depends('fees_detail_ids')
+    def _compute_fees_details(self):
+        for fees in self:
+            fees.fees_details_count = self.env['op.student.fees.details'].search_count(
+                [('student_id', '=', self.id)])
 
     def action_view_invoice(self):
         '''
@@ -171,7 +182,8 @@ class OpStudent(models.Model):
         inv_ids = []
         for student in self:
             inv_ids += [invoice.id for invoice in student.invoice_ids]
-            result['context'] = {'default_partner_id': student.partner_id.id}
+            result['context'] = {'default_partner_id': student.partner_id.id,
+                                 'default_move_type': 'out_invoice'}
         if len(inv_ids) > 1:
             result['domain'] = \
                 "[('id','in',[" + ','.join(map(str, inv_ids)) + "])]"

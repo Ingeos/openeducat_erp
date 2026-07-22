@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,10 +18,8 @@
 #
 ###############################################################################
 
-from odoo import models, fields, _
+from odoo import _, fields, models
 from odoo.exceptions import UserError
-
-from ..models import media_unit
 
 
 class ReturnMedia(models.TransientModel):
@@ -48,7 +45,6 @@ class ReturnMedia(models.TransientModel):
                     raise UserError(_("Can't return media."))
                 media_move_search.return_media(media.actual_return_date)
             else:
-                raise UserError(_("Media Unit can not be returned \
-                because it's state is : %s") % (dict(
-                    media_unit.unit_states).get(
+                raise UserError(_("Media Unit can not be returned because it's already: %s") % (dict( # noqa
+                    media.media_unit_id._fields['state'].selection).get(
                     media.media_unit_id.state)))

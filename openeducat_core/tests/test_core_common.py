@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -20,12 +19,10 @@
 ###############################################################################
 
 
-from odoo.tests import common, TransactionCase
-from ..controllers import app_main
-from odoo.addons.website.tools import MockRequest
+from odoo.tests import TransactionCase
 
 
-class TestCoreCommon(common.SavepointCase):
+class TestCoreCommon(TransactionCase):
     def setUp(self):
         super(TestCoreCommon, self).setUp()
         self.op_batch = self.env['op.batch']

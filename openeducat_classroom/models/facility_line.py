@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,10 +18,14 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpFacilityLine(models.Model):
     _inherit = "op.facility.line"
 
     classroom_id = fields.Many2one('op.classroom', 'Classroom')
+
+    _unique_facility_classroom = models.Constraint(
+        'UNIQUE(facility_id, classroom_id)',
+        'Facility name exists. Please choose a unique name or update the quantity.')

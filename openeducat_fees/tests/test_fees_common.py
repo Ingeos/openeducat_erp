@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -18,10 +17,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from odoo.tests import common
+from odoo.tests import TransactionCase
 
 
-class TestFeesCommon(common.SavepointCase):
+class TestFeesCommon(TransactionCase):
     def setUp(self):
         super(TestFeesCommon, self).setUp()
         self.op_student_fees = self.env['op.student.fees.details']

@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpExamType(models.Model):
@@ -29,6 +28,5 @@ class OpExamType(models.Model):
     name = fields.Char('Name', size=256, required=True)
     code = fields.Char('Code', size=16, required=True)
 
-    _sql_constraints = [
-        ('unique_exam_type_code',
-         'unique(code)', 'Code should be unique per exam type!')]
+    _unique_exam_type_code = models.Constraint('unique(code)',
+                                               'Code should be unique per exam type!')

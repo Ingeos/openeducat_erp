@@ -1,14 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* openeducat_exam
+# 	* openeducat_exam
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-27 05:09+0000\n"
-"PO-Revision-Date: 2019-09-27 05:09+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2025-10-30 09:51+0000\n"
+"PO-Revision-Date: 2025-10-30 09:51+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,75 +17,105 @@ msgstr ""
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "<b>Course\n"
+msgid ""
+"<b>Course\n"
 "                                                        </b>"
-msgstr "<Б> Курс\n"
-"                                                        </ B>"
+msgstr ""
+"<b>Курс\n"
+"                                                        </б>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
 msgid "<b>Course :</b>"
-msgstr "<Б> Курс: </ b>"
+msgstr "<b>Курс:</b>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "<b>Exam\n"
+msgid "<b>Course:</b>"
+msgstr "<b>Курс:</b>"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
+msgid ""
+"<b>Exam\n"
 "                                                            Code\n"
 "                                                        </b>"
-msgstr "<Б> Экзамен\n"
-"                                                            Код\n"
-"                                                        </ B>"
+msgstr ""
+"<б>Экзамен\n"
+"                                                            Код\n"
+"                                                        </б>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "<b>Exam\n"
+msgid ""
+"<b>Exam\n"
 "                                                            Name\n"
 "                                                        </b>"
-msgstr "<Б> Экзамен\n"
-"                                                            имя\n"
-"                                                        </ B>"
+msgstr ""
+"<б>Экзамен\n"
+"                                                            Имя\n"
+"                                                        </б>"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
+msgid "<b>Exam Code:</b>"
+msgstr "<b>Код экзамена:</b>"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
+msgid "<b>Exam Name:</b>"
+msgstr "<b>Название экзамена:</b>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
 msgid "<b>Hall Ticket</b>"
-msgstr "<Б> Hall билетов </ b>"
+msgstr "<b>Билет в зал</b>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
 msgid "<b>Roll No :</b>"
-msgstr "<Б> Ролл Нет: </ b>"
+msgstr "<b>Номер рулона:</b>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "<b>Student\n"
+msgid ""
+"<b>Student\n"
 "                                                            Name\n"
 "                                                        </b>"
-msgstr "<Б> Студент\n"
-"                                                            имя\n"
-"                                                        </ B>"
+msgstr ""
+"<б>Студент\n"
+"                                                            Имя\n"
+"                                                        </б>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
 msgid "<b>Student Name :</b>"
-msgstr "<Б> Student Имя: </ b>"
+msgstr "<b>Имя студента:</b>"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "<strong>MarkSheet\n"
+msgid "<b>Student Name:</b>"
+msgstr "<b>Имя студента:</b>"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
+msgid ""
+"<strong>MarkSheet\n"
 "                                            </strong>"
-msgstr "<Сильный> MarkSheet\n"
-"                                            </ STRONG>"
+msgstr ""
+"<strong>Таблица оценок\n"
+"                                            </strong>"
 
 #. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_attendees__status__absent
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-#: selection:op.exam.attendees,status:0
 msgid "Absent"
-msgstr "Нет на месте"
+msgstr "Отсутствующий"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_held_exam_form
 msgid "Absent Attendees"
-msgstr "Отсутствующие Присутствовали"
+msgstr "Отсутствующие участники"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_needaction
@@ -93,13 +123,36 @@ msgstr "Отсутствующие Присутствовали"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_needaction
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_needaction
 msgid "Action Needed"
-msgstr "Необходимое действие"
+msgstr "Требуется действие"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/result_template.py:56
-#, python-format
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__active
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__active
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_line__active
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__active
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__active
+msgid "Active"
+msgstr "Активный"
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/result_template.py:0
 msgid "All subject exam should be done."
-msgstr "Весь предмет экзамен должен быть сделано."
+msgstr "Все предметные экзамены должны быть сданы."
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_search
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_search
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_line_form
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_line_search
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_form
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_search
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_template_form
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_template_search
+msgid "Archived"
+msgstr "В архиве"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_attachment_count
@@ -107,19 +160,24 @@ msgstr "Весь предмет экзамен должен быть сдела�
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_attachment_count
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_attachment_count
 msgid "Attachment Count"
-msgstr "Приложение Граф"
+msgstr "Количество вложений"
 
 #. module: openeducat_exam
-#: sql_constraint:op.exam.attendees:0
+#: model:ir.model.constraint,message:openeducat_exam.constraint_op_exam_attendees_unique_attendees
 msgid "Attendee must be unique per exam."
-msgstr "Слушатель должен быть уникальным для каждого экзамена."
+msgstr "Участник должен быть уникальным для каждого экзамена."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__attendees_line
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_held_exam__attendees_line
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
 msgid "Attendees"
-msgstr "Присутствующие"
+msgstr "Участники"
+
+#. module: openeducat_exam
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__attendees_count
+msgid "Attendees Count"
+msgstr "Количество участников"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__batch_id
@@ -127,39 +185,40 @@ msgstr "Присутствующие"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__batch_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_held_exam__batch_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__batch_id
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_pivot
 msgid "Batch"
-msgstr "партия"
+msgstr "Партия"
 
 #. module: openeducat_exam
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.student_hall_ticket_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_form
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "Отмена"
 
 #. module: openeducat_exam
-#: selection:op.exam,state:0
-#: selection:op.exam.session,state:0
-#: selection:op.marksheet.register,state:0
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam__state__cancel
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_session__state__cancel
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_marksheet_register__state__cancelled
 msgid "Cancelled"
-msgstr "отменен"
+msgstr "Отменено"
 
 #. module: openeducat_exam
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_room__capacity
-msgid "Capacity"
-msgstr "Вместимость"
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid "Cannot cancel an exam that is already 'Done'."
+msgstr "Невозможно отменить экзамен, который уже «Готово»."
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/exam_room.py:39
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam_room.py:0
 msgid "Capacity over Classroom capacity!"
-msgstr "Емкость над емкостью Классная!"
+msgstr "Вместимость превышает вместимость класса!"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_room__classroom_id
 msgid "Classroom"
-msgstr "Класс"
+msgstr "класс"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_type__code
@@ -168,29 +227,24 @@ msgid "Code"
 msgstr "Код"
 
 #. module: openeducat_exam
-#: sql_constraint:op.exam.session:0
+#: model:ir.model.constraint,message:openeducat_exam.constraint_op_exam_session_unique_exam_session_code
 msgid "Code should be unique per exam session!"
 msgstr "Код должен быть уникальным для каждой экзаменационной сессии!"
 
 #. module: openeducat_exam
-#: sql_constraint:op.exam.type:0
+#: model:ir.model.constraint,message:openeducat_exam.constraint_op_exam_type_unique_exam_type_code
 msgid "Code should be unique per exam type!"
 msgstr "Код должен быть уникальным для каждого типа экзамена!"
 
 #. module: openeducat_exam
-#: sql_constraint:op.exam:0
+#: model:ir.model.constraint,message:openeducat_exam.constraint_op_exam_unique_exam_code
 msgid "Code should be unique per exam!"
 msgstr "Код должен быть уникальным для каждого экзамена!"
 
 #. module: openeducat_exam
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
-msgid "Company LOGO"
-msgstr "Логотип компании"
-
-#. module: openeducat_exam
 #: model:ir.ui.menu,name:openeducat_exam.menu_exam_configuration
 msgid "Configuration"
-msgstr "конфигурация"
+msgstr "Конфигурация"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_res_partner
@@ -203,6 +257,7 @@ msgstr "Контакт"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__course_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_held_exam__course_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__course_id
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_pivot
 msgid "Course"
 msgstr "Курс"
 
@@ -219,7 +274,6 @@ msgstr "Курс"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__create_uid
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__create_uid
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__create_uid
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket__create_uid
 msgid "Created by"
 msgstr "Создано"
 
@@ -236,9 +290,8 @@ msgstr "Создано"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__create_date
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__create_date
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__create_date
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket__create_date
 msgid "Created on"
-msgstr "Создано на"
+msgstr "Создано"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
@@ -265,25 +318,25 @@ msgstr "Описание"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__display_name
 #: model:ir.model.fields,field_description:openeducat_exam.field_report_openeducat_exam_report_marksheet_report__display_name
 #: model:ir.model.fields,field_description:openeducat_exam.field_report_openeducat_exam_report_ticket__display_name
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket__display_name
+#: model:ir.model.fields,field_description:openeducat_exam.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Отображаемое имя"
 
 #. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam__state__done
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_session__state__done
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
-#: selection:op.exam,state:0
-#: selection:op.exam.session,state:0
 msgid "Done"
-msgstr "Готово"
+msgstr "Сделанный"
 
 #. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam__state__draft
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_session__state__draft
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_marksheet_register__state__draft
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_result_template__state__draft
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
-#: selection:op.exam,state:0
-#: selection:op.exam.session,state:0
-#: selection:op.marksheet.register,state:0
-#: selection:op.result.template,state:0
 msgid "Draft"
 msgstr "Черновик"
 
@@ -293,61 +346,67 @@ msgid "End Date"
 msgstr "Дата окончания"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/exam_session.py:71
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam_session.py:0
 msgid "End Date cannot be set before Start Date."
-msgstr "Дата окончания не может быть установлена ​​до даты начала."
+msgstr "Дата окончания не может быть установлена ​​раньше даты начала."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__end_time
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__end_time
 msgid "End Time"
-msgstr "Время окончания"
+msgstr "Конец Времени"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/exam.py:82
-#, python-format
-msgid "End Time cannot be set             before Start Time."
-msgstr "Время окончания не может быть установлено до начала времени."
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid "End Time and start time can not set at same time."
+msgstr ""
+"Время окончания и время начала не могут быть установлены одновременно."
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/exam_room.py:37
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid "End Time cannot be set before Start Time."
+msgstr "Время окончания не может быть установлено раньше времени начала."
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam_room.py:0
 msgid "Enter proper Capacity"
 msgstr "Введите правильную емкость"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/result_line.py:45
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/result_line.py:0
 msgid "Enter proper Marks or Percentage!"
-msgstr "Введите соответствующие знаки или в процентах!"
+msgstr "Введите правильные отметки или проценты!"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/marksheet_line.py:56
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/marksheet_line.py:0
 msgid "Enter proper marks or percentage!"
-msgstr "Введите соответствующие знаки или процент!"
+msgstr "Введите правильные оценки или проценты!"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/exam.py:66
-#: code:addons/openeducat_exam/models/exam_attendees.py:58
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
 msgid "Enter proper marks!"
-msgstr "Введите соответствующие отметки!"
+msgstr "Введите правильные оценки!"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/marksheet_register.py:63
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/marksheet_register.py:0
 msgid "Enter proper pass or fail!"
-msgstr "Введите правильную передачу или не получится!"
+msgstr "Введите правильный проход или провал!"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__evaluation_type
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_line__evaluation_type
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__evaluation_type
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__evaluation_type
-msgid "Evolution type"
-msgstr "Тип Evolution"
+msgid "Evolution Type"
+msgstr "Тип эволюции"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_exam
@@ -356,10 +415,12 @@ msgstr "Тип Evolution"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_held_exam__exam_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__exam_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__name
+#: model:ir.module.category,name:openeducat_exam.module_category_all_op_exam
+#: model:res.groups.privilege,name:openeducat_exam.module_category_openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_attendees_search
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_calendar_view
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_search
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_tree
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_search
 msgid "Exam"
@@ -367,10 +428,12 @@ msgstr "Экзамен"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "Exam\n"
+msgid ""
+"Exam\n"
 "                                                    Type"
-msgstr "Экзамен\n"
-"                                                    Тип"
+msgstr ""
+"Экзамен\n"
+"                                                    Тип"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_exam_attendees_view
@@ -381,18 +444,33 @@ msgstr "Экзамен\n"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_attendees_tree
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_room_distribution_form
 msgid "Exam Attendees"
-msgstr "экзамен Присутствовали"
+msgstr "Участники экзамена"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_attendees_pivot
+msgid "Exam Attendees Pivot"
+msgstr "Поворот участников экзамена"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__exam_code
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_search
 msgid "Exam Code"
-msgstr "экзамен код"
+msgstr "Код экзамена"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_report_openeducat_exam_report_marksheet_report
 msgid "Exam Marksheet Report"
-msgstr "Экзамен Marksheet отчет"
+msgstr "Отчет об экзамене"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
+msgid "Exam Name"
+msgstr "Название экзамена"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_pivot
+msgid "Exam Pivot"
+msgstr "Экзаменационный поворот"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_exam_room
@@ -400,13 +478,13 @@ msgstr "Экзамен Marksheet отчет"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_room_search
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_room_tree
 msgid "Exam Room"
-msgstr "экзамен номер"
+msgstr "Экзаменационная комната"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_room_distribution_view
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_room_distribution_form
 msgid "Exam Room Distribution"
-msgstr "Распределение Экзамен номер"
+msgstr "Распределение экзаменационных помещений"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_exam_room_view
@@ -414,7 +492,7 @@ msgstr "Распределение Экзамен номер"
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_exam_room_sub
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_room_distribution_form
 msgid "Exam Rooms"
-msgstr "экзамен Комнаты"
+msgstr "Экзаменационные комнаты"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_exam_session
@@ -423,35 +501,40 @@ msgstr "экзамен Комнаты"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__exam_session_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__exam_session_id
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__exam_session
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket__exam_session_id
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_calendar_view
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_search
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_tree
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_search
 msgid "Exam Session"
-msgstr "экзаменационная сессия"
+msgstr "Экзаменационная сессия"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__exam_code
 msgid "Exam Session Code"
-msgstr "Экзамен код сеанса"
+msgstr "Код экзаменационной сессии"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_pivot
+msgid "Exam Session Pivot"
+msgstr "Поворот экзаменационной сессии"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_exam_session_view
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_exam_session
 msgid "Exam Sessions"
-msgstr "экзаменационные Сессии"
+msgstr "Экзаменационные сессии"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_report_openeducat_exam_report_ticket
 msgid "Exam Ticket Report"
-msgstr "Экзамен Отчет по продаже билетов"
+msgstr "Отчет об экзаменационном билете"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/exam.py:87
-#, python-format
-msgid "Exam Time should in between Exam Session Dates."
-msgstr "Экзамен Время должны между экзаменационной сессией Датой."
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid "Exam Time should be within the Exam Session Dates."
+msgstr "Время экзамена должно совпадать с датами экзаменационных сессий."
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_exam_type
@@ -466,17 +549,40 @@ msgstr "Тип экзамена"
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_exam_type_view
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_exam_type_sub
 msgid "Exam Types"
-msgstr "Типы исследований"
+msgstr "Типы экзаменов"
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid ""
+"Exam can only be marked as 'Done' from 'Held'                     or 'Result"
+" Updated' state."
+msgstr ""
+"Экзамен можно пометить как «Готово» только в состояниях «Проведено» или "
+"«Результат обновлен»."
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid "Exam can only be marked as 'Held' from 'Scheduled' state."
+msgstr ""
+"Экзамен можно пометить как «Проведенный» только в состоянии «Запланировано»."
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid "Exam can only be scheduled from 'Draft' state."
+msgstr "Экзамен можно запланировать только из состояния «Черновик»."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__exam_ids
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__exam_id
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
 msgid "Exam(s)"
-msgstr "Экзамены)"
+msgstr "Экзамен(ы)"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_exam_view
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__exams_count
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_exam_main
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_exam_root
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_school_exam_result
@@ -484,10 +590,10 @@ msgid "Exams"
 msgstr "Экзамены"
 
 #. module: openeducat_exam
-#: selection:op.marksheet.line,status:0
-#: selection:op.result.line,status:0
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_marksheet_line__status__fail
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_result_line__status__fail
 msgid "Fail"
-msgstr "Провал"
+msgstr "Неудача"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_follower_ids
@@ -495,15 +601,7 @@ msgstr "Провал"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_follower_ids
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_follower_ids
 msgid "Followers"
-msgstr "Читают"
-
-#. module: openeducat_exam
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_channel_ids
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__message_channel_ids
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_channel_ids
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Читатели (каналы)"
+msgstr "Последователи"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_partner_ids
@@ -511,37 +609,32 @@ msgstr "Читатели (каналы)"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_partner_ids
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Читатели (партнеры)"
-
-#. module: openeducat_exam
-#: model:ir.ui.menu,name:openeducat_exam.menu_op_exam_general
-msgid "General"
-msgstr "Генеральная"
+msgstr "Последователи (Партнеры)"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_template_form
 msgid "Generate Result"
-msgstr "Сформировать результат"
+msgstr "Создать результат"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__generated_by
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_search
 msgid "Generated By"
-msgstr "Сгенерированно с помощью"
+msgstr "Создано"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_line__generated_date
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__generated_date
 msgid "Generated Date"
-msgstr "Сформирован Дата"
+msgstr "Дата создания"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_line__grade
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__grade
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_session__evaluation_type__grade
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-#: selection:op.exam.session,evaluation_type:0
 msgid "Grade"
-msgstr "класс"
+msgstr "Оценка"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_grade_configuration_view
@@ -551,7 +644,7 @@ msgstr "класс"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_grade_configuration_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_grade_configuration_tree
 msgid "Grade Configuration"
-msgstr "Конфигурация класса"
+msgstr "Конфигурация оценок"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_template_form
@@ -559,34 +652,37 @@ msgid "Grades"
 msgstr "Оценки"
 
 #. module: openeducat_exam
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_attendees_search
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_search
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_type_search
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_line_search
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_search
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_search
-msgid "Group By..."
-msgstr "Группировать…"
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__has_message
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__has_message
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__has_message
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__has_message
+msgid "Has Message"
+msgstr "Имеет сообщение"
 
 #. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam__state__held
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_session__state__held
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_held_exam_form
-#: selection:op.exam,state:0
-#: selection:op.exam.session,state:0
 msgid "Held"
-msgstr "Ручной"
+msgstr "Держал"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_held_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_held_exam_form
 msgid "Held Exam"
-msgstr "Held экзамен"
+msgstr "Проведенный экзамен"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_held_exam_view
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_held_exam_form
 msgid "Held Exam Wizard"
-msgstr "Мастер Held экзамен"
+msgstr "Мастер проведения экзаменов"
+
+#. module: openeducat_exam
+#: model:ir.module.category,description:openeducat_exam.module_category_all_op_exam
+msgid "Helps you manage your institutes different-different users."
+msgstr "Помогает вам управлять разными пользователями ваших институтов."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__id
@@ -603,17 +699,9 @@ msgstr "Мастер Held экзамен"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__id
 #: model:ir.model.fields,field_description:openeducat_exam.field_report_openeducat_exam_report_marksheet_report__id
 #: model:ir.model.fields,field_description:openeducat_exam.field_report_openeducat_exam_report_ticket__id
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket__id
+#: model:ir.model.fields,field_description:openeducat_exam.field_res_partner__id
 msgid "ID"
-msgstr "Номер"
-
-#. module: openeducat_exam
-#: model:ir.model.fields,help:openeducat_exam.field_op_exam__message_unread
-#: model:ir.model.fields,help:openeducat_exam.field_op_exam_session__message_unread
-#: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__message_unread
-#: model:ir.model.fields,help:openeducat_exam.field_op_result_template__message_unread
-msgid "If checked new messages require your attention."
-msgstr "Если флажок новые сообщения требуют вашего внимания."
+msgstr "ИДЕНТИФИКАТОР"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,help:openeducat_exam.field_op_exam__message_needaction
@@ -621,15 +709,20 @@ msgstr "Если флажок новые сообщения требуют ва�
 #: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__message_needaction
 #: model:ir.model.fields,help:openeducat_exam.field_op_result_template__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Если флажок установлен, новые сообщения требуют вашего внимания."
+msgstr "Если этот флажок установлен, новые сообщения требуют вашего внимания."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,help:openeducat_exam.field_op_exam__message_has_error
+#: model:ir.model.fields,help:openeducat_exam.field_op_exam__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_exam.field_op_exam_session__message_has_error
+#: model:ir.model.fields,help:openeducat_exam.field_op_exam_session__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__message_has_error
+#: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__message_has_sms_error
 #: model:ir.model.fields,help:openeducat_exam.field_op_result_template__message_has_error
+#: model:ir.model.fields,help:openeducat_exam.field_op_result_template__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Если флажок установлен, некоторые сообщения имеют ошибки доставки."
+msgstr ""
+"Если этот флажок установлен, некоторые сообщения имеют ошибку доставки."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_is_follower
@@ -637,26 +730,7 @@ msgstr "Если флажок установлен, некоторые сооб�
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_is_follower
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_is_follower
 msgid "Is Follower"
-msgstr "Является ли Последователь"
-
-#. module: openeducat_exam
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_attendees____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_room____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_type____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_grade_configuration____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_held_exam____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_line____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_report_openeducat_exam_report_marksheet_report____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_report_openeducat_exam_report_ticket____last_update
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket____last_update
-msgid "Last Modified on"
-msgstr "Последнее изменение"
+msgstr "является последователем"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__write_uid
@@ -671,9 +745,8 @@ msgstr "Последнее изменение"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__write_uid
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__write_uid
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__write_uid
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket__write_uid
 msgid "Last Updated by"
-msgstr "Последнее обновление от"
+msgstr "Последнее обновление:"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__write_date
@@ -688,29 +761,25 @@ msgstr "Последнее обновление от"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__write_date
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__write_date
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__write_date
-#: model:ir.model.fields,field_description:openeducat_exam.field_student_hall_ticket__write_date
 msgid "Last Updated on"
-msgstr "Последнее обновление"
+msgstr "Последнее обновление:"
 
 #. module: openeducat_exam
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_main_attachment_id
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__message_main_attachment_id
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_main_attachment_id
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Главная Attachment"
+#: model:res.groups,name:openeducat_exam.group_op_exam_admin
+msgid "Manager"
+msgstr "Менеджер"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_attendees__marks
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_line__marks
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_search
 msgid "Marks"
-msgstr "Метки"
+msgstr "Знаки"
 
 #. module: openeducat_exam
 #: model:ir.actions.report,name:openeducat_exam.report_marksheet
 msgid "Marksheet"
-msgstr ""
+msgstr "Отметить лист"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_marksheet_line
@@ -720,13 +789,18 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_line_tree
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_search
 msgid "Marksheet Line"
-msgstr ""
+msgstr "Линия маркшита"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_marksheet_line_view
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_marksheet_line_sub
 msgid "Marksheet Lines"
-msgstr "Marksheet линии"
+msgstr "Линии таблицы оценок"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_line_pivot
+msgid "Marksheet Pivot"
+msgstr "Поворот таблицы разметки"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_marksheet_register
@@ -737,24 +811,30 @@ msgstr "Marksheet линии"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_search
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_tree
 msgid "Marksheet Register"
-msgstr "Marksheet Регистрация"
+msgstr "Регистр маркшитов"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_marksheet_register_view
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_marksheet_register_sub
 msgid "Marksheet Registers"
-msgstr "Marksheet Регистры"
+msgstr "Регистры таблицы оценок"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__marksheet_line
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_form
 msgid "Marksheets"
-msgstr "Все листы"
+msgstr "Маркшиты"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_grade_configuration__max_per
 msgid "Maximum Percentage"
-msgstr "максимальный процент"
+msgstr "Максимальный процент"
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/grade_configuration.py:0
+msgid "Maximum percentage should not be greater than 100"
+msgstr "Максимальный процент не должен превышать 100."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_has_error
@@ -762,7 +842,7 @@ msgstr "максимальный процент"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_has_error
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_has_error
 msgid "Message Delivery error"
-msgstr "Сообщение об ошибке доставки"
+msgstr "Ошибка доставки сообщения"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_ids
@@ -775,14 +855,22 @@ msgstr "Сообщения"
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_grade_configuration__min_per
 msgid "Minimum Percentage"
-msgstr "минимальный процент"
+msgstr "Минимальный процент"
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/grade_configuration.py:0
+msgid "Minimum percentage should be not greater than Maximum percentage"
+msgstr "Минимальный процент не должен превышать максимальный процент."
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "Month/Year\n"
+msgid ""
+"Month/Year\n"
 "                                                    of Passing"
-msgstr "Месяц год\n"
-"                                                    проезжающих"
+msgstr ""
+"Месяц/Год\n"
+"                                                    прохождения"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_room__name
@@ -790,19 +878,24 @@ msgstr "Месяц год\n"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__name
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_type_search
 msgid "Name"
-msgstr "имя"
+msgstr "Имя"
 
 #. module: openeducat_exam
-#: selection:op.exam.session,evaluation_type:0
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_room__capacity
+msgid "No of Seats"
+msgstr "Количество мест"
+
+#. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_session__evaluation_type__normal
 msgid "Normal"
-msgstr "Обычный"
+msgstr "Нормальный"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__note
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_attendees__note
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_attendees_form
 msgid "Note"
-msgstr "Запись"
+msgstr "Примечание"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_needaction_counter
@@ -817,7 +910,7 @@ msgstr "Количество действий"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__message_has_error_counter
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_has_error_counter
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_has_error_counter
-msgid "Number of error"
+msgid "Number of errors"
 msgstr "Количество ошибок"
 
 #. module: openeducat_exam
@@ -825,8 +918,8 @@ msgstr "Количество ошибок"
 #: model:ir.model.fields,help:openeducat_exam.field_op_exam_session__message_needaction_counter
 #: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__message_needaction_counter
 #: model:ir.model.fields,help:openeducat_exam.field_op_result_template__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Количество сообщений, которое требует действий"
+msgid "Number of messages requiring action"
+msgstr "Количество сообщений, требующих действий"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,help:openeducat_exam.field_op_exam__message_has_error_counter
@@ -834,89 +927,101 @@ msgstr "Количество сообщений, которое требует �
 #: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__message_has_error_counter
 #: model:ir.model.fields,help:openeducat_exam.field_op_result_template__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Число сообщений с ошибкой доставки"
-
-#. module: openeducat_exam
-#: model:ir.model.fields,help:openeducat_exam.field_op_exam__message_unread_counter
-#: model:ir.model.fields,help:openeducat_exam.field_op_exam_session__message_unread_counter
-#: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__message_unread_counter
-#: model:ir.model.fields,help:openeducat_exam.field_op_result_template__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Количество непрочитанных сообщений"
+msgstr "Количество сообщений с ошибкой доставки"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "Obtained\n"
+msgid ""
+"Obtained\n"
 "                                                    Grade"
-msgstr "полученный\n"
-"                                                    класс"
+msgstr ""
+"Получено\n"
+"                                                    Оценка"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "Obtained\n"
+msgid ""
+"Obtained\n"
 "                                                    Marks"
-msgstr "полученный\n"
-"                                                    Метки"
+msgstr ""
+"Получено\n"
+"                                                    Знаки"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "Obtained\n"
+msgid ""
+"Obtained\n"
 "                                                    Marks/Total\n"
 "                                                    Marks"
-msgstr "полученный\n"
-"                                                    Marks / Всего\n"
-"                                                    Метки"
+msgstr ""
+"Получено\n"
+"                                                    Оценок/Всего\n"
+"                                                    Знаки"
 
 #. module: openeducat_exam
-#: selection:op.marksheet.line,status:0
-#: selection:op.result.line,status:0
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_marksheet_line__status__pass
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_result_line__status__pass
 msgid "Pass"
-msgstr "Проходят"
+msgstr "Проходить"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "Passing\n"
+msgid ""
+"Passing\n"
 "                                                    Marks"
-msgstr "Переходя\n"
-"                                                    Метки"
+msgstr ""
+"Прохождение\n"
+"                                                    Знаки"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__min_marks
 msgid "Passing Marks"
-msgstr "Передача знаков"
+msgstr "Проходные баллы"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/exam.py:68
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
 msgid "Passing Marks can't be greater than Total Marks"
-msgstr "Передача знаков не может быть больше, чем Всего знаки"
+msgstr "Проходные баллы не могут превышать общее количество баллов."
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_line__percentage
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
 msgid "Percentage"
-msgstr "процент"
+msgstr "Процент"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/models/result_template.py:73
-#, python-format
+#. odoo-python
+#: code:addons/openeducat_exam/models/result_template.py:0
 msgid "Percentage range conflict with other record."
-msgstr "диапазон конфликты в процентах с другой записью."
+msgstr "Конфликт процентного диапазона с другой записью."
 
 #. module: openeducat_exam
-#: selection:op.exam.attendees,status:0
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam_attendees.py:0
+msgid "Please Enter Marks between 0 and %d for a present student."
+msgstr "Пожалуйста, введите оценки от 0 до %d для текущего учащегося."
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/wizard/room_distribution.py:0
+msgid "Please Enter both Room And student"
+msgstr "Пожалуйста, укажите комнату и студента"
+
+#. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_attendees__status__present
 msgid "Present"
-msgstr "настоящее время"
+msgstr "Подарок"
 
 #. module: openeducat_exam
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.student_hall_ticket_form
-msgid "Print"
-msgstr "Печать"
+#: model:ir.ui.menu,name:openeducat_exam.menu_op_exam_general
+msgid "Reporting"
+msgstr "Отчетность"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__responsible_id
 msgid "Responsible"
-msgstr "ответственность"
+msgstr "Ответственный"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
@@ -924,14 +1029,21 @@ msgid "Result"
 msgstr "Результат"
 
 #. module: openeducat_exam
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__result_date
-msgid "Result Date"
-msgstr "Результат Дата"
+#: model:ir.actions.act_window,name:openeducat_exam.act_open_op_result_line_view_graph
+#: model:ir.ui.menu,name:openeducat_exam.menu_student_hall_ticket
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_graph_view
+msgid "Result Analysis"
+msgstr "Анализ результатов"
 
 #. module: openeducat_exam
-#: selection:op.result.template,state:0
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__result_date
+msgid "Result Date"
+msgstr "Дата результата"
+
+#. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_result_template__state__result_generated
 msgid "Result Generated"
-msgstr "Результат Сформирован"
+msgstr "Результат создан"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_result_line
@@ -939,13 +1051,13 @@ msgstr "Результат Сформирован"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_search
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_tree
 msgid "Result Line"
-msgstr "Результат Line"
+msgstr "Строка результата"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_result_line_view
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_result_line_sub
 msgid "Result Lines"
-msgstr "Результат линии"
+msgstr "Строки результата"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_result_template
@@ -954,19 +1066,19 @@ msgstr "Результат линии"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_template_search
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_template_tree
 msgid "Result Template"
-msgstr "Результат шаблона"
+msgstr "Шаблон результата"
 
 #. module: openeducat_exam
 #: model:ir.actions.act_window,name:openeducat_exam.act_open_op_result_template_view
 #: model:ir.ui.menu,name:openeducat_exam.menu_op_result_template
 msgid "Result Templates"
-msgstr "Шаблоны Результат"
+msgstr "Шаблоны результатов"
 
 #. module: openeducat_exam
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam__state__result_updated
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
-#: selection:op.exam,state:0
 msgid "Result Updated"
-msgstr "Результат обновления"
+msgstr "Результат обновлен"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_grade_configuration__result
@@ -980,6 +1092,18 @@ msgid "Results"
 msgstr "Результаты"
 
 #. module: openeducat_exam
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__results_entered
+msgid "Results Entered"
+msgstr "Результаты введены"
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/models/exam.py:0
+msgid "Results can only be updated for exams in 'Held' state."
+msgstr ""
+"Результаты можно обновить только для экзаменов в состоянии «Отложено»."
+
+#. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_attendees__room_id
 msgid "Room"
 msgstr "Комната"
@@ -987,23 +1111,31 @@ msgstr "Комната"
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__room_capacity
 msgid "Room Capacity"
-msgstr "Вместимость номера"
+msgstr "Вместимость помещения"
 
 #. module: openeducat_exam
 #: model:ir.model,name:openeducat_exam.model_op_room_distribution
 msgid "Room Distribution"
-msgstr "Распределение номеров"
+msgstr "Распределение помещений"
 
 #. module: openeducat_exam
-#: code:addons/openeducat_exam/wizard/room_distribution.py:102
-#, python-format
-msgid "Room capacity must be greater than total number                       of student"
-msgstr "Номерной фонд должен быть больше, чем общее число студента"
+#. odoo-python
+#: code:addons/openeducat_exam/wizard/room_distribution.py:0
+msgid "Room capacity must be greater than total number of student"
+msgstr "Вместимость комнаты должна быть больше общего числа студентов."
+
+#. module: openeducat_exam
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_has_sms_error
+#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Ошибка доставки СМС"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
 msgid "Schedule"
-msgstr "График"
+msgstr "Расписание"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_form
@@ -1012,15 +1144,20 @@ msgid "Schedule Exam"
 msgstr "Расписание экзамена"
 
 #. module: openeducat_exam
-#: selection:op.exam,state:0
-#: selection:op.exam.session,state:0
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam__state__schedule
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_exam_session__state__schedule
 msgid "Scheduled"
-msgstr "по расписанию"
+msgstr "Запланировано"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_form
 msgid "Set to Draft"
-msgstr "Набор для разработки проекта"
+msgstr "Установить в черновик"
+
+#. module: openeducat_exam
+#: model:ir.ui.menu,name:openeducat_exam.menu_exam_config
+msgid "Settings"
+msgstr "Настройки"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__start_date
@@ -1039,7 +1176,7 @@ msgstr "Время начала"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__state
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_search
 msgid "State"
-msgstr "государственный"
+msgstr "Состояние"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_attendees__status
@@ -1060,30 +1197,31 @@ msgstr "Статус"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_attendees_search
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_line_search
 msgid "Student"
-msgstr "Ученик"
-
-#. module: openeducat_exam
-#: model:ir.actions.report,name:openeducat_exam.action_student_hall_ticket_report
-#: model:ir.model,name:openeducat_exam.model_student_hall_ticket
-#: model_terms:ir.ui.view,arch_db:openeducat_exam.student_hall_ticket_form
-msgid "Student Hall Ticket"
-msgstr "Студенческий зал билеты"
-
-#. module: openeducat_exam
-#: model:ir.actions.act_window,name:openeducat_exam.student_hall_ticket_act
-#: model:ir.ui.menu,name:openeducat_exam.menu_student_hall_ticket
-msgid "Student Hall Tickets"
-msgstr "Билеты Студенческий зал"
+msgstr "Студент"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
 msgid "Student Image"
-msgstr "Студент изображение"
+msgstr "Изображение студента"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_result_line_search
 msgid "Students"
-msgstr "Ученики"
+msgstr "Студенты"
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/wizard/room_distribution.py:0
+msgid ""
+"Students (%s) are already scheduled for another active exam during the "
+"specified time."
+msgstr ""
+"Студентам (%s) уже назначен другой активный экзамен в указанное время."
+
+#. module: openeducat_exam
+#: model:ir.actions.report,name:openeducat_exam.action_student_hall_ticket_report
+msgid "Students Hall Tickets"
+msgstr "Билеты в студенческий зал"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__subject_id
@@ -1093,12 +1231,22 @@ msgstr "Ученики"
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_search
 msgid "Subject"
-msgstr "Тема"
+msgstr "Предмет"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
 msgid "Supervisor Sign"
-msgstr "Супервайзер Войти"
+msgstr "Знак руководителя"
+
+#. module: openeducat_exam
+#. odoo-python
+#: code:addons/openeducat_exam/wizard/room_distribution.py:0
+msgid ""
+"The selected rooms (%s) are already booked for the specified time by other "
+"active exams."
+msgstr ""
+"Выбранные комнаты (%s) уже забронированы на указанное время другими "
+"активными экзаменами."
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_ticket
@@ -1107,59 +1255,50 @@ msgstr "Время"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.report_marksheet_report
-msgid "Total\n"
+msgid ""
+"Total\n"
 "                                                    Marks"
-msgstr "Общее количество\n"
-"                                                    Метки"
+msgstr ""
+"Итого\n"
+"                                                    Знаки"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__total_failed
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_search
 msgid "Total Fail"
-msgstr "Всего Сбой"
+msgstr "Полный провал"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__total_marks
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_line__total_marks
 msgid "Total Marks"
-msgstr "Всего Marks"
+msgstr "Всего баллов"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__total_pass
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_search
 msgid "Total Pass"
-msgstr "Всего Pass"
+msgstr "Общий проход"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_room_distribution__total_student
 msgid "Total Student"
-msgstr "Всего Student"
+msgstr "Всего студентов"
 
 #. module: openeducat_exam
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_unread
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__message_unread
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_unread
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_unread
-msgid "Unread Messages"
-msgstr "Непрочитанные сообщения"
-
-#. module: openeducat_exam
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__message_unread_counter
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__message_unread_counter
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__message_unread_counter
-#: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Непрочитанные сообщения Счетчик"
+#: model:res.groups,name:openeducat_exam.group_op_exam_user
+msgid "User"
+msgstr "Пользователь"
 
 #. module: openeducat_exam
 #: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_marksheet_register_form
 msgid "Validate Marksheet"
-msgstr ""
+msgstr "Проверка таблицы оценок"
 
 #. module: openeducat_exam
-#: selection:op.marksheet.register,state:0
+#: model:ir.model.fields.selection,name:openeducat_exam.selection__op_marksheet_register__state__validated
 msgid "Validated"
-msgstr "Утвержденный"
+msgstr "проверено"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam_session__venue
@@ -1168,7 +1307,7 @@ msgstr "Утвержденный"
 #: model:ir.model.fields,field_description:openeducat_exam.field_res_partner__is_venue
 #: model:ir.model.fields,field_description:openeducat_exam.field_res_users__is_venue
 msgid "Venue"
-msgstr "место встречи"
+msgstr "Место проведения"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_exam__website_message_ids
@@ -1176,7 +1315,7 @@ msgstr "место встречи"
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_marksheet_register__website_message_ids
 #: model:ir.model.fields,field_description:openeducat_exam.field_op_result_template__website_message_ids
 msgid "Website Messages"
-msgstr "Сайт сообщение"
+msgstr "Сообщения веб-сайта"
 
 #. module: openeducat_exam
 #: model:ir.model.fields,help:openeducat_exam.field_op_exam__website_message_ids
@@ -1184,5 +1323,14 @@ msgstr "Сайт сообщение"
 #: model:ir.model.fields,help:openeducat_exam.field_op_marksheet_register__website_message_ids
 #: model:ir.model.fields,help:openeducat_exam.field_op_result_template__website_message_ids
 msgid "Website communication history"
-msgstr "Сайт истории связи"
+msgstr "История общения на сайте"
 
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_form
+msgid "exam"
+msgstr "экзамен"
+
+#. module: openeducat_exam
+#: model_terms:ir.ui.view,arch_db:openeducat_exam.view_op_exam_session_pivot
+msgid "exam Code"
+msgstr "Код экзамена"

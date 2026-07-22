@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -20,6 +19,7 @@
 ###############################################################################
 
 from logging import info
+
 from .test_classroom_common import TestClassroomCommon
 
 
@@ -51,18 +51,33 @@ class TestAsset(TestClassroomCommon):
         super(TestAsset, self).setUp()
 
     def test_case_1_asset(self):
+        categ = self.env.ref('product.product_category_all', raise_if_not_found=False) or \
+            self.env['product.category'].search([], limit=1)
+        uom = self.env.ref('uom.product_uom_unit', raise_if_not_found=False) or \
+            self.env['uom.uom'].search([], limit=1)
+        classroom = self.env.ref('openeducat_classroom.op_classroom_1', raise_if_not_found=False) or \
+            self.env['op.classroom'].search([], limit=1)
+            
         product = self.env['product.product'].create({
             'default_code': 'FIFO',
             'name': 'Chairs',
-            'categ_id': self.env.ref('product.product_category_1').id,
+            'categ_id': categ.id,
             'list_price': 100.0,
             'standard_price': 70.0,
-            'uom_id': self.env.ref('uom.product_uom_kgm').id,
-            'uom_po_id': self.env.ref('uom.product_uom_kgm').id,
+            'uom_id': uom.id,
             'description': 'FIFO Ice Cream',
         })
+        
+        # We need a classroom to link the asset to
+        if not classroom:
+            classroom = self.env['op.classroom'].create({
+                'name': 'Test Classroom',
+                'code': 'TCR-01',
+                'capacity': 30
+            })
+
         assets = self.op_asset.create({
-            'asset_id': self.env.ref('openeducat_classroom.op_classroom_1').id,
+            'asset_id': classroom.id,
             'product_id': product.id,
             'code': 1,
             'product_uom_qty': 11

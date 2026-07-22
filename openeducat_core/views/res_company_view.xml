@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
         <record model="res.groups" id="group_multi_department">
             <field name="name">Multi Departments</field>
-            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="user_ids" eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"/>
         </record>
         <record id="view_company_form_openeducat_core" model="ir.ui.view">
             <field name="name">res.company.form.openeducat.core</field>
@@ -38,15 +37,14 @@
                 <xpath expr="//page[@name='access_rights']//group" position="after">
                     <group>
                         <group string="Multi Departments" name="Department"
-                               attrs="{'invisible': [('department_count', '&lt;=', 1)]}">
+                               invisible = "department_count &lt;= 1">
                             <field name="dept_id"/>
                             <field name="department_ids" widget="many2many_tags"/>
-                            <field string="Departments count" name="department_count" invisible="1"/>
+                            <field string="Departments count" name="department_count" invisible="True"/>
                         </group>
                     </group>
                 </xpath>
 
             </field>
         </record>
-    </data>
 </odoo>

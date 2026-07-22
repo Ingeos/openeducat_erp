@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,19 +18,24 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class OpDepartment(models.Model):
     _name = "op.department"
     _description = "OpenEduCat Department"
 
-    name = fields.Char('Name')
-    code = fields.Char('Code')
+    name = fields.Char('Name', required=True)
+    code = fields.Char('Code', required=True)
     parent_id = fields.Many2one('op.department', 'Parent Department')
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        department = super(OpDepartment, self).create(vals)
-        self.env.user.write({'department_ids': [(4, department.id)]})
-        return department
+        departments = super(OpDepartment, self).create(vals)
+        if departments:
+            self.env.user.write({'department_ids': [(4, d.id) for d in departments]})
+        return departments
+
+    def copy(self, default=None):
+        raise ValidationError(_('You cannot duplicate a department record.'))

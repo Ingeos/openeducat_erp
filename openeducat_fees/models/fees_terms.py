@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ##############################################################################
 
-from odoo import models, api, fields, exceptions, _
+from odoo import _, api, exceptions, fields, models
 
 
 class OpFeesTermsLine(models.Model):
@@ -40,11 +39,12 @@ class OpFeesTerms(models.Model):
     _inherit = "mail.thread"
     _description = "Fees Terms For Course"
 
-    name = fields.Char('Fees Terms', required=True)
+    name = fields.Char('Name', required=True)
     active = fields.Boolean('Active', default=True)
     fees_terms = fields.Selection([('fixed_days', 'Fixed Fees of Days'),
                                    ('fixed_date', 'Fixed Fees of Dates')],
                                   string='Term Type', default='fixed_days')
+    code = fields.Char('Code', required=True)
     note = fields.Text('Description')
     company_id = fields.Many2one('res.company', 'Company', required=True,
                                  default=lambda s: s.env.user.company_id)
@@ -55,19 +55,17 @@ class OpFeesTerms(models.Model):
     discount = fields.Float(string='Discount (%)',
                             digits='Discount', default=0.0)
 
-    @api.model
-    def create(self, vals):
-        res = super(OpFeesTerms, self).create(vals)
-        if not res.line_ids:
+    @api.constrains("line_ids")
+    def terms_validation(self):
+        if not self.line_ids:
             raise exceptions.AccessError(_("Fees Terms must be Required!"))
         total = 0.0
-        for line in res.line_ids:
+        for line in self.line_ids:
             if line.value:
                 total += line.value
         if total != 100.0:
             raise exceptions.AccessError(
                 _("Fees terms must be divided as such sum up in 100%"))
-        return res
 
 
 class OpStudentCourseInherit(models.Model):

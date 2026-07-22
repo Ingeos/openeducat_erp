@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class OpMediaUnit(models.Model):
@@ -30,38 +29,36 @@ class OpMediaUnit(models.Model):
 
     name = fields.Char('Name', required=True)
     media_id = fields.Many2one('op.media', 'Media',
-                               required=True, track_visibility='onchange')
+                               required=True, tracking=True)
     barcode = fields.Char('Barcode', size=20)
     movement_lines = fields.One2many(
         'op.media.movement', 'media_unit_id', 'Movements')
     state = fields.Selection(
         [('available', 'Available'), ('issue', 'Issued')],
-        'State', default='available', track_visibility='onchange')
+        'State', default='available', tracking=True)
     media_type_id = fields.Many2one(related='media_id.media_type_id',
                                     store=True, string='Media Type')
     active = fields.Boolean(default=True)
 
-    _sql_constraints = [
-        ('unique_name_barcode',
-         'unique(barcode)',
-         'Barcode must be unique per Media unit!'),
-    ]
+    _unique_name_barcode = models.Constraint('unique(barcode)',
+                                             'Barcode must be unique per Media unit!')
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            x = self.env['ir.sequence'].next_by_code(
+                'op.media.unit') or '/'
+            vals['barcode'] = x
+        return super(OpMediaUnit, self).create(vals_list)
 
     @api.model
-    def create(self, vals):
-        x = self.env['ir.sequence'].next_by_code(
-            'op.media.unit') or '/'
-        vals['barcode'] = x
-        return super(OpMediaUnit, self).create(vals)
-
-    @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
-        args = args or []
+    def name_search(self, name='', domain=None, operator='ilike', limit=100):
+        domain = domain or []
         recs = self.browse()
         if name:
             recs = self.search(
-                [('name', operator, name)] + args, limit=limit)
+                [('name', operator, name)] + domain, limit=limit)
         if not recs:
             recs = self.search(
-                [('barcode', operator, name)] + args, limit=limit)
-        return recs.name_get()
+                [('barcode', operator, name)] + domain, limit=limit)
+        return [(res.id, res.display_name) for res in recs]

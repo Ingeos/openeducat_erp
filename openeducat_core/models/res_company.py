@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class ResCompany(models.Model):
@@ -32,6 +31,7 @@ class ResCompany(models.Model):
 
 class ResUsers(models.Model):
     _inherit = "res.users"
+    _parent_name = False
 
     def _department_count(self):
         return self.env['op.department'].sudo().search_count([])
@@ -61,7 +61,7 @@ class ResUsers(models.Model):
                 user_id = self.create(user_vals)
                 rec.user_id = user_id
                 if user_group:
-                    user_group.users = user_group.users + user_id
+                    user_group.user_ids = user_group.user_ids + user_id
 
     def _compute_department_count(self):
         department_count = self._department_count()

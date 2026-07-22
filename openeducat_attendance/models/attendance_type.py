@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class OpAttendanceType(models.Model):
@@ -28,9 +27,14 @@ class OpAttendanceType(models.Model):
     _description = "Attendance Type"
 
     name = fields.Char(
-        'Name', size=20, required=True, track_visibility='onchange')
+        'Name', size=20, required=True, tracking=True)
     active = fields.Boolean(default=True)
     present = fields.Boolean(
-        'Present ?', track_visibility="onchange")
+        'Present', tracking=True)
     excused = fields.Boolean(
-        'Excused ?', track_visibility="onchange")
+        'Excused', tracking=True)
+    absent = fields.Boolean('Absent', tracking=True)
+    late = fields.Boolean('Late', tracking=True)
+    company_id = fields.Many2one(
+        "res.company", string="Company", default=lambda self: self.env.company
+    )

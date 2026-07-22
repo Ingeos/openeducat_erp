@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
         <record id="view_op_admission_register_tree" model="ir.ui.view">
-            <field name="name">op.admission.register.tree</field>
+            <field name="name">op.admission.register.list</field>
             <field name="model">op.admission.register</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string="Admission Register">
+                <list string="Admission Register">
                     <field name="name"/>
                     <field name="course_id"/>
                     <field name="start_date"/>
@@ -14,9 +13,11 @@
                     <field name="min_count"/>
                     <field name="max_count"/>
                     <field name="company_id" groups="base.group_multi_company" optional="show"/>
-                    <field name="product_id" invisible="1"/>
                     <field name="state"/>
-                </tree>
+                    <field name="minimum_age_criteria" optional="hide"/>
+                    <field name="academic_years_id" optional="hide"/>
+                    <field name="academic_term_id" optional="hide"/>
+                </list>
             </field>
         </record>
 
@@ -26,44 +27,84 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Admission Register">
-                    <header groups="base.group_user">
-                        <button name="confirm_register" states="draft" type="object" string="Confirm"
+                    <header>
+                        <button name="confirm_register" invisible="state != 'draft'" type="object" string="Confirm"
                                 class="oe_highlight"/>
-                        <button name="start_application" states="confirm" type="object" string="Start Application"
+                        <button name="start_application" invisible="state != 'confirm'" type="object"
+                                string="Start Application"
                                 class="oe_highlight"/>
-                        <button name="start_admission" states="application" type="object" string="Start Admission"
+                        <button name="start_admission" invisible="state != 'application'" type="object"
+                                string="Start Admission"
                                 class="oe_highlight"/>
-                        <button name="close_register" states="admission" type="object" string="Done"
+                        <button name="close_register" invisible="state != 'admission'" type="object" string="Done"
                                 class="oe_highlight"/>
-                        <button name="cancel_register" states="draft,confirm" string="Cancel" type="object"/>
-                        <button name="set_to_draft" states="cancel" string="Set to Draft" type="object"/>
+                        <button name="cancel_register" invisible="state not in ('draft', 'confirm')" string="Cancel"
+                                type="object"/>
+                        <button name="set_to_draft" invisible="state != 'cancel'" string="Set to Draft" type="object"/>
+                        <button name="action_reset_to_draft"
+                                invisible="state in ('draft', 'cancel')"
+                                string="Reset to Draft" type="object"
+                                confirm="Reset this register to draft? Linked admissions are not touched."/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirm,application,admission"/>
                     </header>
                     <sheet>
-                        <field name="active" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="open_student_application"
+                                    type="object" icon="fa-id-card" style="border-right: 1px solid;">
+                                <field string="Applications" name="application_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <field name="active" invisible="True"/>
                         <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
-                                attrs="{'invisible': [('active', '=', True)]}"/>
-                        <group col="4">
-                            <field name="name"/>
-                            <field name="course_id"/>
-                            <field name="start_date"/>
-                            <field name="end_date"/>
-                            <field name="product_id" context="{'default_type': 'service'}"/>
-                            <field name="min_count"/>
-                            <field name="max_count"/>
-                            <field name="company_id" groups="base.group_multi_company" optional="show"/>
-                            <field name="minimum_age_criteria" attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
-                            <field name="academic_years_id"/>
-                            <field name="academic_term_id"/>
+                                invisible="active == True"/>
+                        <group>
+                            <group>
+                                <field name="name" readonly="state != 'draft'"/>
+                                <field name="academic_years_id" readonly="state != 'draft'"/>
+                                <field name="start_date" readonly="state != 'draft'"/>
+                                <field name="max_count" readonly="state != 'draft'"/>
+                                <field name="product_id" context="{'default_type': 'service'}"
+                                       readonly="state != 'draft'" required="admission_base != 'program'"
+                                       invisible="admission_base == 'program'"/>
+                                <field name="minimum_age_criteria" readonly="state != 'draft'"/>
+                                <field name="academic_term_id" readonly="state != 'draft'"/>
+                            </group>
+                            <group>
+                                <field name="admission_base" readonly="state != 'draft'"/>
+                                <field name="course_id" readonly="state != 'draft'"
+                                       invisible="admission_base != 'course'"
+                                       required="admission_base == 'course'"
+                                       options="{'no_open': True, 'no_create': True}"/>
+                                <field name="program_id" readonly="state != 'draft'"
+                                       invisible="admission_base != 'program'"
+                                       required="admission_base == 'program'"/>
+                                <!--                                <field name="course_ids" readonly="state != 'draft'" widget="many2many_tags"-->
+                                <!--                                       invisible="admission_base != 'program'"-->
+                                <!--                                       required="admission_base == 'program'"-->
+                                <!--                                       domain="[('program_id', '=', program_id)]"-->
+                                <!--                                       options="{'no_open': True, 'no_create': True}"/>-->
+                                <field name="end_date" readonly="state != 'draft'"/>
+                                <field name="min_count" readonly="state != 'draft'"/>
+                                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                            </group>
                         </group>
-                        <group string="Applications">
-                            <field name="admission_ids" nolabel="1" readonly="1"/>
-                        </group>
+                        <notebook>
+                            <page name="course_fees_detail" string="Configure Course Fees"
+                                  invisible="admission_base != 'program'">
+                                <field name="admission_fees_line_ids" required="admission_base == 'program'"
+                                       readonly="state != 'draft'">
+                                    <list editable="top">
+                                        <field name="course_id" options="{'no_open': True, 'no_create': True}"
+                                               domain="[('program_id', '=', parent.program_id)]"/>
+                                        <field name="course_fees_product_id"
+                                               options="{'no_open': True, 'no_create': True}"/>
+                                        <field name="register_id" invisible="True"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
-                        <field name="message_ids" widget="mail_thread"/>
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>
@@ -77,8 +118,8 @@
                     <field name="name"/>
                     <field name="course_id"/>
                     <field name="product_id"/>
-                    <newline/>
-                    <group expand="0" string="Group By...">
+                    <separator/>
+                    <group>
                         <filter string="Course" name="group_by_adm_reg_course_id"
                                 domain="[]" context="{'group_by':'course_id'}"/>
                         <filter string="Fees" name="group_by_adm_reg_product_id"
@@ -86,6 +127,8 @@
                         <filter string="Status" name="group_by_adm_reg_state"
                                 domain="[]" context="{'group_by':'state'}"/>
                         <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                        <filter string="Favorites" name="group_by_adm_reg_favorite"
+                                domain="[('is_favorite', '=', True)]"/>
                     </group>
                 </search>
             </field>
@@ -97,7 +140,7 @@
             <field name="arch" type="xml">
                 <graph string="Course By Admission Register">
                     <field name="course_id" type="row"/>
-                    <field name="start_date"  interval="month" />
+                    <field name="start_date" interval="month"/>
                     <field name="product_id" type="measure"/>
 
                 </graph>
@@ -136,8 +179,9 @@
             <field name="name">Admission Registers</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">op.admission.register</field>
+            <field name="path">admission-register</field>
             <field name="binding_view_types">form</field>
-            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="view_mode">list,form</field>
             <field name="search_view_id" ref="view_op_admission_register_search"/>
         </record>
 
@@ -151,8 +195,7 @@
         <record model="ir.actions.act_window.view" id="act_open_op_admission_register_view_tree">
             <field name="act_window_id" ref="act_open_op_admission_register_view"/>
             <field name="sequence" eval="10"/>
-            <field name="view_mode">tree</field>
+            <field name="view_mode">list</field>
             <field name="view_id" ref="view_op_admission_register_tree"/>
         </record>
-    </data>
 </odoo>

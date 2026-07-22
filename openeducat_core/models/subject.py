@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 
 
 class OpSubject(models.Model):
@@ -43,10 +42,8 @@ class OpSubject(models.Model):
         self.env.user.dept_id and self.env.user.dept_id.id or False)
     active = fields.Boolean(default=True)
 
-    _sql_constraints = [
-        ('unique_subject_code',
-         'unique(code)', 'Code should be unique per subject!'),
-    ]
+    _unique_subject_code = models.Constraint('unique(code)',
+                                             'Code should be unique per subject!')
 
     @api.model
     def get_import_templates(self):

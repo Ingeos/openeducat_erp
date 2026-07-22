@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -21,7 +20,7 @@
 
 import time
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class ReportTicket(models.AbstractModel):
@@ -40,37 +39,50 @@ class ReportTicket(models.AbstractModel):
 
     def get_subject(self, exam_session):
         lst = []
+        time_slots = []
+
         for exam_line in exam_session['exam_ids']:
-            res1 = {
-                'subject': exam_line.subject_id.name,
-                'date': fields.Datetime.to_string(exam_line.start_time)[:10],
-                'time': self.get_date(exam_line),
-                'sup_sign': ''
-            }
-            lst.append(res1)
+            schedule_start = fields.Datetime.from_string(exam_line.start_time)
+            schedule_end = fields.Datetime.from_string(exam_line.end_time)
+
+            overlap = any(
+                (schedule_start < existing_end and schedule_end > existing_start)
+                for existing_start, existing_end in time_slots
+            )
+            if not overlap:
+                res1 = {
+                    'subject': exam_line.subject_id.name,
+                    'date': fields.Datetime.to_string(exam_line.start_time)[:10],
+                    'time': self.get_date(exam_line),
+                    'sup_sign': ''
+                }
+                lst.append(res1)
+                time_slots.append((schedule_start, schedule_end))
         return lst
 
     def get_data(self, data):
         final_lst = []
-        exam_session = self.env['op.exam.session'].browse(
-            data['exam_session_id'][0])
-        student_search = self.env['op.student'].search(
-            [('course_detail_ids.course_id', '=', exam_session.course_id.id)])
-        for student in student_search:
-            student_course = self.env['op.student.course'].search(
-                [('student_id', '=', student.id),
-                 ('course_id', '=', exam_session.course_id.id)])
-            res = {
-                'exam': exam_session.name,
-                'exam_code': exam_session.exam_code,
-                'course': exam_session.course_id.name,
-                'student': student.name,
-                'image': student.image_1920,
-                'roll_number': student_course.roll_number,
-                'line': self.get_subject(exam_session),
-            }
-            final_lst.append(res)
-        return final_lst
+        active_id = data['context'].get('active_id')
+        exam_session = self.env['op.exam.session'].search([
+            ('id', '=' , active_id), ('state', '=' , 'schedule')])
+        if exam_session:
+            student_search = self.env['op.student'].search(
+                [('course_detail_ids.course_id', '=' , exam_session.course_id.id)])
+            for student in student_search:
+                student_course = self.env['op.student.course'].search(
+                    [('student_id', '=' , student.id),
+                     ('course_id', '=' , exam_session.course_id.id)])
+                res = {
+                    'exam': exam_session.name,
+                    'exam_code': exam_session.exam_code,
+                    'course': exam_session.course_id.name,
+                    'student': student.name,
+                    'image': student.image_1920,
+                    'roll_number': student_course.roll_number,
+                    'line': self.get_subject(exam_session),
+                }
+                final_lst.append(res)
+            return final_lst
 
     @api.model
     def _get_report_values(self, docids, data=None):

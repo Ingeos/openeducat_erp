@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -43,7 +42,7 @@ class OpMarksheetLine(models.Model):
                               store=True)
     generated_date = fields.Date(
         'Generated Date', required=True,
-        default=fields.Date.today(), track_visibility='onchange')
+        default=fields.Date.today())
     grade = fields.Char('Grade', readonly=True, compute='_compute_grade')
     status = fields.Selection([
         ('pass', 'Pass'),
@@ -81,6 +80,7 @@ class OpMarksheetLine(models.Model):
                     if grade.min_per <= record.percentage and \
                             grade.max_per >= record.percentage:
                         record.grade = grade.result
+                        break
                     else:
                         record.grade = None
             else:

@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -21,14 +20,14 @@
 
 {
     'name': 'OpenEduCat Fees',
-    'version': '13.0.1.0',
+    'version': '19.0.1.0',
     'license': 'LGPL-3',
     'category': 'Education',
     "sequence": 3,
     'summary': 'Manage Fees',
     'complexity': "easy",
     'author': 'OpenEduCat Inc',
-    'website': 'http://www.openeducat.org',
+    'website': 'https://www.openeducat.org',
     'depends': ['openeducat_core', 'account'],
     'data': [
         'security/op_security.xml',
@@ -36,14 +35,22 @@
         'report/report_menu.xml',
         'report/fees_analysis_report_view.xml',
         'wizard/fees_detail_report_wizard_view.xml',
+        'wizard/select_term_type.xml',
         'views/fees_terms_view.xml',
         'views/student_view.xml',
         'views/course_view.xml',
-        'menus/op_menu.xml',
+        'views/fees_element_view.xml',
     ],
     'images': [
-        'static/description/openeducat_fees_banner.jpg',
+        'static/description/openeducat-fees_banner.jpg',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'openeducat_fees/static/src/js/page_list.js',
+            'openeducat_fees/static/src/js/fees_term_widget.js',
+            'openeducat_fees/static/src/xml/fees_term_widget_template.xml',
+        ],
+    },
     'demo': [
         'demo/product_category_demo.xml',
         'demo/product_demo.xml',

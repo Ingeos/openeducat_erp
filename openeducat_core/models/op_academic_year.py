@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
 # Part of OpenEduCat. See LICENSE file for full copyright & licensing details.
 
 ##############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 ##############################################################################
 
-from odoo import models, fields
 from datetime import timedelta
+
+from odoo import fields, models
 
 
 class OpAcademicYear(models.Model):
@@ -40,6 +40,8 @@ class OpAcademicYear(models.Model):
     company_id = fields.Many2one(
         'res.company', string='Company',
         default=lambda self: self.env.user.company_id)
+
+    _unique_name = models.Constraint('UNIQUE(name)', 'Name must be unique.')
 
     def term_create(self):
         num = 0

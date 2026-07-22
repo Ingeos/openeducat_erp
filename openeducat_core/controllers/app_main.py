@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,10 +18,10 @@
 #
 ###############################################################################
 
+import werkzeug.utils
 from odoo import http
+from odoo.addons.portal.controllers.web import Home as home
 from odoo.http import request
-from odoo.addons.portal.controllers.web import \
-    Home as home
 
 
 class OpeneducatHome(home):
@@ -32,15 +31,15 @@ class OpeneducatHome(home):
         response = super(OpeneducatHome, self).web_login(
             redirect=redirect, *args, **kw)
         if not redirect and request.params['login_success']:
-            if request.env['res.users'].browse(request.uid).has_group(
+            if request.env['res.users'].browse(request.env.uid).has_group(
                     'base.group_user'):
-                redirect = b'/web?' + request.httprequest.query_string
+                redirect = '/web?' + request.httprequest.query_string.decode('utf-8')
             else:
                 if request.env.user.is_parent:
                     redirect = '/my/child'
                 else:
-                    redirect = '/my/home'
-            return http.redirect_with_hash(redirect)
+                    redirect = '/my'
+            return werkzeug.utils.redirect(redirect)
         return response
 
     def _login_redirect(self, uid, redirect=None):
@@ -48,4 +47,4 @@ class OpeneducatHome(home):
             return super(OpeneducatHome, self)._login_redirect(uid, redirect)
         if request.env.user.is_parent:
             return '/my/child'
-        return '/my/home'
+        return '/my'

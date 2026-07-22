@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -21,21 +20,23 @@
 
 {
     'name': "OpenEduCat Admission",
-    'version': '13.0.1.0',
+    'version': '19.0.1.0',
     'license': 'LGPL-3',
     'category': 'Education',
     'sequence': 3,
     'summary': "Manage Admissions""",
     'complexity': "easy",
     'author': 'OpenEduCat Inc',
-    'website': 'http://www.openeducat.org',
+    'website': 'https://www.openeducat.org',
     'depends': [
         'openeducat_core',
         'openeducat_fees'
     ],
     'data': [
+        'security/op_admission_security.xml',
         'security/ir.model.access.csv',
         'data/admission_sequence.xml',
+        'data/parameter_data.xml',
         'views/admission_register_view.xml',
         'views/admission_view.xml',
         'report/report_admission_analysis.xml',
@@ -49,7 +50,7 @@
     ],
     'test': [],
     'images': [
-        'static/description/openeducat_admission_banner.jpg',
+        'static/description/openeducat-admission_banner.jpg',
     ],
     'installable': True,
     'auto_install': False,

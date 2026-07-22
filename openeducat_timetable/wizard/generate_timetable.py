@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -21,10 +20,10 @@
 
 import calendar
 import datetime
-import pytz
 import time
 
-from odoo import models, fields, api, _
+import pytz
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -67,8 +66,8 @@ class GenerateSession(models.TransientModel):
         start_date = fields.Date.from_string(self.start_date)
         end_date = fields.Date.from_string(self.end_date)
         if start_date > end_date:
-            raise ValidationError(_("End Date cannot be set before \
-            Start Date."))
+            raise ValidationError(
+                _("End Date cannot be set before Start Date."))
 
     @api.onchange('course_id')
     def onchange_course(self):
@@ -76,44 +75,61 @@ class GenerateSession(models.TransientModel):
             if self.batch_id.course_id != self.course_id:
                 self.batch_id = False
 
+    def change_tz(self, date):
+        local_tz = pytz.timezone(
+            self.env.user.partner_id.tz or 'GMT')
+        local_dt = local_tz.localize(date, is_dst=None)
+        utc_dt = local_dt.astimezone(pytz.utc)
+        utc_dt = utc_dt.strftime("%Y-%m-%d %H:%M:%S")
+        return datetime.datetime.strptime(
+            utc_dt, "%Y-%m-%d %H:%M:%S")
+
     def act_gen_time_table(self):
         session_obj = self.env['op.session']
+        data = []
         for session in self:
             start_date = session.start_date
             end_date = session.end_date
+            # Pre-compute student allocation for this batch ONCE, then
+            # attach the same set to every created session below.
+            # Bulk `create()` doesn't fire `_onchange_batch_id_populate_students`
+            # (onchanges only run through form clients), so without
+            # this the wizard-generated sessions ship with empty
+            # `student_ids` and are invisible on the enterprise portal.
+            batch_student_ids = self.env['op.student.course'].search([
+                ('batch_id', '=', session.batch_id.id),
+            ]).mapped('student_id').ids
             for n in range((end_date - start_date).days + 1):
                 curr_date = start_date + datetime.timedelta(n)
                 for line in session.time_table_lines:
                     if int(line.day) == curr_date.weekday():
-                        hour = line.timing_id.hour
-                        if line.timing_id.am_pm == 'pm' and int(hour) != 12:
-                            hour = int(hour) + 12
-                        per_time = '%s:%s:00' % (hour, line.timing_id.minute)
-                        final_date = datetime.datetime.strptime(
+                        session_start_time = '%s:00' % '{:02.0f}:{:02.0f}'.format(
+                            *divmod(line.session_start_time * 60, 60))
+                        session_end_time = '%s:00' % '{:02.0f}:{:02.0f}'.format(
+                            *divmod(line.session_end_time * 60, 60))
+                        final_start_date = datetime.datetime.strptime(
                             curr_date.strftime('%Y-%m-%d ') +
-                            per_time, '%Y-%m-%d %H:%M:%S')
-                        local_tz = pytz.timezone(
-                            self.env.user.partner_id.tz or 'GMT')
-                        local_dt = local_tz.localize(final_date, is_dst=None)
-                        utc_dt = local_dt.astimezone(pytz.utc)
-                        utc_dt = utc_dt.strftime("%Y-%m-%d %H:%M:%S")
-                        curr_start_date = datetime.datetime.strptime(
-                            utc_dt, "%Y-%m-%d %H:%M:%S")
-                        curr_end_date = curr_start_date + datetime.timedelta(
-                            hours=line.timing_id.duration)
-                        session_obj.create({
+                            session_start_time, '%Y-%m-%d %H:%M:%S')
+                        final_end_date = datetime.datetime.strptime(
+                            curr_date.strftime('%Y-%m-%d ') +
+                            session_end_time, '%Y-%m-%d %H:%M:%S')
+                        curr_start_date = self.change_tz(final_start_date)
+                        curr_end_date = self.change_tz(final_end_date)
+                        data.append({
                             'faculty_id': line.faculty_id.id,
                             'subject_id': line.subject_id.id,
                             'course_id': session.course_id.id,
                             'batch_id': session.batch_id.id,
-                            'timing_id': line.timing_id.id,
                             'classroom_id': line.classroom_id.id,
                             'start_datetime':
                             curr_start_date.strftime("%Y-%m-%d %H:%M:%S"),
                             'end_datetime':
                             curr_end_date.strftime("%Y-%m-%d %H:%M:%S"),
                             'type': calendar.day_name[int(line.day)],
+                            'student_ids': [(6, 0, batch_student_ids)],
                         })
+            if data:
+                session_obj.create(data)
             return {'type': 'ir.actions.act_window_close'}
 
 
@@ -126,7 +142,9 @@ class GenerateSessionLine(models.TransientModel):
         'generate.time.table', 'Time Table', required=True)
     faculty_id = fields.Many2one('op.faculty', 'Faculty', required=True)
     subject_id = fields.Many2one('op.subject', 'Subject', required=True)
-    timing_id = fields.Many2one('op.timing', 'Timing', required=True)
+    timing_id = fields.Many2one('op.timing', 'Timing')
+    session_start_time = fields.Float("Start Time")
+    session_end_time = fields.Float("End Time")
     classroom_id = fields.Many2one('op.classroom', 'Classroom')
     day = fields.Selection([
         ('0', calendar.day_name[0]),

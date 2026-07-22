@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenEduCat Inc.
-#    Copyright (C) 2009-TODAY OpenEduCat Inc(<http://www.openeducat.org>).
+#    OpenEduCat Inc
+#    Copyright (C) 2009-TODAY OpenEduCat Inc(<https://www.openeducat.org>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Lesser General Public License as
@@ -19,7 +18,7 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -29,41 +28,46 @@ class OpExamSession(models.Model):
     _description = "Exam Session"
 
     name = fields.Char(
-        'Exam Session', size=256, required=True, track_visibility='onchange')
+        'Exam Session', size=256, required=True, tracking=True)
     course_id = fields.Many2one(
-        'op.course', 'Course', required=True, track_visibility='onchange')
+        'op.course', 'Course', required=True, tracking=True)
     batch_id = fields.Many2one(
-        'op.batch', 'Batch', required=True, track_visibility='onchange')
+        'op.batch', 'Batch', required=True, tracking=True)
     exam_code = fields.Char(
         'Exam Session Code', size=16,
-        required=True, track_visibility='onchange')
+        required=True, tracking=True)
     start_date = fields.Date(
-        'Start Date', required=True, track_visibility='onchange')
+        'Start Date', required=True, tracking=True)
     end_date = fields.Date(
-        'End Date', required=True, track_visibility='onchange')
+        'End Date', required=True, tracking=True)
     exam_ids = fields.One2many(
         'op.exam', 'session_id', 'Exam(s)')
     exam_type = fields.Many2one(
         'op.exam.type', 'Exam Type',
-        required=True, track_visibility='onchange')
+        required=True, tracking=True)
     evaluation_type = fields.Selection(
         [('normal', 'Normal'), ('grade', 'Grade')],
-        'Evolution type', default="normal",
-        required=True, track_visibility='onchange')
+        'Evolution Type', default="normal",
+        required=True, tracking=True)
     venue = fields.Many2one(
-        'res.partner', 'Venue', track_visibility='onchange')
+        'res.partner', 'Venue', tracking=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('schedule', 'Scheduled'),
         ('held', 'Held'),
         ('cancel', 'Cancelled'),
         ('done', 'Done')
-    ], 'State', default='draft', track_visibility='onchange')
+    ], 'Status', default='draft', tracking=True)
     active = fields.Boolean(default=True)
+    exams_count = fields.Integer(
+        compute='_compute_exams_count', string="Exams")
 
-    _sql_constraints = [
-        ('unique_exam_session_code',
-         'unique(exam_code)', 'Code should be unique per exam session!')]
+    _unique_exam_session_code = models.Constraint(
+        'unique(exam_code)', 'Code should be unique per exam session!')
+
+    def _compute_exams_count(self):
+        for rec in self:
+            rec.exams_count = len(rec.exam_ids)
 
     @api.constrains('start_date', 'end_date')
     def _check_date_time(self):
@@ -89,3 +93,13 @@ class OpExamSession(models.Model):
 
     def act_cancel(self):
         self.state = 'cancel'
+
+    def get_exam(self):
+        return {
+            'name': 'Exam ',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'list,form',
+            'res_model': 'op.exam',
+            'domain': [('id', 'in', self.exam_ids.ids)],
+            'target': 'current',
+        }
