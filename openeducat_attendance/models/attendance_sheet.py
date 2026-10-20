@@ -72,9 +72,11 @@ class OpAttendanceSheet(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        for vals in vals_list:
-            sheet = self.env['ir.sequence'].next_by_code('op.attendance.sheet')
-            register = self.env['op.attendance.register']. \
-                browse(vals['register_id']).code
-            vals['name'] = register + sheet
+        if not self.env.context.get('multicompany'):
+            for vals in vals_list:
+                sheet = self.env['ir.sequence'].next_by_code(
+                    'op.attendance.sheet')
+                register = self.env['op.attendance.register']. \
+                    browse(vals['register_id']).code
+                vals['name'] = register + sheet
         return super(OpAttendanceSheet, self).create(vals_list)
